@@ -1,0 +1,253 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Menu, Phone, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { navigation, site } from "@/lib/site";
+import Wordmark from "./Wordmark";
+
+export default function Header() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+  const [openDrop, setOpenDrop] = useState<string | null>(null);
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 64);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close everything on navigation.
+  useEffect(() => {
+    setOpenMenu(false);
+    setOpenDrop(null);
+  }, [pathname]);
+
+  // Trap the page behind the mobile sheet.
+  useEffect(() => {
+    document.body.style.overflow = openMenu ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openMenu]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpenMenu(false);
+      setOpenDrop(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  // Transparent over the hero; solid once the visitor starts reading.
+  const solid = scrolled || openMenu;
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+
+  return (
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[100] focus:bg-ink focus:px-5 focus:py-3 focus:text-xs focus:uppercase focus:tracking-[0.18em] focus:text-white"
+      >
+        Skip to content
+      </a>
+
+      <header
+        data-no-print
+        className={[
+          "fixed inset-x-0 top-0 z-50 transition-all duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+          solid
+            ? "border-b border-line bg-paper/92 backdrop-blur-xl supports-[backdrop-filter]:bg-paper/80"
+            : "border-b border-white/10 bg-transparent",
+        ].join(" ")}
+      >
+        <div className="shell">
+          <div
+            className={[
+              "flex items-center justify-between transition-all duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+              solid ? "h-[74px]" : "h-[104px]",
+            ].join(" ")}
+          >
+            <Link
+              href="/"
+              aria-label={`${site.name} — home`}
+              className="shrink-0 transition-opacity duration-500 hover:opacity-70"
+            >
+              <Wordmark tone={solid ? "dark" : "light"} className="h-8 w-auto md:h-9" />
+            </Link>
+
+            {/* ------------------------------------------------- desktop nav */}
+            <nav
+              aria-label="Primary"
+              className="hidden items-center gap-8 xl:flex"
+              onMouseLeave={() => setOpenDrop(null)}
+            >
+              {navigation.map((item) => (
+                <div
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={() => setOpenDrop(item.children ? item.label : null)}
+                >
+                  <Link
+                    href={item.href}
+                    data-active={isActive(item.href)}
+                    aria-expanded={item.children ? openDrop === item.label : undefined}
+                    className={[
+                      "nav-link text-[0.8125rem] tracking-[0.04em] transition-colors duration-500",
+                      solid ? "text-body hover:text-ink" : "text-white/85 hover:text-white",
+                    ].join(" ")}
+                  >
+                    {item.label}
+                  </Link>
+
+                  <AnimatePresence>
+                    {item.children && openDrop === item.label && (
+                      <motion.div
+                        initial={reduce ? { opacity: 0 } : { opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={reduce ? { opacity: 0 } : { opacity: 0, y: 6 }}
+                        transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute left-1/2 top-full z-10 w-[19rem] -translate-x-1/2 pt-5"
+                      >
+                        <div className="border border-line bg-section p-2 shadow-[0_24px_60px_-24px_rgba(35,27,12,0.28)]">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="group block px-4 py-3 transition-colors duration-400 hover:bg-paper"
+                            >
+                              <span className="block text-[0.8125rem] font-medium text-ink transition-colors duration-400 group-hover:text-gold-deep">
+                                {child.label}
+                              </span>
+                              {child.note && (
+                                <span className="mt-0.5 block text-[0.75rem] leading-relaxed text-muted">
+                                  {child.note}
+                                </span>
+                              )}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </nav>
+
+            {/* ---------------------------------------------------- actions */}
+            <div className="flex items-center gap-3 md:gap-5">
+              <a
+                href={site.phoneHref}
+                className={[
+                  "group hidden items-center gap-2.5 text-[0.8125rem] tracking-[0.02em] transition-colors duration-500 sm:flex",
+                  solid ? "text-body hover:text-gold-deep" : "text-white/85 hover:text-white",
+                ].join(" ")}
+              >
+                <Phone className="size-[15px] transition-transform duration-500 group-hover:-rotate-12" strokeWidth={1.5} />
+                <span className="link-underline font-medium" data-tnum>
+                  {site.phone}
+                </span>
+              </a>
+
+              <Link
+                href="/contact#survey"
+                className="btn-base btn-ink hidden !px-6 !py-3.5 !text-[0.6875rem] lg:inline-flex"
+              >
+                Book Free Survey
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => setOpenMenu((v) => !v)}
+                aria-expanded={openMenu}
+                aria-controls="mobile-menu"
+                aria-label={openMenu ? "Close menu" : "Open menu"}
+                className={[
+                  "grid size-11 place-items-center border transition-colors duration-500 xl:hidden",
+                  solid
+                    ? "border-line text-ink hover:border-gold hover:text-gold-deep"
+                    : "border-white/25 text-white hover:border-white/60",
+                ].join(" ")}
+              >
+                {openMenu ? <X className="size-5" strokeWidth={1.4} /> : <Menu className="size-5" strokeWidth={1.4} />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* ----------------------------------------------------- mobile sheet */}
+      <AnimatePresence>
+        {openMenu && (
+          <motion.div
+            id="mobile-menu"
+            data-no-print
+            initial={reduce ? { opacity: 0 } : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 overflow-y-auto bg-paper pt-[74px] xl:hidden"
+          >
+            <nav aria-label="Mobile" className="shell py-10">
+              <ul className="divide-y divide-line border-y border-line">
+                {navigation.map((item, i) => (
+                  <motion.li
+                    key={item.href}
+                    initial={reduce ? false : { opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.55, delay: 0.05 + i * 0.045, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="flex items-baseline justify-between py-5"
+                      onClick={() => setOpenMenu(false)}
+                    >
+                      <span className="display-md">{item.label}</span>
+                      <span className="eyebrow text-faint">{String(i + 1).padStart(2, "0")}</span>
+                    </Link>
+                    {item.children && (
+                      <div className="flex flex-wrap gap-x-5 gap-y-2 pb-5">
+                        {item.children.map((c) => (
+                          <Link
+                            key={c.href}
+                            href={c.href}
+                            onClick={() => setOpenMenu(false)}
+                            className="link-underline text-[0.8125rem] text-muted"
+                          >
+                            {c.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </motion.li>
+                ))}
+              </ul>
+
+              <div className="mt-10 flex flex-col gap-4">
+                <Link href="/contact#survey" className="btn-base btn-ink w-full" onClick={() => setOpenMenu(false)}>
+                  Book Free Home Survey
+                </Link>
+                <a href={site.phoneHref} className="btn-base btn-outline w-full">
+                  <Phone className="size-4" strokeWidth={1.5} />
+                  {site.phone}
+                </a>
+              </div>
+
+              <p className="mt-10 text-[0.8125rem] leading-relaxed text-muted">
+                {site.address.street}, {site.address.locality}, {site.address.region}{" "}
+                {site.address.postcode}
+              </p>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
