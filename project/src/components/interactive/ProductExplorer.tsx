@@ -111,11 +111,11 @@ export default function ProductExplorer() {
                 We will build it exactly.
               </>
             }
-            lede="Choose a room, a product and a finish. Everything on the right — light, privacy, upkeep and the estimated investment — moves with you."
+            lede="Choose a room, a product and a finish. Light, privacy, upkeep and the estimated investment all move with you."
           />
         </Reveal>
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
+        <div className="mt-11 grid gap-8 md:mt-16 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
           {/* -------------------------------------------------------- scene */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <figure className="relative aspect-[4/3] overflow-hidden border border-white/10 bg-black">
@@ -161,7 +161,7 @@ export default function ProductExplorer() {
 
             {/* Louvre angle — the control that makes the scene come alive */}
             {!isSolid && (
-              <div className="mt-6 border border-white/10 bg-white/[0.03] p-6">
+              <div className="mt-4 border border-white/10 bg-white/[0.03] p-5 md:mt-6 md:p-6">
                 <div className="flex items-baseline justify-between">
                   <label htmlFor="explorer-tilt" className="eyebrow text-white/65">
                     Louvre angle
@@ -190,7 +190,7 @@ export default function ProductExplorer() {
           </div>
 
           {/* ----------------------------------------------------- controls */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8 md:gap-10">
             {/* Room */}
             <Control label="Room" step="01">
               <div role="radiogroup" aria-label="Room" className="flex flex-wrap gap-2">
@@ -299,8 +299,8 @@ export default function ProductExplorer() {
             )}
 
             {/* --------------------------------------------------- readouts */}
-            <div className="border-t border-white/10 pt-9">
-              <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div className="border-t border-white/10 pt-8 md:pt-9">
+              <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2 sm:gap-y-6">
                 {readouts.map((r) => (
                   <div key={r.label}>
                     <div className="flex items-baseline justify-between">
@@ -321,7 +321,7 @@ export default function ProductExplorer() {
               </div>
 
               {/* ----------------------------------------------- estimate */}
-              <div className="mt-10 border border-white/10 bg-white/[0.03] p-7">
+              <div className="mt-8 border border-white/10 bg-white/[0.03] p-6 md:mt-10 md:p-7">
                 <span className="eyebrow text-white/62">Estimated investment</span>
                 <p className="mt-3 flex items-baseline gap-2">
                   <motion.span
@@ -329,7 +329,7 @@ export default function ProductExplorer() {
                     initial={reduce ? false : { opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="display-lg !text-[2.5rem] text-white"
+                    className="display-lg !text-[2rem] text-white sm:!text-[2.5rem]"
                     data-tnum
                   >
                     {gbp(price.low)}–{gbp(price.high)}
@@ -375,7 +375,7 @@ function Control({
 }) {
   return (
     <div>
-      <div className="mb-5 flex items-center gap-3">
+      <div className="mb-4 flex items-center gap-3 md:mb-5">
         <span className="text-[0.6875rem] tracking-[0.2em] text-gold">{step}</span>
         <span aria-hidden className="h-px w-6 bg-white/20" />
         <h3 className="eyebrow text-white/70">{label}</h3>

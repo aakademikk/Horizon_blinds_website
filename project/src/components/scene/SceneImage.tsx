@@ -55,7 +55,11 @@ export default function SceneImage({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       {...({ fetchpriority: priority ? "high" : undefined } as any)}
       decoding={priority ? "sync" : "async"}
-      className={className}
+      // The drawing has a fixed 1200×800 frame, so it must be cropped to fit
+      // its box, never stretched — a portrait phone hero would otherwise
+      // squash the room to a third of its width. Listed first so a caller can
+      // still override with `object-contain`.
+      className={["object-cover", className].filter(Boolean).join(" ")}
       draggable={false}
     />
   );

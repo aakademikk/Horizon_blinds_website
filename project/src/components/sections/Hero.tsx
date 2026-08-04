@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, BadgePoundSterling, Ruler, ShieldCheck } from "lucide-react";
+import { ArrowDown, BadgePoundSterling, Ruler, ShieldCheck, Star } from "lucide-react";
 import SceneImage from "@/components/scene/SceneImage";
 import { Stars } from "@/components/ui/Type";
 import Wordmark from "@/components/layout/Wordmark";
@@ -88,7 +88,11 @@ export default function Hero() {
             time="morning"
             pan={-210}
             priority
-            className="size-full"
+            // A portrait phone only sees a 370px-wide slice of the 1200px
+            // drawing. Centred, that slice lands on the sofa; pinned right it
+            // catches the shutters, the frame edge and the wall beyond, which
+            // is the only crop that still reads as a room.
+            className="size-full object-right md:landscape:object-center"
             alt="A bright living room with full-height plantation shutters, louvres half open to the morning sun"
           />
         </motion.div>
@@ -99,32 +103,41 @@ export default function Hero() {
         to the bottom-left where the type lives, leaving the sunlit right-hand
         side of the room to breathe.
       */}
+      {/*
+        Two treatments, chosen by shape rather than by width. A landscape
+        viewport has room for the type to sit beside the light, so it gets a
+        soft pool of shadow in the bottom-left corner and the sunlit half of
+        the room stays open. A portrait one does not — the copy would cover the
+        whole picture — so the scene keeps the top third and the type sits on
+        near-solid ink below it, which is both legible and on brand.
+      */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(8,8,8,0.95)_0%,rgba(8,8,8,0.84)_34%,rgba(8,8,8,0.62)_66%,rgba(8,8,8,0.45)_100%)] md:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(8,8,8,0.94)_0%,rgba(8,8,8,0.8)_26%,rgba(8,8,8,0.5)_48%,rgba(8,8,8,0.16)_72%,rgba(8,8,8,0)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(8,8,8,0.965)_0%,rgba(8,8,8,0.95)_58%,rgba(8,8,8,0.78)_68%,rgba(8,8,8,0.4)_79%,rgba(8,8,8,0.12)_90%,rgba(8,8,8,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(8,8,8,0.94)_0%,rgba(8,8,8,0.8)_26%,rgba(8,8,8,0.5)_48%,rgba(8,8,8,0.16)_72%,rgba(8,8,8,0)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 -z-10 h-40 bg-[linear-gradient(to_bottom,rgba(6,6,6,0.55),transparent)]"
+        className="absolute inset-x-0 top-0 -z-10 h-24 bg-[linear-gradient(to_bottom,rgba(6,6,6,0.62),transparent)] md:h-40 md:bg-[linear-gradient(to_bottom,rgba(6,6,6,0.5),transparent)]"
       />
 
       {/* ---------------------------------------------------------- content */}
       <motion.div
         style={calm ? undefined : { y: contentY, opacity: contentOpacity }}
-        className="shell relative z-10 pb-12 pt-28 md:pb-20 md:pt-36"
+        className="shell relative z-10 pb-10 pt-28 md:pb-20 md:pt-36"
       >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: revealed ? 1 : 0 }}
           transition={{ duration: 1, delay: contentDelay }}
-          className="eyebrow flex items-center gap-3 text-gold-light"
+          className="eyebrow flex items-center gap-3 !text-[0.625rem] !tracking-[0.14em] text-gold-light md:!text-[0.6875rem] md:!tracking-[0.22em]"
         >
-          <span aria-hidden className="h-px w-10 bg-current opacity-70" />
+          {/* The rule is what pushes this onto a second line at 390px. */}
+          <span aria-hidden className="hidden h-px w-10 bg-current opacity-70 sm:block" />
           Plantation Shutters &amp; Fine Blinds · Essex
         </motion.div>
 
         <h1
-          className="display-hero mt-6 text-white md:mt-8"
+          className="display-hero mt-5 text-white md:mt-8"
           style={{ textShadow: "0 2px 40px rgba(0,0,0,0.45)" }}
         >
           {HEADLINE.map((line, i) => (
@@ -155,7 +168,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: revealed ? 1 : 0, y: revealed ? 0 : 18 }}
           transition={{ duration: 1.1, delay: contentDelay + 0.34, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-7 max-w-xl text-[1.0625rem] font-light leading-[1.72] text-white/72 md:mt-9 md:text-[1.1875rem]"
+          className="mt-6 max-w-xl text-[1.0625rem] font-light leading-[1.66] text-white/78 md:mt-9 md:text-[1.1875rem] md:leading-[1.72]"
         >
           Handcrafted plantation shutters and premium blinds, expertly measured and professionally
           installed across Essex.
@@ -165,7 +178,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: revealed ? 1 : 0, y: revealed ? 0 : 18 }}
           transition={{ duration: 1.1, delay: contentDelay + 0.46, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center md:mt-11 md:gap-4"
+          className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center md:mt-11 md:gap-4"
         >
           <Link href="/contact#survey" className="btn-base btn-gold !px-9 !py-[1.15rem]">
             Book Free Home Survey
@@ -180,22 +193,35 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: revealed ? 1 : 0 }}
           transition={{ duration: 1.2, delay: contentDelay + 0.66 }}
-          className="mt-10 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-5 border-t border-white/12 pt-7 md:mt-14 md:grid-cols-4 md:gap-x-8 md:gap-y-6 md:pt-8"
+          className="mt-8 grid max-w-4xl grid-cols-2 gap-x-5 gap-y-3.5 border-t border-white/12 pt-6 md:mt-14 md:gap-x-8 md:gap-y-6 md:pt-8 lg:grid-cols-4"
         >
           {BADGES.map(({ icon: Icon, label, value }) => (
             <li key={label} className="flex items-start gap-3">
+              {/*
+                The star row is four times the width of a Lucide glyph, which
+                left the four labels starting at two different indents once the
+                grid dropped to two columns. On a phone the single star keeps
+                the column true — the score is spelled out in the value anyway.
+              */}
               <span className="mt-0.5 shrink-0 text-gold">
                 {Icon ? (
                   <Icon className="size-[18px]" strokeWidth={1.4} />
                 ) : (
-                  <Stars size={12} rating={site.rating.value} label="Rated 4.9 out of 5 on Google" />
+                  <>
+                    <Star className="size-[18px] md:hidden" strokeWidth={1.4} fill="currentColor" />
+                    <span className="hidden md:inline">
+                      <Stars size={12} rating={site.rating.value} label={`Rated ${site.rating.value} out of 5 on Google`} />
+                    </span>
+                  </>
                 )}
               </span>
               <span className="block">
-                <span className="block text-[0.65rem] uppercase tracking-[0.2em] text-white/65">
+                {/* On a phone the value says it all, so the small-caps label
+                    stays for screen readers but gives up its line. */}
+                <span className="sr-only text-[0.65rem] uppercase tracking-[0.2em] text-white/65 md:not-sr-only md:block">
                   {label}
                 </span>
-                <span className="mt-1 block text-[0.875rem] text-white/85">{value}</span>
+                <span className="block text-[0.875rem] text-white/85 md:mt-1">{value}</span>
               </span>
             </li>
           ))}

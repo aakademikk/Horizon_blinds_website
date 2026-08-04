@@ -62,13 +62,13 @@ export function SectionHeading({
         .join(" ")}
     >
       {eyebrow && (
-        <Eyebrow tone={tone} align={align} className="mb-6">
+        <Eyebrow tone={tone} align={align} className="mb-5 md:mb-6">
           {eyebrow}
         </Eyebrow>
       )}
       <Tag className={`${sizeClass} ${tone === "light" ? "text-white" : "text-ink"}`}>{title}</Tag>
       {lede && (
-        <p className={`lede mt-7 ${tone === "light" ? "!text-white/65" : ""}`}>{lede}</p>
+        <p className={`lede mt-5 md:mt-7 ${tone === "light" ? "!text-white/65" : ""}`}>{lede}</p>
       )}
     </div>
   );

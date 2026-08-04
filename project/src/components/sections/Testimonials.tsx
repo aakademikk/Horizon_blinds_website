@@ -127,8 +127,10 @@ export default function Testimonials() {
         </Reveal>
 
         {/* Progress dots */}
-        <div className="mt-10 flex items-center justify-between gap-8">
-          <div className="flex gap-2" role="tablist" aria-label="Testimonial navigation">
+        {/* Six dots plus the button do not fit on one 390px line — the button
+            was running off the right edge, so the two stack until sm. */}
+        <div className="mt-10 flex flex-col items-start gap-7 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Testimonial navigation">
             {reviews.map((r, i) => (
               <button
                 key={r.id}
