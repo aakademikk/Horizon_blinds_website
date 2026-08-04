@@ -162,6 +162,13 @@ const rad = (deg: number) => (deg * Math.PI) / 180;
  * `tilt` is degrees from closed: 0° the louvre faces sit flat against the
  * window and overlap; 90° they are edge-on and the aperture is clear.
  */
+/**
+ * Louvre thickness as a fraction of its width. A 76mm blade is roughly 11mm
+ * through the middle, and that is what you still see edge-on at 90°.
+ */
+export const LOUVRE_THICKNESS = 0.15;
+export const SLAT_THICKNESS = 0.07;
+
 export function louvreState(tilt: number) {
   const t = Math.min(90, Math.max(0, tilt));
   /** Fraction of the aperture the louvre faces still cover. */
@@ -172,6 +179,8 @@ export function louvreState(tilt: number) {
     tilt: t,
     coverage,
     open,
+    /** Needed for the edge-on thickness term when drawing a blade. */
+    sin: Math.sin(rad(t)),
     /** 0–1 light admitted. Slightly eased so mid-angles read naturally. */
     transmission: Math.pow(open, 0.82),
     /** 0–1 privacy from the street. */

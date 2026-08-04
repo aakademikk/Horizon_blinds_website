@@ -1,4 +1,6 @@
 import {
+  LOUVRE_THICKNESS,
+  SLAT_THICKNESS,
   daylight,
   litSurfaces,
   louvreState,
@@ -90,7 +92,7 @@ export default function RoomScene({
   pan = 0,
 }: SceneProps) {
   const uid = sceneKey([room, kind, variant, finishId, louvreId, Math.round(tilt), time]);
-  const finish = finishById(finishId);
+  const rawFinish = finishById(finishId);
   const louvre = louvreById(louvreId);
   const day = daylight[time];
 
@@ -109,6 +111,23 @@ export default function RoomScene({
 
   const id = (n: string) => `${n}-${uid}`;
   const isDay = day.id !== "night";
+
+  /**
+   * The covering has to obey the same lighting model as the walls and floor,
+   * or a white shutter stays bright cream in a dark room. It is also lit from
+   * the *room* side, with the sun behind it, so its faces sit a little darker
+   * than the wall rather than glowing — the opposite of what an unlit fill does.
+   */
+  const faceLevel = 0.45 + surf.level * 0.55;
+  const faceTone = (c: string) =>
+    shift(mix(c, day.ambient, isDay ? 0.14 : 0.45), -0.42 + faceLevel * 0.42);
+
+  const finish = {
+    ...rawFinish,
+    hex: faceTone(rawFinish.hex),
+    shade: faceTone(rawFinish.shade),
+    highlight: faceTone(rawFinish.highlight),
+  };
 
   return (
     <svg
@@ -163,10 +182,11 @@ export default function RoomScene({
           <stop offset="100%" stopColor={day.sun} stopOpacity="0" />
         </linearGradient>
 
+        {/* A hint of reflection on the glass — not a wash over the panels. */}
         <linearGradient id={id("glass")} x1="0" y1="0" x2="0.85" y2="1">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.2" />
-          <stop offset="36%" stopColor="#ffffff" stopOpacity="0.04" />
-          <stop offset="58%" stopColor="#ffffff" stopOpacity="0.11" />
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.09" />
+          <stop offset="36%" stopColor="#ffffff" stopOpacity="0.015" />
+          <stop offset="58%" stopColor="#ffffff" stopOpacity="0.05" />
           <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
 
@@ -334,7 +354,7 @@ export default function RoomScene({
               width={ap.w}
               height={ap.h}
               fill={`url(#${id("bloom")})`}
-              opacity={0.05 + openness * 0.1}
+              opacity={0.02 + openness * 0.05}
               style={{ mixBlendMode: "screen" }}
             />
           )}
@@ -648,8 +668,18 @@ function Louvres({
 }) {
   const count = Math.max(3, Math.floor(h / pitch));
   const step = h / count;
-  // A closed louvre overlaps its neighbour slightly — that is why shutters seal.
-  const half = (step / 2) * state.coverage * 1.14;
+
+  /**
+   * A louvre is a solid blade, so what you see is its width foreshortened plus
+   * its thickness stood on edge: `w·cos θ + t·sin θ`. That never reaches zero —
+   * fully open you are still looking at ~11mm of timber, which is exactly what
+   * you see through a real shutter.
+   *
+   * The 1.14 on the cosine term is the overlap a closed louvre has with its
+   * neighbour, and the reason a shutter seals.
+   */
+  const half =
+    (step / 2) * (state.coverage * 1.14 + LOUVRE_THICKNESS * state.sin);
 
   return (
     <g>
@@ -657,7 +687,7 @@ function Louvres({
         const cy = y + step * (i + 0.5);
         const top = cy - half;
         const height = half * 2;
-        if (height < 0.6) return null;
+        if (height < 0.4) return null;
         return (
           <g key={i}>
             <rect x={x} y={top} width={w} height={height} fill={`url(#${id("slat")})`} />
@@ -666,14 +696,14 @@ function Louvres({
             )}
             {/* Shadow the louvre above casts onto this one */}
             <rect x={x} y={top} width={w} height={Math.min(2.6, height * 0.3)} fill={rgba("#000", 0.24)} />
-            {/* Daylight catching the leading edge */}
+            {/* Daylight rimming the leading edge */}
             <rect
               x={x}
               y={top + height - Math.min(1.8, height * 0.22)}
               width={w}
               height={Math.min(1.8, height * 0.22)}
               fill={finish.highlight}
-              opacity="0.9"
+              opacity="0.6"
             />
           </g>
         );
@@ -744,7 +774,8 @@ function SlatBlind({
   const h = ap.h - inset * 2 - head - bottomRail;
   const count = Math.max(4, Math.floor(h / pitch));
   const step = h / count;
-  const half = (step / 2) * state.coverage * 1.12;
+  // Same blade geometry as a shutter louvre, on a thinner slat.
+  const half = (step / 2) * (state.coverage * 1.12 + SLAT_THICKNESS * state.sin);
 
   return (
     <g>
