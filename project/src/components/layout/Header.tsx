@@ -64,7 +64,7 @@ export default function Header() {
         className={[
           "fixed inset-x-0 top-0 z-50 transition-all duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
           solid
-            ? "border-b border-line bg-paper/92 backdrop-blur-xl supports-[backdrop-filter]:bg-paper/80"
+            ? "border-b border-white/10 bg-ink/95 backdrop-blur-xl supports-[backdrop-filter]:bg-ink/85"
             : "border-b border-white/10 bg-transparent",
         ].join(" ")}
       >
@@ -80,7 +80,7 @@ export default function Header() {
               aria-label={`${site.name} — home`}
               className="shrink-0 transition-opacity duration-500 hover:opacity-70"
             >
-              <Wordmark tone={solid ? "dark" : "light"} className="h-8 w-auto md:h-9" />
+              <Wordmark tone="light" className="h-8 w-auto md:h-9" />
             </Link>
 
             {/* ------------------------------------------------- desktop nav */}
@@ -100,8 +100,7 @@ export default function Header() {
                     data-active={isActive(item.href)}
                     aria-expanded={item.children ? openDrop === item.label : undefined}
                     className={[
-                      "nav-link text-[0.8125rem] tracking-[0.04em] transition-colors duration-500",
-                      solid ? "text-body hover:text-ink" : "text-white/85 hover:text-white",
+                      "nav-link text-[0.8125rem] tracking-[0.04em] text-white/80 transition-colors duration-500 hover:text-white",
                     ].join(" ")}
                   >
                     {item.label}
@@ -116,18 +115,18 @@ export default function Header() {
                         transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
                         className="absolute left-1/2 top-full z-10 w-[19rem] -translate-x-1/2 pt-5"
                       >
-                        <div className="border border-line bg-section p-2 shadow-[0_24px_60px_-24px_rgba(35,27,12,0.28)]">
+                        <div className="border border-white/12 bg-ink p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)]">
                           {item.children.map((child) => (
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="group block px-4 py-3 transition-colors duration-400 hover:bg-paper"
+                              className="group block px-4 py-3 transition-colors duration-400 hover:bg-white/[0.06]"
                             >
-                              <span className="block text-[0.8125rem] font-medium text-ink transition-colors duration-400 group-hover:text-gold-deep">
+                              <span className="block text-[0.8125rem] font-medium text-white transition-colors duration-400 group-hover:text-gold-light">
                                 {child.label}
                               </span>
                               {child.note && (
-                                <span className="mt-0.5 block text-[0.75rem] leading-relaxed text-muted">
+                                <span className="mt-0.5 block text-[0.75rem] leading-relaxed text-white/55">
                                   {child.note}
                                 </span>
                               )}
@@ -146,8 +145,7 @@ export default function Header() {
               <a
                 href={site.phoneHref}
                 className={[
-                  "group hidden items-center gap-2.5 text-[0.8125rem] tracking-[0.02em] transition-colors duration-500 sm:flex",
-                  solid ? "text-body hover:text-gold-deep" : "text-white/85 hover:text-white",
+                  "group hidden items-center gap-2.5 text-[0.8125rem] tracking-[0.02em] text-white/85 transition-colors duration-500 hover:text-gold-light sm:flex",
                 ].join(" ")}
               >
                 <Phone className="size-[15px] transition-transform duration-500 group-hover:-rotate-12" strokeWidth={1.5} />
@@ -158,7 +156,7 @@ export default function Header() {
 
               <Link
                 href="/contact#survey"
-                className="btn-base btn-ink hidden !px-6 !py-3.5 !text-[0.6875rem] lg:inline-flex"
+                className="btn-base btn-gold hidden !px-6 !py-3.5 !text-[0.6875rem] lg:inline-flex"
               >
                 Book Free Survey
               </Link>
@@ -170,10 +168,7 @@ export default function Header() {
                 aria-controls="mobile-menu"
                 aria-label={openMenu ? "Close menu" : "Open menu"}
                 className={[
-                  "grid size-11 place-items-center border transition-colors duration-500 xl:hidden",
-                  solid
-                    ? "border-line text-ink hover:border-gold hover:text-gold-deep"
-                    : "border-white/25 text-white hover:border-white/60",
+                  "grid size-11 place-items-center border border-white/25 text-white transition-colors duration-500 hover:border-gold hover:text-gold-light xl:hidden",
                 ].join(" ")}
               >
                 {openMenu ? <X className="size-5" strokeWidth={1.4} /> : <Menu className="size-5" strokeWidth={1.4} />}
@@ -193,10 +188,10 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 overflow-y-auto bg-paper pt-[74px] xl:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-ink pt-[74px] xl:hidden"
           >
             <nav aria-label="Mobile" className="shell py-10">
-              <ul className="divide-y divide-line border-y border-line">
+              <ul className="divide-y divide-white/10 border-y border-white/10">
                 {navigation.map((item, i) => (
                   <motion.li
                     key={item.href}
@@ -209,8 +204,8 @@ export default function Header() {
                       className="flex items-baseline justify-between py-5"
                       onClick={() => setOpenMenu(false)}
                     >
-                      <span className="display-md">{item.label}</span>
-                      <span className="eyebrow text-faint">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="display-md text-white">{item.label}</span>
+                      <span className="eyebrow text-white/45">{String(i + 1).padStart(2, "0")}</span>
                     </Link>
                     {item.children && (
                       <div className="flex flex-wrap gap-x-5 gap-y-2 pb-5">
@@ -219,7 +214,7 @@ export default function Header() {
                             key={c.href}
                             href={c.href}
                             onClick={() => setOpenMenu(false)}
-                            className="link-underline text-[0.8125rem] text-muted"
+                            className="link-underline text-[0.8125rem] text-white/60"
                           >
                             {c.label}
                           </Link>
@@ -231,16 +226,16 @@ export default function Header() {
               </ul>
 
               <div className="mt-10 flex flex-col gap-4">
-                <Link href="/contact#survey" className="btn-base btn-ink w-full" onClick={() => setOpenMenu(false)}>
+                <Link href="/contact#survey" className="btn-base btn-gold w-full" onClick={() => setOpenMenu(false)}>
                   Book Free Home Survey
                 </Link>
-                <a href={site.phoneHref} className="btn-base btn-outline w-full">
+                <a href={site.phoneHref} className="btn-base btn-outline w-full text-white">
                   <Phone className="size-4" strokeWidth={1.5} />
                   {site.phone}
                 </a>
               </div>
 
-              <p className="mt-10 text-[0.8125rem] leading-relaxed text-muted">
+              <p className="mt-10 text-[0.8125rem] leading-relaxed text-white/55">
                 {site.address.street}, {site.address.locality}, {site.address.region}{" "}
                 {site.address.postcode}
               </p>

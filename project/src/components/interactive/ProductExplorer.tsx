@@ -239,7 +239,10 @@ export default function ProductExplorer() {
               </div>
               <p className="mt-4 flex items-start gap-2 text-[0.75rem] leading-relaxed text-white/62">
                 <span aria-hidden className="mt-[0.4em] size-1.5 shrink-0 rounded-full bg-gold" />
-                Marked options are what we would put forward first for a {roomData.name.toLowerCase()}.
+                <span>
+                  Marked options are what we would put forward first for a{" "}
+                  {roomData.name.toLowerCase()}.
+                </span>
               </p>
             </Control>
 
@@ -334,9 +337,11 @@ export default function ProductExplorer() {
                 </p>
                 <p className="mt-3 flex items-start gap-2 text-[0.75rem] leading-relaxed text-white/62">
                   <Info className="mt-0.5 size-3.5 shrink-0" strokeWidth={1.5} />
-                  Indicative only, for one typical {roomData.name.toLowerCase()} window of about{" "}
-                  <span data-tnum>{roomData.typicalArea}m²</span>, supplied and fitted. A survey
-                  produces the real figure.
+                  <span>
+                    Indicative only, for one typical {roomData.name.toLowerCase()} window of about{" "}
+                    <span data-tnum>{roomData.typicalArea}m²</span>, supplied and fitted. A survey
+                    produces the real figure.
+                  </span>
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">

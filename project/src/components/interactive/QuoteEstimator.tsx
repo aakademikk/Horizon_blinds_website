@@ -265,9 +265,10 @@ export default function QuoteEstimator() {
 
             <p className="mt-7 flex items-start gap-2 text-[0.75rem] leading-relaxed text-faint">
               <Info className="mt-0.5 size-3.5 shrink-0" strokeWidth={1.5} />
+            <span>
               An estimate, supplied and fitted, not a quotation. Bays, out-of-square reveals and
-              specialist shapes are priced at survey.
-            </p>
+              specialist shapes are priced at survey.</span>
+          </p>
 
             <CtaLink href="/contact#survey" variant="ink" className="mt-7 w-full">
               Get an Exact Quote

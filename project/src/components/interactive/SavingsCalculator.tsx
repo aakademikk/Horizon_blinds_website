@@ -288,9 +288,10 @@ export default function SavingsCalculator() {
         <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="flex max-w-md items-start gap-2 text-[0.75rem] leading-relaxed text-faint">
             <Info className="mt-0.5 size-3.5 shrink-0" strokeWidth={1.5} />
+            <span>
             An illustration, not a guarantee. Actual savings depend on glazing, orientation,
             insulation and how you use the room. Shutters also stay with the property as a fitted
-            improvement.
+            improvement.</span>
           </p>
           <CtaLink href="/contact#survey" variant="ink" size="sm" className="shrink-0">
             Book Free Survey
