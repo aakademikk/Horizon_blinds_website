@@ -14,7 +14,11 @@ export default function SmoothScroll() {
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduce.matches) return;
+    // Touch devices keep their native momentum scrolling: it is better than
+    // anything Lenis can emulate, and skipping it drops a whole RAF loop plus
+    // a ScrollTrigger update on every frame.
+    const coarse = window.matchMedia("(pointer: coarse)");
+    if (reduce.matches || coarse.matches) return;
 
     let lenis: Lenis | null = null;
     let cancelled = false;

@@ -1,17 +1,18 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import * as Icons from "lucide-react";
 import SceneImage from "@/components/scene/SceneImage";
 import Reveal, { RevealGroup, RevealChild, RevealLines } from "@/components/ui/Reveal";
 import { Eyebrow } from "@/components/ui/Type";
 import { pillars } from "@/lib/content";
+import { useCalmMotion } from "@/lib/useCalmMotion";
 import { CtaLink } from "@/components/ui/Cta";
 
 export default function WhyChoose() {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
+  const calm = useCalmMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
@@ -50,7 +51,7 @@ export default function WhyChoose() {
           <div ref={ref} className="lg:col-span-7">
             <Reveal direction="left" duration={1.2}>
               <figure className="sheen relative aspect-[4/3.1] overflow-hidden bg-ink">
-                <motion.div style={reduce ? undefined : { y }} className="absolute inset-[-9%]">
+                <motion.div style={calm ? undefined : { y }} className="absolute inset-[-9%]">
                   <SceneImage
                     room="living"
                     kind="shutter"

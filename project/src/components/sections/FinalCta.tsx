@@ -6,10 +6,12 @@ import SceneImage from "@/components/scene/SceneImage";
 import { CtaLink } from "@/components/ui/Cta";
 import { RevealLines } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
+import { useCalmMotion } from "@/lib/useCalmMotion";
 
 export default function FinalCta() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
+  const calm = useCalmMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
 
@@ -18,7 +20,7 @@ export default function FinalCta() {
       ref={ref}
       className="relative isolate flex min-h-[86vh] items-center overflow-hidden bg-ink"
     >
-      <motion.div style={reduce ? undefined : { y }} className="absolute inset-[-14%] -z-20">
+      <motion.div style={calm ? undefined : { y }} className="absolute inset-[-14%] -z-20">
         <SceneImage
           room="living"
           kind="shutter"

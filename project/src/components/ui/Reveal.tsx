@@ -182,20 +182,32 @@ export function RevealLines({
 
   return (
     <Tag className={className}>
-      {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.08em]">
-          <motion.span
-            className={`block ${lineClassName ?? ""}`}
-            data-reveal
-            initial={{ y: "108%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 1.1, delay: delay + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {line}
-          </motion.span>
-        </span>
-      ))}
+      {/*
+        The observer has to watch the *mask*, not the line inside it. Each line
+        starts translated fully below its `overflow: hidden` parent, so its own
+        intersection ratio is permanently zero — a `whileInView` on the line
+        itself can never satisfy an `amount` threshold and the heading stays
+        parked outside its mask forever.
+      */}
+      <motion.span
+        className="block"
+        initial="hidden"
+        whileInView="shown"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {lines.map((line, i) => (
+          <span key={i} className="block overflow-hidden pb-[0.08em]">
+            <motion.span
+              className={`block ${lineClassName ?? ""}`}
+              data-reveal
+              variants={{ hidden: { y: "108%" }, shown: { y: 0 } }}
+              transition={{ duration: 1.05, delay: delay + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {line}
+            </motion.span>
+          </span>
+        ))}
+      </motion.span>
     </Tag>
   );
 }

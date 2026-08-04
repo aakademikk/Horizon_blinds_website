@@ -64,7 +64,7 @@ export default function Header() {
         className={[
           "fixed inset-x-0 top-0 z-50 transition-all duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
           solid
-            ? "border-b border-white/10 bg-ink/95 backdrop-blur-xl supports-[backdrop-filter]:bg-ink/85"
+            ? "border-b border-white/10 bg-ink md:bg-ink/95 md:backdrop-blur-xl md:supports-[backdrop-filter]:bg-ink/85"
             : "border-b border-white/10 bg-transparent",
         ].join(" ")}
       >

@@ -8,6 +8,7 @@ import SceneImage from "@/components/scene/SceneImage";
 import { Stars } from "@/components/ui/Type";
 import Wordmark from "@/components/layout/Wordmark";
 import { site } from "@/lib/site";
+import { useCalmMotion } from "@/lib/useCalmMotion";
 
 const HEADLINE = ["Beautiful Windows.", "Beautiful Homes."];
 
@@ -24,6 +25,7 @@ const SEEN_KEY = "fsb:intro-played";
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
+  const calm = useCalmMotion();
   const [phase, setPhase] = useState<"closed" | "opening" | "done">("closed");
 
   const { scrollYProgress } = useScroll({
@@ -63,7 +65,7 @@ export default function Hero() {
     >
       {/* ------------------------------------------------------------ scene */}
       <motion.div
-        style={reduce ? undefined : { y: sceneY, scale: sceneScale }}
+        style={calm ? undefined : { y: sceneY, scale: sceneScale }}
         className="absolute inset-0 -z-20"
         initial={false}
       >
@@ -108,7 +110,7 @@ export default function Hero() {
 
       {/* ---------------------------------------------------------- content */}
       <motion.div
-        style={reduce ? undefined : { y: contentY, opacity: contentOpacity }}
+        style={calm ? undefined : { y: contentY, opacity: contentOpacity }}
         className="shell relative z-10 pb-12 pt-28 md:pb-20 md:pt-36"
       >
         <motion.div
@@ -207,7 +209,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: revealed ? 1 : 0 }}
         transition={{ duration: 1, delay: contentDelay + 0.9 }}
-        style={reduce ? undefined : { opacity: contentOpacity }}
+        style={calm ? undefined : { opacity: contentOpacity }}
         className="absolute bottom-8 right-6 z-10 hidden flex-col items-center gap-3 text-white/65 transition-colors duration-500 hover:text-gold-light md:flex xl:right-16"
       >
         <span className="text-[0.625rem] uppercase tracking-[0.28em] [writing-mode:vertical-rl]">

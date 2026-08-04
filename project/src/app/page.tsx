@@ -1,8 +1,8 @@
 import Hero from "@/components/sections/Hero";
 import TrustStrip from "@/components/sections/TrustStrip";
+import ProductExplorer from "@/components/interactive/ProductExplorer";
 import WhyChoose from "@/components/sections/WhyChoose";
 import ProductCategories from "@/components/sections/ProductCategories";
-import ProductExplorer from "@/components/interactive/ProductExplorer";
 import LightAndPrivacy from "@/components/interactive/LightAndPrivacy";
 import GallerySection from "@/components/sections/GallerySection";
 import BeforeAfter from "@/components/interactive/BeforeAfter";
@@ -24,9 +24,16 @@ export default function HomePage() {
 
       <Hero />
       <TrustStrip />
-      <WhyChoose />
-      <ProductCategories />
+
+      {/*
+        The explorer sits third on purpose. It is the thing that separates this
+        site from a brochure, and it teaches the range while the visitor plays —
+        so it earns its place above the catalogue rather than below it.
+      */}
       <ProductExplorer />
+
+      <WhyChoose />
+      <ProductCategories limit={3} />
       <LightAndPrivacy />
       <GallerySection />
       <BeforeAfter />

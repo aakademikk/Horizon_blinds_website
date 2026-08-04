@@ -7,7 +7,11 @@ import { blinds, shutters, type Product } from "@/lib/products";
 import { presetFor } from "@/lib/presets";
 import { gbp } from "@/lib/products";
 
-export default function ProductCategories() {
+export default function ProductCategories({ limit }: { limit?: number } = {}) {
+  // The home page shows a taste and links onward; the product pages show all.
+  const shownShutters = limit ? shutters.slice(0, limit) : shutters;
+  const shownBlinds = limit ? blinds.slice(0, limit) : blinds;
+
   return (
     <section id="products" className="section-y bg-section">
       <div className="shell">
@@ -45,7 +49,7 @@ export default function ProductCategories() {
             <h3 className="eyebrow text-faint">Plantation Shutters</h3>
           </Reveal>
           <RevealGroup className="mt-8 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-            {shutters.map((p) => (
+            {shownShutters.map((p) => (
               <RevealChild key={p.id}>
                 <ProductCard product={p} href={`/shutters#${p.slug}`} />
               </RevealChild>
@@ -59,7 +63,7 @@ export default function ProductCategories() {
             <h3 className="eyebrow text-faint">Made-to-Measure Blinds</h3>
           </Reveal>
           <RevealGroup className="mt-8 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-            {blinds.map((p) => (
+            {shownBlinds.map((p) => (
               <RevealChild key={p.id}>
                 <ProductCard product={p} href={`/blinds#${p.slug.replace("-blinds", "")}`} />
               </RevealChild>
