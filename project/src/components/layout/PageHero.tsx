@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import { RevealLines } from "@/components/ui/Reveal";
 import Reveal from "@/components/ui/Reveal";
 import type { ScenePreset } from "@/lib/presets";
@@ -28,7 +28,7 @@ export default function PageHero({
   return (
     <section className="relative isolate flex min-h-[76svh] items-end overflow-hidden bg-ink pt-32">
       <div className="absolute inset-0 -z-20">
-        <RoomScene {...scene} className="size-full" />
+        <SceneImage {...scene} className="size-full" priority />
       </div>
       <div
         aria-hidden

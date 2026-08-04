@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, RotateCcw } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import { CtaLink } from "@/components/ui/Cta";
 import { finderQuestions } from "@/lib/content";
 import { gbp, products } from "@/lib/products";
@@ -160,7 +160,7 @@ export default function ProductFinder() {
                     className={`card-luxe overflow-hidden ${i === 0 ? "ring-1 ring-gold" : ""}`}
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-ink">
-                      <RoomScene {...presetFor(product.id)} className="size-full" />
+                      <SceneImage {...presetFor(product.id)} className="size-full" />
                       {i === 0 && (
                         <span className="absolute left-4 top-4 bg-gold px-3 py-1.5 text-[0.625rem] uppercase tracking-[0.18em] text-ink">
                           Best match

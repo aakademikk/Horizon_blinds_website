@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import Reveal, { RevealChild, RevealGroup } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/Type";
 import { blinds, shutters, type Product } from "@/lib/products";
@@ -78,7 +78,7 @@ export function ProductCard({ product, href }: { product: Product; href: string 
     <Link href={href} className="group block focus-visible:outline-offset-8">
       <div className="sheen relative aspect-[4/3.2] overflow-hidden bg-ink">
         <div className="size-full transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.055]">
-          <RoomScene {...preset} className="size-full" />
+          <SceneImage {...preset} className="size-full" />
         </div>
 
         {/* Gold hairline that draws itself along the base on hover */}

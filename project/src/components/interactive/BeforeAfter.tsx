@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { MoveHorizontal } from "lucide-react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import Reveal from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/Type";
 import type { ScenePreset } from "@/lib/presets";
@@ -105,7 +105,7 @@ function Slider() {
     >
       {/* After — the full-width base layer */}
       <div className="absolute inset-0">
-        <RoomScene {...AFTER} className="size-full" title="After: the same living room with plantation shutters fitted" />
+        <SceneImage {...AFTER} className="size-full" alt="After: the same living room with plantation shutters fitted" />
       </div>
 
       {/* Before — clipped to the left of the handle */}
@@ -114,7 +114,7 @@ function Slider() {
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         aria-hidden={pos < 4}
       >
-        <RoomScene {...BEFORE} className="size-full" title="Before: bare glass with no window covering" />
+        <SceneImage {...BEFORE} className="size-full" alt="Before: bare glass with no window covering" />
       </div>
 
       {/* Labels */}

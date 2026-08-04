@@ -1,5 +1,5 @@
 import Link from "next/link";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import { CtaLink } from "@/components/ui/Cta";
 import { navigation } from "@/lib/site";
 
@@ -9,7 +9,7 @@ export default function NotFound() {
   return (
     <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink">
       <div className="absolute inset-0 -z-20">
-        <RoomScene
+        <SceneImage
           room="living"
           kind="shutter"
           finishId="anthracite"

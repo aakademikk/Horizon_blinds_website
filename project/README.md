@@ -62,6 +62,21 @@ If you later want real photographs:
 `src/lib/presets.ts` maps each product and gallery entry to a scene, so it is
 also the natural place to map them to image URLs instead.
 
+### Two ways a scene is rendered
+
+Inlining a scene into the page markup is right only when it has to redraw as
+the visitor moves a control. Everywhere else it is served as an image:
+
+| Component | Use for | Cost |
+| --- | --- | --- |
+| `SceneImage` | Cards, gallery tiles, page heroes, editorial figures | One `<img>`; the SVG is fetched once from `/scene` and cached immutably |
+| `RoomScene` | The explorer and the light & privacy demo | ~700 DOM nodes, redrawn on every change |
+
+Rendering every scene inline put 1.4 MB of HTML and 10,738 DOM nodes on the
+home page. Moving the decorative ones to `SceneImage` cut that to 411 KB
+(55 KB gzipped) and 3,137 nodes, and halved first contentful paint. Reach for
+`RoomScene` directly only when an image genuinely cannot do the job.
+
 ---
 
 ## Structure

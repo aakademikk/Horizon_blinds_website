@@ -1,6 +1,6 @@
 import { ArrowUpRight, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import Reveal, { RevealChild, RevealGroup } from "@/components/ui/Reveal";
 import { SectionHeading, Stars } from "@/components/ui/Type";
 import { projects } from "@/lib/content";
@@ -42,7 +42,7 @@ export default function Projects({ limit }: { limit?: number }) {
                 <article className="card-luxe group flex h-full flex-col overflow-hidden">
                   <div className="sheen relative aspect-[4/3] overflow-hidden bg-ink">
                     <div className="size-full transition-transform duration-[1500ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]">
-                      <RoomScene
+                      <SceneImage
                         room={p.scene.room}
                         kind={base.kind}
                         variant={p.scene.product === "solid-panels" ? "solid-panels" : undefined}

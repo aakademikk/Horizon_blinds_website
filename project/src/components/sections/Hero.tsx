@@ -4,7 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, BadgePoundSterling, Ruler, ShieldCheck } from "lucide-react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import { Stars } from "@/components/ui/Type";
 import Wordmark from "@/components/layout/Wordmark";
 import { site } from "@/lib/site";
@@ -77,7 +77,7 @@ export default function Hero() {
             Panned rather than scaled: the window lands right of centre and the
             headline gets quiet wall to sit on, with no loss of framing.
           */}
-          <RoomScene
+          <SceneImage
             room="living"
             kind="shutter"
             finishId="silk-white"
@@ -85,8 +85,9 @@ export default function Hero() {
             tilt={52}
             time="morning"
             pan={-210}
+            priority
             className="size-full"
-            title="A bright living room with full-height plantation shutters, louvres half open to the morning sun"
+            alt="A bright living room with full-height plantation shutters, louvres half open to the morning sun"
           />
         </motion.div>
       </motion.div>

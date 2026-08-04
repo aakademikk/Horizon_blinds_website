@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import { CtaLink } from "@/components/ui/Cta";
 import { RevealLines } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
@@ -19,7 +19,7 @@ export default function FinalCta() {
       className="relative isolate flex min-h-[86vh] items-center overflow-hidden bg-ink"
     >
       <motion.div style={reduce ? undefined : { y }} className="absolute inset-[-14%] -z-20">
-        <RoomScene
+        <SceneImage
           room="living"
           kind="shutter"
           finishId="silk-white"
@@ -27,7 +27,7 @@ export default function FinalCta() {
           tilt={58}
           time="evening"
           className="size-full"
-          title="A living room at dusk with wide plantation shutters catching the last of the light"
+          alt="A living room at dusk with wide plantation shutters catching the last of the light"
         />
       </motion.div>
 

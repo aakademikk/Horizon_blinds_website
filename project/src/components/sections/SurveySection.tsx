@@ -2,7 +2,7 @@ import { CalendarClock, MessageSquareQuote, Ruler, ShieldOff } from "lucide-reac
 import Reveal from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/Type";
 import EnquiryForm from "@/components/forms/EnquiryForm";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 
 const PROMISES = [
   {
@@ -66,7 +66,7 @@ export default function SurveySection() {
 
             <Reveal delay={0.2}>
               <figure className="sheen mt-12 hidden aspect-[16/10] overflow-hidden lg:block">
-                <RoomScene
+                <SceneImage
                   room="bedroom"
                   kind="shutter"
                   finishId="white"
@@ -74,7 +74,7 @@ export default function SurveySection() {
                   tilt={30}
                   time="evening"
                   className="size-full"
-                  title="A bedroom at dusk with plantation shutters nearly closed"
+                  alt="A bedroom at dusk with plantation shutters nearly closed"
                 />
               </figure>
             </Reveal>

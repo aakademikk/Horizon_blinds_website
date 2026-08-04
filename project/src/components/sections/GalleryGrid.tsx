@@ -3,7 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import { galleryCategories, galleryItems, type GalleryItem } from "@/lib/presets";
 
 /**
@@ -80,7 +80,7 @@ export default function GalleryGrid({
               className={`group sheen relative mb-4 block w-full break-inside-avoid overflow-hidden bg-ink text-left ${SPAN[item.span]}`}
             >
               <div className="absolute inset-0 transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.07]">
-                <RoomScene {...item.scene} className="size-full" />
+                <SceneImage {...item.scene} className="size-full" />
               </div>
 
               <span
@@ -199,7 +199,7 @@ function Lightbox({
               className="flex min-h-0 flex-1 flex-col"
             >
               <div className="relative min-h-0 flex-1 overflow-hidden border border-white/10">
-                <RoomScene {...item.scene} className="size-full" title={item.title} />
+                <SceneImage {...item.scene} className="size-full" alt={item.title} />
               </div>
               <figcaption className="flex flex-col gap-2 pt-6 md:flex-row md:items-end md:justify-between">
                 <div>

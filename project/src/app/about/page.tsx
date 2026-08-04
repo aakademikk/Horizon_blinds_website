@@ -2,7 +2,7 @@ import PageHero from "@/components/layout/PageHero";
 import Process from "@/components/sections/Process";
 import ContactSection from "@/components/sections/ContactSection";
 import FinalCta from "@/components/sections/FinalCta";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import Reveal, { RevealChild, RevealGroup, RevealLines } from "@/components/ui/Reveal";
 import { Eyebrow, SectionHeading } from "@/components/ui/Type";
 import CountUp from "@/components/ui/CountUp";
@@ -112,7 +112,7 @@ export default function AboutPage() {
       <section className="bg-ink">
         <div className="grid lg:grid-cols-2">
           <div className="relative min-h-[420px] overflow-hidden">
-            <RoomScene
+            <SceneImage
               room="office"
               kind="wooden"
               finishId="natural-wood"
@@ -120,7 +120,7 @@ export default function AboutPage() {
               tilt={50}
               time="afternoon"
               className="absolute inset-0 size-full"
-              title="Hardwood blinds in the workshop office"
+              alt="Hardwood blinds in the workshop office"
             />
           </div>
           <div className="flex items-center px-6 py-20 md:px-16 lg:py-28">

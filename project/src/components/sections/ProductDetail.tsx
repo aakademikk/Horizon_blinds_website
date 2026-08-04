@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import Reveal from "@/components/ui/Reveal";
 import { CtaLink } from "@/components/ui/Cta";
 import { Eyebrow } from "@/components/ui/Type";
@@ -39,10 +39,10 @@ export default function ProductDetail({
             duration={1.1}
           >
             <figure className="sheen relative aspect-[4/3.2] overflow-hidden bg-ink shadow-[0_40px_90px_-55px_rgba(35,27,12,0.5)]">
-              <RoomScene
+              <SceneImage
                 {...presetFor(product.id)}
                 className="size-full"
-                title={`${product.name} — ${product.strapline}`}
+                alt={`${product.name} — ${product.strapline}`}
               />
             </figure>
           </Reveal>

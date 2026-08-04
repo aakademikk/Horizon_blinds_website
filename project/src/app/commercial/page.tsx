@@ -1,6 +1,6 @@
 import PageHero from "@/components/layout/PageHero";
 import FinalCta from "@/components/sections/FinalCta";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import Reveal, { RevealChild, RevealGroup } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/Type";
 import { CtaLink } from "@/components/ui/Cta";
@@ -103,7 +103,7 @@ export default function CommercialPage() {
       {/* ----------------------------------------------------- assurances */}
       <section className="relative isolate overflow-hidden bg-ink">
         <div className="absolute inset-0 -z-20 opacity-40">
-          <RoomScene
+          <SceneImage
             room="office"
             kind="roller"
             finishId="grey"

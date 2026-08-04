@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import * as Icons from "lucide-react";
-import RoomScene from "@/components/scene/RoomScene";
+import SceneImage from "@/components/scene/SceneImage";
 import Reveal, { RevealGroup, RevealChild, RevealLines } from "@/components/ui/Reveal";
 import { Eyebrow } from "@/components/ui/Type";
 import { pillars } from "@/lib/content";
@@ -51,7 +51,7 @@ export default function WhyChoose() {
             <Reveal direction="left" duration={1.2}>
               <figure className="sheen relative aspect-[4/3.1] overflow-hidden bg-ink">
                 <motion.div style={reduce ? undefined : { y }} className="absolute inset-[-9%]">
-                  <RoomScene
+                  <SceneImage
                     room="living"
                     kind="shutter"
                     finishId="natural-wood"
@@ -59,7 +59,7 @@ export default function WhyChoose() {
                     tilt={40}
                     time="morning"
                     className="size-full"
-                    title="Natural oak plantation shutters in a living room, louvres tilted to soften the morning sun"
+                    alt="Natural oak plantation shutters in a living room, louvres tilted to soften the morning sun"
                   />
                 </motion.div>
                 <figcaption className="absolute bottom-0 left-0 right-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.72),transparent)] p-7 pt-16">
