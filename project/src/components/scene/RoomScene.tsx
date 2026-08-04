@@ -33,7 +33,7 @@ type Aperture = { x: number; y: number; w: number; h: number };
 const APERTURES: Record<RoomId, { ap: Aperture; floor: number }> = {
   living: { ap: { x: 250, y: 46, w: 660, h: 528 }, floor: 622 },
   bedroom: { ap: { x: 344, y: 62, w: 560, h: 470 }, floor: 604 },
-  kitchen: { ap: { x: 296, y: 54, w: 624, h: 432 }, floor: 640 },
+  kitchen: { ap: { x: 296, y: 58, w: 624, h: 322 }, floor: 640 },
   bathroom: { ap: { x: 404, y: 50, w: 452, h: 470 }, floor: 630 },
   office: { ap: { x: 288, y: 52, w: 690, h: 468 }, floor: 612 },
 };
@@ -1033,22 +1033,45 @@ function Furniture({
     return (
       <g>
         {glow}
-        {/* Run of units beneath the sill */}
-        <rect x="-40" y={floorY - 190} width="360" height={190} fill={shift(soft, -0.16)} />
-        <rect x="-40" y={floorY - 200} width="360" height="14" rx="2" fill={shift(surf.skirting, 0.24)} />
-        <rect x="892" y={floorY - 190} width="360" height={190} fill={shift(soft, -0.16)} />
-        <rect x="892" y={floorY - 200} width="360" height="14" rx="2" fill={shift(surf.skirting, 0.24)} />
-        {[30, 150, 940, 1060].map((x) => (
-          <rect key={x} x={x} y={floorY - 160} width="80" height="4" rx="2" fill={rgba("#000", 0.3)} />
+        {/*
+          One continuous run of units under the window, with the sink set into
+          the worktop. The tap has to rise from that worktop — previously the
+          units stopped either side of the window and the tap floated in the
+          gap between them.
+        */}
+        <rect x={BG_X} y={floorY - 212} width={BG_W} height={212} fill={shift(soft, -0.16)} />
+        <rect x={BG_X} y={floorY - 224} width={BG_W} height="16" rx="2" fill={shift(surf.skirting, 0.26)} />
+        <rect x={BG_X} y={floorY - 224} width={BG_W} height="3" fill={shift(surf.skirting, 0.45)} />
+
+        {/* Cupboard doors, skipping the run the sink sits over */}
+        {[-260, -110, 40, 760, 910, 1060].map((x) => (
+          <g key={x}>
+            <rect
+              x={x}
+              y={floorY - 200}
+              width="132"
+              height="180"
+              rx="2"
+              fill="none"
+              stroke={rgba("#000", 0.12)}
+            />
+            <rect x={x + 96} y={floorY - 176} width="26" height="4" rx="2" fill={rgba("#000", 0.32)} />
+          </g>
         ))}
-        {/* Mixer tap at the sill */}
+
+        {/* Sink, recessed into the worktop */}
+        <rect x="470" y={floorY - 208} width="260" height="14" rx="3" fill={rgba("#000", 0.22)} />
+        <rect x="482" y={floorY - 206} width="236" height="9" rx="3" fill={shift(soft, -0.34)} />
+
+        {/* Mixer tap, rising from the worktop behind the sink */}
         <path
-          d={`M600 ${floorY - 200} v-52 q0 -20 24 -20 h28`}
+          d={`M600 ${floorY - 222} v-58 q0 -22 26 -22 h30`}
           stroke={dark}
           strokeWidth="7"
           fill="none"
           strokeLinecap="round"
         />
+        <circle cx="600" cy={floorY - 222} r="9" fill={dark} />
         <ellipse cx={600} cy={H - 26} rx={430} ry={58} fill={shift(surf.floor, 0.14)} opacity="0.3" />
       </g>
     );
@@ -1071,13 +1094,15 @@ function Furniture({
           opacity="0.95"
         />
         <path d={`M280 ${H - 74} h640 q-8 46 -62 48 H342 q-54 -2 -62 -48 Z`} fill={shift(soft, -0.12)} />
-        <path
-          d={`M888 ${H - 118} v-56 q0 -15 -19 -15 h-32`}
-          stroke={dark}
-          strokeWidth="6"
-          fill="none"
-          strokeLinecap="round"
-        />
+
+        {/*
+          A floor-standing filler beside the bath. It used to start inside the
+          bath body, which read as a stray black angle rather than a tap.
+        */}
+        <g stroke={dark} fill="none" strokeLinecap="round">
+          <path d={`M968 ${H - 44} v-192 q0 -26 -28 -26 h-38`} strokeWidth="7" />
+        </g>
+        <ellipse cx="968" cy={H - 42} rx="26" ry="7" fill={dark} />
       </g>
     );
   }
