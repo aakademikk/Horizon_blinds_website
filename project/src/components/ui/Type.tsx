@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /**
- * Small caps label with a short gold rule. Used above almost every heading
+ * Small caps label with a short brand rule. Used above almost every heading
  * on the site — it is what holds the layout together.
  */
 export function Eyebrow({
@@ -20,7 +20,7 @@ export function Eyebrow({
       className={[
         "eyebrow flex items-center gap-3",
         align === "center" ? "justify-center" : "",
-        tone === "light" ? "text-gold-light" : "text-gold-deep",
+        tone === "light" ? "text-brand-light" : "text-brand-deep",
         className,
       ]
         .filter(Boolean)
@@ -74,7 +74,7 @@ export function SectionHeading({
   );
 }
 
-/** Five gold stars. `size` is the em-height of each glyph. */
+/** Five brand stars. `size` is the em-height of each glyph. */
 export function Stars({
   rating = 5,
   size = 14,
@@ -98,7 +98,7 @@ export function Stars({
           <svg key={i} width={size} height={size} viewBox="0 0 20 20" aria-hidden focusable="false">
             <defs>
               <linearGradient id={`s${i}-${size}-${Math.round(rating * 10)}`}>
-                <stop offset={`${fill * 100}%`} stopColor="#C9A646" />
+                <stop offset={`${fill * 100}%`} stopColor="#2F9BD8" />
                 <stop offset={`${fill * 100}%`} stopColor="#D8D3C7" />
               </linearGradient>
             </defs>

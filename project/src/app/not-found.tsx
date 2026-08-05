@@ -22,7 +22,7 @@ export default function NotFound() {
       <div aria-hidden className="absolute inset-0 -z-10 bg-ink/78" />
 
       <div className="shell relative z-10 py-32 text-center">
-        <p className="eyebrow flex items-center justify-center gap-3 text-gold-light">
+        <p className="eyebrow flex items-center justify-center gap-3 text-brand-light">
           <span aria-hidden className="h-px w-8 bg-current opacity-70" />
           Error 404
           <span aria-hidden className="h-px w-8 bg-current opacity-70" />
@@ -38,11 +38,11 @@ export default function NotFound() {
         </p>
 
         <div className="mt-11 flex flex-wrap justify-center gap-4">
-          <CtaLink href="/" variant="gold">
+          <CtaLink href="/" variant="brand">
             Back to Home
           </CtaLink>
           <CtaLink href="/contact#survey" variant="outline" className="text-white">
-            Book Free Survey
+            Book a Home Visit
           </CtaLink>
         </div>
 

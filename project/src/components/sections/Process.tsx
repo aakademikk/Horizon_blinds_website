@@ -38,7 +38,7 @@ export default function Process() {
           {/* The rule that fills as you read down the section */}
           <div aria-hidden className="absolute inset-x-0 top-[27px] hidden h-px bg-white/15 lg:block">
             <motion.div
-              className="h-full origin-left bg-gradient-to-r from-gold-deep via-gold to-gold-light"
+              className="h-full origin-left bg-gradient-to-r from-brand-deep via-brand to-brand-light"
               style={reduce ? { scaleX: 1 } : { scaleX: progress }}
             />
           </div>
@@ -55,7 +55,7 @@ export default function Process() {
                   transition={{ duration: 0.85, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                   className="relative flex gap-5 lg:block"
                 >
-                  <span className="relative z-10 grid size-14 shrink-0 place-items-center rounded-full border border-white/15 bg-ink text-gold transition-colors duration-500 lg:size-[54px]">
+                  <span className="relative z-10 grid size-14 shrink-0 place-items-center rounded-full border border-white/15 bg-ink text-brand transition-colors duration-500 lg:size-[54px]">
                     <Icon className="size-[22px]" strokeWidth={1.15} />
                   </span>
 
@@ -64,7 +64,7 @@ export default function Process() {
                       {step.n}
                     </span>
                     <h3 className="display-md mt-2.5 !text-[1.25rem] text-white">{step.title}</h3>
-                    <p className="mt-1.5 text-[0.6875rem] uppercase tracking-[0.16em] text-gold">
+                    <p className="mt-1.5 text-[0.6875rem] uppercase tracking-[0.16em] text-brand">
                       {step.duration}
                     </p>
                     <p className="mt-3.5 text-[0.875rem] leading-[1.75] text-white/60 lg:pr-2">
@@ -78,7 +78,7 @@ export default function Process() {
         </div>
 
         <Reveal delay={0.1} className="mt-16 flex justify-center">
-          <CtaLink href="/contact#survey" variant="gold" size="lg">
+          <CtaLink href="/contact#survey" variant="brand" size="lg">
             Start at Step One
           </CtaLink>
         </Reveal>

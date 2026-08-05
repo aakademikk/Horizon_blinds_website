@@ -6,6 +6,16 @@
 
 /* --------------------------------------------------------------- reviews */
 
+/**
+ * The testimonials below are sample copy written to exercise the layout, not
+ * things anyone said. Flip this to true only once every quote in `reviews` is
+ * a real one, with permission to publish it.
+ *
+ * While it is false the site shows a visible placeholder notice above the
+ * quotes and emits no schema.org Review markup — see `reviewSchema()`.
+ */
+export const reviewsAreReal = false;
+
 export type Review = {
   id: string;
   name: string;
@@ -24,13 +34,13 @@ export const reviews: Review[] = [
   {
     id: "r1",
     name: "Charlotte Bennett",
-    location: "Shenfield, Brentwood",
+    location: "Thundersley, Benfleet",
     rating: 5,
     source: "Google",
     date: "2026-05-18",
     headline: "The bay is the best thing in the house now",
     body:
-      "We had put off doing the bay for four years because everyone told us it was awkward. Fab templated every angle on site and the finished frames meet so cleanly you would think the window was built around them. The fitter was here seven hours and left the room cleaner than he found it.",
+      "We had put off doing the bay for four years because everyone told us it was awkward. Horizon templated every angle on site and the finished frames meet so cleanly you would think the window was built around them. The fitter was here seven hours and left the room cleaner than he found it.",
     product: "Bay window shutters, 76mm, Silk White",
     initials: "CB",
   },
@@ -101,12 +111,20 @@ export const reviews: Review[] = [
   },
 ];
 
-export const reviewPlatforms = [
-  { name: "Google", score: 4.9, count: 387 },
-  { name: "Checkatrade", score: 9.8, count: 142, suffix: "/10" },
-  { name: "Trustpilot", score: 4.8, count: 96 },
-  { name: "Facebook", score: 5.0, count: 211 },
+/**
+ * What the trust strip says. This used to be four review platforms with
+ * scores; those numbers cannot be invented for a real business, so the strip
+ * now carries promises Horizon actually makes and can stand behind. Swap in
+ * live review figures once they are pulled from the platforms themselves.
+ */
+export const promises = [
+  { label: "Family run", value: "Not a call centre", note: "You deal with the owner, start to finish" },
+  { label: "Shutter guarantee", value: "3 years", note: "One year on blinds, and we handle accidental damage" },
+  { label: "Quotation", value: "Within 24 hours", note: "By email, after a home visit with the samples" },
+  { label: "Fitting", value: "Free", note: "Measured, delivered and fitted by us" },
 ] as const;
+
+export const claims = ["No hard sell, ever", "10+ years in the trade", "Across South Essex"];
 
 /* -------------------------------------------------------------- projects */
 
@@ -128,7 +146,7 @@ export const projects: Project[] = [
     id: "p1",
     title: "A Victorian bay, put right",
     property: "Four-bedroom Victorian semi",
-    location: "Brentwood, Essex",
+    location: "Canvey Island, Essex",
     installed: ["Bay window shutters", "Full height shutters", "76mm louvres"],
     duration: "One day",
     quote: "They made the hardest window in the house look effortless.",
@@ -299,10 +317,17 @@ export const compareMetrics: CompareMetric[] = [
   },
   {
     id: "energy",
-    label: "Energy Efficiency",
+    label: "Warmth Retained",
     detail:
-      "A closed shutter panel creates a still air pocket against the glass. Independent testing puts the heat-loss reduction at up to 51% versus bare glazing.",
-    scores: { curtains: 3.5, blinds: 2.5, shutters: 5 },
+      "Anything that traps still air against the glass helps. A closed shutter panel does it well; a heavy lined curtain does it just as well once it is drawn, which is why we still fit a lot of them in bedrooms.",
+    scores: { curtains: 4.5, blinds: 2.5, shutters: 4.5 },
+  },
+  {
+    id: "acoustics",
+    label: "Softness & Sound",
+    detail:
+      "This one is not close. Fabric absorbs; hard surfaces reflect. In a room with a wooden floor and not much furniture, curtains are the thing that stops it echoing.",
+    scores: { curtains: 5, blinds: 2, shutters: 2.5 },
   },
   {
     id: "light",
@@ -326,11 +351,18 @@ export const compareMetrics: CompareMetric[] = [
     scores: { curtains: 2, blinds: 3, shutters: 5 },
   },
   {
-    id: "value",
-    label: "Property Value",
+    id: "upfront",
+    label: "Kind to the Budget",
     detail:
-      "Shutters stay with the house and read as a fitted improvement in a valuation, in the way a curtain pole never will.",
-    scores: { curtains: 1, blinds: 2, shutters: 5 },
+      "Per window, blinds are usually the least expensive way to solve the problem, curtains sit in the middle, and shutters are the biggest outlay. Whether that outlay is worth it depends entirely on the room.",
+    scores: { curtains: 3.5, blinds: 5, shutters: 2 },
+  },
+  {
+    id: "value",
+    label: "Stays With the House",
+    detail:
+      "Shutters are a fitted improvement and read as one in a valuation. Curtains and blinds come down with you when you move — which, if you are renting, is the point.",
+    scores: { curtains: 1.5, blinds: 2, shutters: 5 },
   },
 ];
 
@@ -397,7 +429,7 @@ export const faqs: Faq[] = [
   {
     group: "Aftercare",
     q: "Which areas do you cover?",
-    a: "All of Essex — Brentwood, Chelmsford, Leigh-on-Sea, Southend, Basildon, Rayleigh and everywhere in between — plus parts of east London and south Suffolk. If you are unsure, call us; if we cannot help we will usually know someone good who can.",
+    a: "South Essex — Canvey Island, Benfleet, Leigh-on-Sea, Southend, Basildon, Rayleigh, Chelmsford and everywhere in between. If you are unsure, call us; if we cannot help we will usually know someone good who can.",
   },
 ];
 

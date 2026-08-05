@@ -8,8 +8,7 @@ import { ArrowLeft, ArrowRight, Pause, Play, Quote } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { SectionHeading, Stars } from "@/components/ui/Type";
 import { CtaLink } from "@/components/ui/Cta";
-import { reviews } from "@/lib/content";
-import { site } from "@/lib/site";
+import { reviews, reviewsAreReal } from "@/lib/content";
 
 import "swiper/css";
 import "swiper/css/a11y";
@@ -37,9 +36,9 @@ export default function Testimonials() {
               tone="light"
               title={
                 <>
-                  {site.rating.count} reviews.
+                  What people say
                   <br />
-                  Not one of them written by us.
+                  once we have gone.
                 </>
               }
             />
@@ -51,7 +50,7 @@ export default function Testimonials() {
                 type="button"
                 onClick={toggle}
                 aria-label={playing ? "Pause testimonials" : "Play testimonials"}
-                className="grid size-12 place-items-center border border-white/15 text-white/60 transition-all duration-500 hover:border-gold hover:text-gold-light"
+                className="grid size-12 place-items-center border border-white/15 text-white/60 transition-all duration-500 hover:border-brand hover:text-brand-light"
               >
                 {playing ? <Pause className="size-4" strokeWidth={1.4} /> : <Play className="size-4" strokeWidth={1.4} />}
               </button>
@@ -59,7 +58,7 @@ export default function Testimonials() {
                 type="button"
                 onClick={() => swiperRef.current?.slidePrev()}
                 aria-label="Previous testimonial"
-                className="grid size-12 place-items-center border border-white/15 text-white/60 transition-all duration-500 hover:border-gold hover:text-gold-light"
+                className="grid size-12 place-items-center border border-white/15 text-white/60 transition-all duration-500 hover:border-brand hover:text-brand-light"
               >
                 <ArrowLeft className="size-4" strokeWidth={1.4} />
               </button>
@@ -67,13 +66,25 @@ export default function Testimonials() {
                 type="button"
                 onClick={() => swiperRef.current?.slideNext()}
                 aria-label="Next testimonial"
-                className="grid size-12 place-items-center border border-white/15 text-white/60 transition-all duration-500 hover:border-gold hover:text-gold-light"
+                className="grid size-12 place-items-center border border-white/15 text-white/60 transition-all duration-500 hover:border-brand hover:text-brand-light"
               >
                 <ArrowRight className="size-4" strokeWidth={1.4} />
               </button>
             </div>
           </Reveal>
         </div>
+
+        {!reviewsAreReal && (
+          <Reveal delay={0.12}>
+            <p
+              role="note"
+              className="mt-10 border-l-2 border-brand bg-white/[0.04] px-5 py-4 text-[0.8125rem] leading-relaxed text-white/70"
+            >
+              <strong className="font-medium text-white">Placeholder content.</strong> These quotes
+              are samples showing how real reviews will look here — not things customers have said.
+            </p>
+          </Reveal>
+        )}
 
         <Reveal delay={0.15} className="mt-14">
           <Swiper
@@ -90,8 +101,8 @@ export default function Testimonials() {
           >
             {reviews.map((r) => (
               <SwiperSlide key={r.id} className="!h-auto">
-                <figure className="flex h-full flex-col border border-white/10 bg-white/[0.025] p-8 transition-colors duration-700 hover:border-gold/35 md:p-10">
-                  <Quote className="size-8 text-gold/50" strokeWidth={0.9} aria-hidden />
+                <figure className="flex h-full flex-col border border-white/10 bg-white/[0.025] p-8 transition-colors duration-700 hover:border-brand/35 md:p-10">
+                  <Quote className="size-8 text-brand/50" strokeWidth={0.9} aria-hidden />
 
                   <blockquote className="mt-7 flex-1">
                     <p className="font-display text-[1.5rem] font-light leading-[1.35] text-white md:text-[1.75rem]">
@@ -103,7 +114,7 @@ export default function Testimonials() {
                   <figcaption className="mt-9 flex items-center gap-4 border-t border-white/10 pt-7">
                     <span
                       aria-hidden
-                      className="grid size-12 shrink-0 place-items-center rounded-full border border-gold/40 bg-gradient-to-br from-white/10 to-transparent font-display text-[0.9375rem] text-gold-light"
+                      className="grid size-12 shrink-0 place-items-center rounded-full border border-brand/40 bg-gradient-to-br from-white/10 to-transparent font-display text-[0.9375rem] text-brand-light"
                     >
                       {r.initials}
                     </span>
@@ -140,7 +151,7 @@ export default function Testimonials() {
                 aria-label={`Review ${i + 1} of ${reviews.length}`}
                 onClick={() => swiperRef.current?.slideToLoop(i)}
                 className={`h-px transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  index === i ? "w-12 bg-gold" : "w-6 bg-white/20 hover:bg-white/45"
+                  index === i ? "w-12 bg-brand" : "w-6 bg-white/20 hover:bg-white/45"
                 }`}
               />
             ))}

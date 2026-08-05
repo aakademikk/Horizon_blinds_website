@@ -4,14 +4,13 @@ import Projects from "@/components/sections/Projects";
 import FinalCta from "@/components/sections/FinalCta";
 import Reveal, { RevealChild, RevealGroup } from "@/components/ui/Reveal";
 import { SectionHeading, Stars } from "@/components/ui/Type";
-import CountUp from "@/components/ui/CountUp";
-import { reviewPlatforms, reviews } from "@/lib/content";
+import { promises, reviews, reviewsAreReal } from "@/lib/content";
 import { site } from "@/lib/site";
 import { JsonLd, breadcrumbSchema, pageMeta, reviewSchema } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Reviews",
-  description: `Rated ${site.rating.value} from ${site.rating.count} reviews across Google, Checkatrade, Trustpilot and Facebook. Read what Essex homeowners say about Fab Shutters & Blinds.`,
+  description: `What South Essex homeowners say about ${site.name} — and what we promise before a single window is measured.`,
   path: "/reviews",
 });
 
@@ -30,8 +29,8 @@ export default function ReviewsPage() {
 
       <PageHero
         eyebrow="In Their Words"
-        titleLines={[`${site.rating.count} reviews.`, "Not one of them", "written by us."]}
-        lede="We have been trading in Essex since 2009 and almost all of our work now comes by recommendation. These are the people who made that happen."
+        titleLines={["Recommended,", "window by window,", "across South Essex."]}
+        lede="Almost all of our work comes by word of mouth. Here is what people say afterwards — and what we commit to beforehand."
         breadcrumb={[{ label: "Reviews" }]}
         scene={{
           room: "living",
@@ -43,29 +42,15 @@ export default function ReviewsPage() {
         }}
       />
 
-      {/* ------------------------------------------------------- scoreboard */}
+      {/* --------------------------------------------------------- promises */}
       <section className="border-b border-line bg-section">
         <div className="shell py-16">
           <RevealGroup className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {reviewPlatforms.map((p) => (
-              <RevealChild key={p.name} className="text-center">
-                <p className="eyebrow text-faint">{p.name}</p>
-                <p className="mt-4 display-lg !text-[3rem] text-ink" data-tnum>
-                  <CountUp value={p.score} decimals={1} />
-                  {"suffix" in p && p.suffix ? (
-                    <span className="text-[1.25rem] text-muted">{p.suffix}</span>
-                  ) : null}
-                </p>
-                <div className="mt-3 flex justify-center">
-                  <Stars
-                    size={13}
-                    rating={"suffix" in p && p.suffix ? p.score / 2 : p.score}
-                    label={`${p.score} on ${p.name}`}
-                  />
-                </div>
-                <p className="mt-3 text-[0.8125rem] text-muted" data-tnum>
-                  {p.count} reviews
-                </p>
+            {promises.map((p) => (
+              <RevealChild key={p.label} className="text-center">
+                <p className="eyebrow text-faint">{p.label}</p>
+                <p className="mt-4 display-lg !text-[2.5rem] text-ink">{p.value}</p>
+                <p className="mt-3 text-[0.8125rem] leading-relaxed text-muted">{p.note}</p>
               </RevealChild>
             ))}
           </RevealGroup>
@@ -86,10 +71,22 @@ export default function ReviewsPage() {
             />
           </Reveal>
 
+          {!reviewsAreReal && (
+            <p
+              role="note"
+              className="mb-12 border-l-2 border-brand bg-paper-deep px-6 py-5 text-[0.875rem] leading-relaxed text-body"
+            >
+              <strong className="font-medium">Placeholder content.</strong> The quotes below are
+              sample copy showing how real reviews will sit in this layout. They are not
+              testimonials from customers, and no review markup is published to search engines
+              while this notice is showing.
+            </p>
+          )}
+
           <RevealGroup className="columns-1 gap-8 lg:columns-2 [&>*]:mb-8 [&>*]:break-inside-avoid">
             {reviews.map((r) => (
               <RevealChild key={r.id}>
-                <figure className="border border-line bg-section p-8 transition-colors duration-700 hover:border-gold/45 md:p-10">
+                <figure className="border border-line bg-section p-8 transition-colors duration-700 hover:border-brand/45 md:p-10">
                   <div className="flex items-center justify-between gap-4">
                     <Stars size={13} rating={r.rating} label={`${r.rating} out of 5`} />
                     <span className="text-[0.6875rem] uppercase tracking-[0.16em] text-faint">
@@ -105,7 +102,7 @@ export default function ReviewsPage() {
                   <figcaption className="mt-7 flex items-center gap-4 border-t border-line pt-6">
                     <span
                       aria-hidden
-                      className="grid size-11 shrink-0 place-items-center rounded-full border border-gold/40 font-display text-[0.875rem] text-gold-deep"
+                      className="grid size-11 shrink-0 place-items-center rounded-full border border-brand/40 font-display text-[0.875rem] text-brand-deep"
                     >
                       {r.initials}
                     </span>

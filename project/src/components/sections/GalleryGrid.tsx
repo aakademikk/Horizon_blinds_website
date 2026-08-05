@@ -56,7 +56,7 @@ export default function GalleryGrid({
                 "border px-5 py-2.5 text-[0.75rem] tracking-[0.08em] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                 category === c
                   ? "border-ink bg-ink text-white"
-                  : "border-line text-muted hover:border-gold hover:text-gold-deep",
+                  : "border-line text-muted hover:border-brand hover:text-brand-deep",
               ].join(" ")}
             >
               {c}
@@ -89,7 +89,7 @@ export default function GalleryGrid({
               />
 
               <span className="absolute inset-x-0 bottom-0 z-10 p-6">
-                <span className="eyebrow block text-gold-light opacity-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100">
+                <span className="eyebrow block text-brand-light opacity-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100">
                   {item.category}
                 </span>
                 <span className="mt-2 block font-display text-[1.375rem] font-light leading-tight text-white">
@@ -179,7 +179,7 @@ function Lightbox({
               type="button"
               onClick={onClose}
               aria-label="Close gallery"
-              className="grid size-11 place-items-center border border-white/20 text-white transition-colors duration-500 hover:border-gold hover:text-gold-light"
+              className="grid size-11 place-items-center border border-white/20 text-white transition-colors duration-500 hover:border-brand hover:text-brand-light"
             >
               <X className="size-5" strokeWidth={1.3} />
             </button>
@@ -203,7 +203,7 @@ function Lightbox({
               </div>
               <figcaption className="flex flex-col gap-2 pt-6 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <span className="eyebrow text-gold">{item.category}</span>
+                  <span className="eyebrow text-brand">{item.category}</span>
                   <h3 className="display-md mt-2 text-white">{item.title}</h3>
                   <p className="mt-1.5 text-[0.875rem] text-white/55">{item.location}</p>
                 </div>
@@ -226,7 +226,7 @@ function LightboxArrow({ dir, onClick }: { dir: 1 | -1; onClick: () => void }) {
       type="button"
       onClick={onClick}
       aria-label={dir === 1 ? "Next image" : "Previous image"}
-      className="grid size-12 shrink-0 place-items-center border border-white/15 text-white/70 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-gold hover:text-gold-light md:size-14"
+      className="grid size-12 shrink-0 place-items-center border border-white/15 text-white/70 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand hover:text-brand-light md:size-14"
     >
       <Icon className="size-5" strokeWidth={1.2} />
     </button>

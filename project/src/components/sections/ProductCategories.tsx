@@ -36,7 +36,7 @@ export default function ProductCategories({ limit }: { limit?: number } = {}) {
             >
               <span className="link-underline">View the full collection</span>
               <ArrowUpRight
-                className="size-4 text-gold-deep transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="size-4 text-brand-deep transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 strokeWidth={1.4}
               />
             </Link>
@@ -85,10 +85,10 @@ export function ProductCard({ product, href }: { product: Product; href: string 
           <SceneImage {...preset} className="size-full" />
         </div>
 
-        {/* Gold hairline that draws itself along the base on hover */}
+        {/* Brand hairline that draws itself along the base on hover */}
         <span
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-gold-light via-gold to-transparent transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+          className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand-light via-brand to-transparent transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
         />
 
         <span className="absolute right-4 top-4 grid size-10 place-items-center border border-white/25 bg-black/20 text-white opacity-0 backdrop-blur-sm transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100">
@@ -98,7 +98,7 @@ export function ProductCard({ product, href }: { product: Product; href: string 
 
       <div className="pt-6">
         <div className="flex items-baseline justify-between gap-4">
-          <h4 className="display-md !text-[1.4375rem] text-ink transition-colors duration-500 group-hover:text-gold-deep">
+          <h4 className="display-md !text-[1.4375rem] text-ink transition-colors duration-500 group-hover:text-brand-deep">
             {product.name}
           </h4>
           <span className="shrink-0 text-[0.75rem] text-faint" data-tnum>

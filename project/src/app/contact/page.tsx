@@ -40,12 +40,12 @@ export default function ContactPage() {
         }}
       >
         <div className="flex flex-wrap items-center gap-6">
-          <CtaLink href={site.phoneHref} variant="gold">
+          <CtaLink href={site.phoneHref} variant="brand">
             {site.phone}
           </CtaLink>
           <a
             href={`mailto:${site.email}`}
-            className="link-underline text-[0.9375rem] text-white/75 transition-colors hover:text-gold-light"
+            className="link-underline text-[0.9375rem] text-white/75 transition-colors hover:text-brand-light"
           >
             {site.email}
           </a>

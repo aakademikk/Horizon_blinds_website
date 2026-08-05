@@ -34,7 +34,7 @@ export default function Newsletter() {
 
   if (state === "done") {
     return (
-      <p className="mt-6 flex items-center gap-2.5 text-[0.875rem] text-gold-light" role="status">
+      <p className="mt-6 flex items-center gap-2.5 text-[0.875rem] text-brand-light" role="status">
         <Check className="size-4" strokeWidth={1.6} />
         {message}
       </p>
@@ -46,7 +46,7 @@ export default function Newsletter() {
       <label htmlFor="newsletter-email" className="sr-only">
         Email address
       </label>
-      <div className="flex items-center gap-2 border-b border-white/20 transition-colors duration-500 focus-within:border-gold">
+      <div className="flex items-center gap-2 border-b border-white/20 transition-colors duration-500 focus-within:border-brand">
         <input
           id="newsletter-email"
           type="email"
@@ -64,7 +64,7 @@ export default function Newsletter() {
           type="submit"
           disabled={state === "sending"}
           aria-label="Subscribe"
-          className="grid size-9 shrink-0 place-items-center text-gold transition-all duration-500 hover:translate-x-1 hover:text-gold-light disabled:opacity-40"
+          className="grid size-9 shrink-0 place-items-center text-brand transition-all duration-500 hover:translate-x-1 hover:text-brand-light disabled:opacity-40"
         >
           <ArrowRight className="size-4" strokeWidth={1.5} />
         </button>

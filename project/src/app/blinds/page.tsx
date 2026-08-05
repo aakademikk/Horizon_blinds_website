@@ -15,7 +15,7 @@ export const metadata = pageMeta({
   path: "/blinds",
   keywords: [
     "made to measure blinds Essex",
-    "wooden blinds Brentwood",
+    "wooden blinds Canvey Island",
     "roman blinds Chelmsford",
     "electric blinds Essex",
     "perfect fit blinds",
@@ -53,8 +53,8 @@ export default function BlindsPage() {
         }}
       >
         <div className="flex flex-wrap gap-4">
-          <CtaLink href="/contact#survey" variant="gold">
-            Book Free Home Survey
+          <CtaLink href="/contact#survey" variant="brand">
+            Book a Free Home Visit
           </CtaLink>
           <CtaLink href="/design-studio" variant="outline" className="text-white">
             Estimate a Price

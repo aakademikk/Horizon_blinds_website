@@ -88,7 +88,7 @@ export default function QuoteEstimator() {
                 onClick={() => pickType(t.id)}
                 className={[
                   "border px-4 py-3.5 text-left transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-                  type === t.id ? "border-gold bg-gold/[0.08]" : "border-line hover:border-gold/50",
+                  type === t.id ? "border-brand bg-brand/[0.08]" : "border-line hover:border-brand/50",
                 ].join(" ")}
               >
                 <span className="block text-[0.875rem] text-ink">{t.label}</span>
@@ -123,8 +123,8 @@ export default function QuoteEstimator() {
                 className={[
                   "border px-4 py-3 text-left text-[0.8125rem] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   productId === p.id
-                    ? "border-gold bg-gold/[0.08] text-ink"
-                    : "border-line text-muted hover:border-gold/50 hover:text-ink",
+                    ? "border-brand bg-brand/[0.08] text-ink"
+                    : "border-line text-muted hover:border-brand/50 hover:text-ink",
                 ].join(" ")}
               >
                 {p.name.replace(" Shutters", "").replace(" Blinds", "")}
@@ -147,8 +147,8 @@ export default function QuoteEstimator() {
                 className={[
                   "size-10 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   finishId === f.id
-                    ? "ring-2 ring-gold ring-offset-4 ring-offset-white"
-                    : "ring-1 ring-line hover:ring-gold/60",
+                    ? "ring-2 ring-brand ring-offset-4 ring-offset-white"
+                    : "ring-1 ring-line hover:ring-brand/60",
                 ].join(" ")}
                 style={{
                   background: f.grain
@@ -173,8 +173,8 @@ export default function QuoteEstimator() {
                   className={[
                     "border px-5 py-2.5 text-[0.8125rem] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                     louvreId === l.id
-                      ? "border-gold bg-gold/[0.08] text-ink"
-                      : "border-line text-muted hover:border-gold/50 hover:text-ink",
+                      ? "border-brand bg-brand/[0.08] text-ink"
+                      : "border-line text-muted hover:border-brand/50 hover:text-ink",
                   ].join(" ")}
                 >
                   <span data-tnum>{l.label}</span>
@@ -191,7 +191,7 @@ export default function QuoteEstimator() {
                 type="checkbox"
                 checked={motorised}
                 onChange={(e) => setMotorised(e.target.checked)}
-                className="size-4 accent-[#C9A646]"
+                className="size-4 accent-[#2F9BD8]"
               />
               <span className="text-[0.875rem] text-ink">
                 Motorised
@@ -343,7 +343,7 @@ function Stepper({
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="grid size-9 place-items-center text-muted transition-colors duration-400 hover:text-gold-deep"
+      className="grid size-9 place-items-center text-muted transition-colors duration-400 hover:text-brand-deep"
     >
       {children}
     </button>

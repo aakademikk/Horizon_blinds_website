@@ -125,7 +125,7 @@ function Slider() {
         Before
       </span>
       <span
-        className="pointer-events-none absolute right-5 top-5 border border-gold/50 bg-black/35 px-4 py-2 text-[0.625rem] uppercase tracking-[0.22em] text-gold-light backdrop-blur-sm transition-opacity duration-500"
+        className="pointer-events-none absolute right-5 top-5 border border-brand/50 bg-black/35 px-4 py-2 text-[0.625rem] uppercase tracking-[0.22em] text-brand-light backdrop-blur-sm transition-opacity duration-500"
         style={{ opacity: pos < 84 ? 1 : 0 }}
       >
         After
@@ -151,7 +151,7 @@ function Slider() {
             e.stopPropagation();
             dragging.current = true;
           }}
-          className="pointer-events-auto absolute left-1/2 top-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize place-items-center rounded-full border border-white/70 bg-ink/85 text-white backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 hover:border-gold hover:text-gold-light"
+          className="pointer-events-auto absolute left-1/2 top-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize place-items-center rounded-full border border-white/70 bg-ink/85 text-white backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105 hover:border-brand hover:text-brand-light"
         >
           <MoveHorizontal className="size-5" strokeWidth={1.3} />
         </button>

@@ -20,7 +20,7 @@ export default async function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#111111",
+          background: "#0B2739",
           padding: "68px 76px",
           fontFamily: "sans-serif",
         }}
@@ -48,7 +48,7 @@ export default async function OpengraphImage() {
               style={{
                 height: 16,
                 borderRadius: 2,
-                background: i % 6 === 3 ? "#E1C97A" : "#C9A646",
+                background: i % 6 === 3 ? "#6EC7F0" : "#2F9BD8",
                 opacity: i % 6 === 3 ? 0.95 : 0.32 + (i % 4) * 0.06,
               }}
             />
@@ -60,12 +60,12 @@ export default async function OpengraphImage() {
             style={{
               width: 40,
               height: 1,
-              background: "#C9A646",
+              background: "#2F9BD8",
             }}
           />
           <div
             style={{
-              color: "#C9A646",
+              color: "#2F9BD8",
               fontSize: 19,
               letterSpacing: 6,
               textTransform: "uppercase",
@@ -87,7 +87,7 @@ export default async function OpengraphImage() {
             }}
           >
             <span>Beautiful Windows.</span>
-            <span style={{ color: "#E1C97A" }}>Beautiful Homes.</span>
+            <span style={{ color: "#6EC7F0" }}>Beautiful Homes.</span>
           </div>
           <div
             style={{
@@ -114,7 +114,7 @@ export default async function OpengraphImage() {
         >
           <div style={{ color: "#FFFFFF", fontSize: 26, letterSpacing: 1 }}>{site.name}</div>
           <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 21 }}>
-            {`Rated ${site.rating.value} out of 5  ·  ${site.yearsTrading}+ years  ·  Essex`}
+            {`${site.yearsTrading}+ years in the trade  ·  Free fitting  ·  South Essex`}
           </div>
         </div>
       </div>

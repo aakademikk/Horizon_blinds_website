@@ -54,8 +54,8 @@ export default function ShuttersPage() {
         }}
       >
         <div className="flex flex-wrap gap-4">
-          <CtaLink href="/contact#survey" variant="gold">
-            Book Free Home Survey
+          <CtaLink href="/contact#survey" variant="brand">
+            Book a Free Home Visit
           </CtaLink>
           <CtaLink href="/design-studio" variant="outline" className="text-white">
             Design Yours

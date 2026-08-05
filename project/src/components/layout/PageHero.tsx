@@ -63,7 +63,7 @@ export default function PageHero({
         </Reveal>
 
         <Reveal duration={0.9} delay={0.08}>
-          <p className="eyebrow mt-9 flex items-center gap-3 text-gold-light">
+          <p className="eyebrow mt-9 flex items-center gap-3 text-brand-light">
             <span aria-hidden className="h-px w-10 bg-current opacity-70" />
             {eyebrow}
           </p>

@@ -145,7 +145,7 @@ export default function ProductExplorer() {
               </AnimatePresence>
 
               <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap items-center gap-x-4 gap-y-1 bg-[linear-gradient(to_top,rgba(0,0,0,0.8),transparent)] px-6 pb-5 pt-16 text-[0.75rem] tracking-[0.06em] text-white/70">
-                <span className="text-gold-light">{roomData.name}</span>
+                <span className="text-brand-light">{roomData.name}</span>
                 <span aria-hidden className="text-white/25">/</span>
                 <span>{product.name}</span>
                 <span aria-hidden className="text-white/25">/</span>
@@ -166,7 +166,7 @@ export default function ProductExplorer() {
                   <label htmlFor="explorer-tilt" className="eyebrow text-white/65">
                     Louvre angle
                   </label>
-                  <span className="text-[0.8125rem] text-gold-light" data-tnum>
+                  <span className="text-[0.8125rem] text-brand-light" data-tnum>
                     {Math.round(tilt)}° · {state.lightLabel.toLowerCase()}
                   </span>
                 </div>
@@ -222,14 +222,14 @@ export default function ProductExplorer() {
                       className={[
                         "relative border px-4 py-3.5 text-left text-[0.8125rem] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                         productId === id
-                          ? "border-gold bg-gold/12 text-white"
+                          ? "border-brand bg-brand/12 text-white"
                           : "border-white/12 text-white/65 hover:border-white/35 hover:text-white",
                       ].join(" ")}
                     >
                       {p.name.replace(" Shutters", "").replace(" Blinds", "")}
                       {recommended && (
                         <span
-                          className="absolute right-2.5 top-2.5 size-1.5 rounded-full bg-gold"
+                          className="absolute right-2.5 top-2.5 size-1.5 rounded-full bg-brand"
                           title="Recommended for this room"
                         />
                       )}
@@ -238,7 +238,7 @@ export default function ProductExplorer() {
                 })}
               </div>
               <p className="mt-4 flex items-start gap-2 text-[0.75rem] leading-relaxed text-white/62">
-                <span aria-hidden className="mt-[0.4em] size-1.5 shrink-0 rounded-full bg-gold" />
+                <span aria-hidden className="mt-[0.4em] size-1.5 shrink-0 rounded-full bg-brand" />
                 <span>
                   Marked options are what we would put forward first for a{" "}
                   {roomData.name.toLowerCase()}.
@@ -261,7 +261,7 @@ export default function ProductExplorer() {
                     className={[
                       "group relative size-11 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                       finishId === f.id
-                        ? "ring-2 ring-gold ring-offset-4 ring-offset-ink"
+                        ? "ring-2 ring-brand ring-offset-4 ring-offset-ink"
                         : "ring-1 ring-white/20 hover:ring-white/50 hover:ring-offset-2 hover:ring-offset-ink",
                     ].join(" ")}
                     style={{
@@ -309,7 +309,7 @@ export default function ProductExplorer() {
                     </div>
                     <div className="mt-2.5 h-[3px] w-full overflow-hidden bg-white/10">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-gold-deep to-gold-light"
+                        className="h-full bg-gradient-to-r from-brand-deep to-brand-light"
                         animate={{ scaleX: Math.max(0.02, r.fill) }}
                         initial={false}
                         style={{ transformOrigin: "left" }}
@@ -345,8 +345,8 @@ export default function ProductExplorer() {
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <CtaLink href="/contact#survey" variant="gold" className="flex-1">
-                    Book Free Survey
+                  <CtaLink href="/contact#survey" variant="brand" className="flex-1">
+                    Book a Home Visit
                   </CtaLink>
                   <CtaLink href="/design-studio" variant="outline" className="flex-1 text-white">
                     More Tools
@@ -376,7 +376,7 @@ function Control({
   return (
     <div>
       <div className="mb-4 flex items-center gap-3 md:mb-5">
-        <span className="text-[0.6875rem] tracking-[0.2em] text-gold">{step}</span>
+        <span className="text-[0.6875rem] tracking-[0.2em] text-brand">{step}</span>
         <span aria-hidden className="h-px w-6 bg-white/20" />
         <h3 className="eyebrow text-white/70">{label}</h3>
       </div>
@@ -403,7 +403,7 @@ function Pill({
       className={[
         "border px-5 py-2.5 text-[0.8125rem] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
         selected
-          ? "border-gold bg-gold/12 text-white"
+          ? "border-brand bg-brand/12 text-white"
           : "border-white/12 text-white/60 hover:border-white/35 hover:text-white",
       ].join(" ")}
     >

@@ -17,7 +17,7 @@ export default function ContactSection() {
             eyebrow="Where To Find Us"
             align="center"
             title="Essex, and a good way beyond it."
-            lede="The workshop is in Brentwood. Most of our week is spent in other people's living rooms across the county."
+            lede="We are based on Canvey Island. Most of our week is spent in other people's living rooms across South Essex."
           />
         </Reveal>
 
@@ -64,7 +64,7 @@ function Detail({
 }) {
   const body = (
     <>
-      <span className="mb-4 block text-gold-deep">
+      <span className="mb-4 block text-brand-deep">
         <Icon className="size-5" strokeWidth={1.2} />
       </span>
       <span className="eyebrow block text-faint">{label}</span>

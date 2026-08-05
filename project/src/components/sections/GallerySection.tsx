@@ -30,7 +30,7 @@ export default function GallerySection() {
             >
               <span className="link-underline">Open the full gallery</span>
               <ArrowUpRight
-                className="size-4 text-gold transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="size-4 text-brand transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 strokeWidth={1.4}
               />
             </Link>

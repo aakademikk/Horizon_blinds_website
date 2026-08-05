@@ -3,24 +3,27 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, BadgePoundSterling, Ruler, ShieldCheck, Star } from "lucide-react";
+import { ArrowDown, BadgePoundSterling, Clock, Ruler, ShieldCheck } from "lucide-react";
 import SceneImage from "@/components/scene/SceneImage";
-import { Stars } from "@/components/ui/Type";
 import Wordmark from "@/components/layout/Wordmark";
-import { site } from "@/lib/site";
 import { useCalmMotion } from "@/lib/useCalmMotion";
 
-const HEADLINE = ["Beautiful Windows.", "Beautiful Homes."];
+const HEADLINE = ["Made to Measure.", "Made for Your Home."];
 
+/*
+ * `short` is what a phone shows. The label above the value is dropped at that
+ * width, and "3 years" on its own means nothing without it — so the small
+ * screen gets a self-contained phrase instead.
+ */
 const BADGES = [
-  { icon: null, label: "Google Reviews", value: `${site.rating.value} from ${site.rating.count}` },
-  { icon: ShieldCheck, label: "Established", value: `${site.yearsTrading}+ years in Essex` },
-  { icon: Ruler, label: "Every window", value: "Made to measure" },
-  { icon: BadgePoundSterling, label: "Spread the cost", value: "Finance available" },
+  { icon: ShieldCheck, label: "Shutter guarantee", value: "3 years", short: "3-year guarantee" },
+  { icon: Clock, label: "Your quotation", value: "Within 24 hours", short: "Quote in 24 hours" },
+  { icon: Ruler, label: "Every window", value: "Made to measure", short: "Made to measure" },
+  { icon: BadgePoundSterling, label: "Fitting", value: "Free, by us", short: "Free fitting" },
 ];
 
 /** Play the reveal once per browsing session, not on every navigation. */
-const SEEN_KEY = "fsb:intro-played";
+const SEEN_KEY = "hbs:intro-played";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -129,11 +132,11 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: revealed ? 1 : 0 }}
           transition={{ duration: 1, delay: contentDelay }}
-          className="eyebrow flex items-center gap-3 !text-[0.625rem] !tracking-[0.14em] text-gold-light md:!text-[0.6875rem] md:!tracking-[0.22em]"
+          className="eyebrow flex items-center gap-3 !text-[0.625rem] !tracking-[0.14em] text-brand-light md:!text-[0.6875rem] md:!tracking-[0.22em]"
         >
           {/* The rule is what pushes this onto a second line at 390px. */}
           <span aria-hidden className="hidden h-px w-10 bg-current opacity-70 sm:block" />
-          Plantation Shutters &amp; Fine Blinds · Essex
+          Blinds, Shutters &amp; Curtains · South Essex
         </motion.div>
 
         <h1
@@ -153,7 +156,7 @@ export default function Hero() {
                 }}
               >
                 {i === 1 ? (
-                  <span className="bg-gradient-to-r from-white via-[#F4E7C4] to-gold-light bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-white via-[#B9E4F7] to-brand-light bg-clip-text text-transparent">
                     {line}
                   </span>
                 ) : (
@@ -170,8 +173,8 @@ export default function Hero() {
           transition={{ duration: 1.1, delay: contentDelay + 0.34, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-xl text-[1.0625rem] font-light leading-[1.66] text-white/78 md:mt-9 md:text-[1.1875rem] md:leading-[1.72]"
         >
-          Handcrafted plantation shutters and premium blinds, expertly measured and professionally
-          installed across Essex.
+          Beautifully crafted blinds, shutters and curtains, measured in your home and fitted by
+          the same people who quoted for them. Family run, across South Essex.
         </motion.p>
 
         <motion.div
@@ -180,8 +183,8 @@ export default function Hero() {
           transition={{ duration: 1.1, delay: contentDelay + 0.46, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center md:mt-11 md:gap-4"
         >
-          <Link href="/contact#survey" className="btn-base btn-gold !px-9 !py-[1.15rem]">
-            Book Free Home Survey
+          <Link href="/contact#survey" className="btn-base btn-brand !px-9 !py-[1.15rem]">
+            Book a Free Home Visit
           </Link>
           <Link href="/gallery" className="btn-base btn-outline !px-9 !py-[1.15rem] text-white">
             Browse Gallery
@@ -195,25 +198,10 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: contentDelay + 0.66 }}
           className="mt-8 grid max-w-4xl grid-cols-2 gap-x-5 gap-y-3.5 border-t border-white/12 pt-6 md:mt-14 md:gap-x-8 md:gap-y-6 md:pt-8 lg:grid-cols-4"
         >
-          {BADGES.map(({ icon: Icon, label, value }) => (
+          {BADGES.map(({ icon: Icon, label, value, short }) => (
             <li key={label} className="flex items-start gap-3">
-              {/*
-                The star row is four times the width of a Lucide glyph, which
-                left the four labels starting at two different indents once the
-                grid dropped to two columns. On a phone the single star keeps
-                the column true — the score is spelled out in the value anyway.
-              */}
-              <span className="mt-0.5 shrink-0 text-gold">
-                {Icon ? (
-                  <Icon className="size-[18px]" strokeWidth={1.4} />
-                ) : (
-                  <>
-                    <Star className="size-[18px] md:hidden" strokeWidth={1.4} fill="currentColor" />
-                    <span className="hidden md:inline">
-                      <Stars size={12} rating={site.rating.value} label={`Rated ${site.rating.value} out of 5 on Google`} />
-                    </span>
-                  </>
-                )}
+              <span className="mt-0.5 shrink-0 text-brand-light">
+                <Icon className="size-[18px]" strokeWidth={1.4} />
               </span>
               <span className="block">
                 {/* On a phone the value says it all, so the small-caps label
@@ -221,7 +209,10 @@ export default function Hero() {
                 <span className="sr-only text-[0.65rem] uppercase tracking-[0.2em] text-white/65 md:not-sr-only md:block">
                   {label}
                 </span>
-                <span className="block text-[0.875rem] text-white/85 md:mt-1">{value}</span>
+                <span className="block text-[0.875rem] text-white/85 md:mt-1">
+                  <span className="md:hidden">{short}</span>
+                  <span className="hidden md:inline">{value}</span>
+                </span>
               </span>
             </li>
           ))}
@@ -236,7 +227,7 @@ export default function Hero() {
         animate={{ opacity: revealed ? 1 : 0 }}
         transition={{ duration: 1, delay: contentDelay + 0.9 }}
         style={calm ? undefined : { opacity: contentOpacity }}
-        className="absolute bottom-8 right-6 z-10 hidden flex-col items-center gap-3 text-white/65 transition-colors duration-500 hover:text-gold-light md:flex xl:right-16"
+        className="absolute bottom-8 right-6 z-10 hidden flex-col items-center gap-3 text-white/65 transition-colors duration-500 hover:text-brand-light md:flex xl:right-16"
       >
         <span className="text-[0.625rem] uppercase tracking-[0.28em] [writing-mode:vertical-rl]">
           Scroll
@@ -265,7 +256,7 @@ export default function Hero() {
                 }}
               />
               <span
-                className={`absolute inset-y-0 w-px bg-gradient-to-b from-transparent via-gold/45 to-transparent ${
+                className={`absolute inset-y-0 w-px bg-gradient-to-b from-transparent via-brand/45 to-transparent ${
                   dir === -1 ? "right-0" : "left-0"
                 }`}
               />

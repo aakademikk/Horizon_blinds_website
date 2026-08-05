@@ -21,7 +21,7 @@ const project = (lat: number, lng: number) => ({
 
 const TOWNS = [
   { slug: "chelmsford", name: "Chelmsford", lat: 51.7356, lng: 0.4685 },
-  { slug: "brentwood", name: "Brentwood", lat: 51.6214, lng: 0.3056 },
+  { slug: "canvey-island", name: "Canvey Island", lat: 51.5209, lng: 0.5892 },
   { slug: "basildon", name: "Basildon", lat: 51.5761, lng: 0.4886 },
   { slug: "rayleigh", name: "Rayleigh", lat: 51.5865, lng: 0.6045 },
   { slug: "leigh-on-sea", name: "Leigh-on-Sea", lat: 51.5424, lng: 0.6433 },
@@ -47,9 +47,9 @@ export default function CoverageMap() {
               <stop offset="100%" stopColor="#CFDBDF" />
             </linearGradient>
             <radialGradient id="reach" cx="46%" cy="52%" r="52%">
-              <stop offset="0%" stopColor="#C9A646" stopOpacity="0.18" />
-              <stop offset="70%" stopColor="#C9A646" stopOpacity="0.05" />
-              <stop offset="100%" stopColor="#C9A646" stopOpacity="0" />
+              <stop offset="0%" stopColor="#2F9BD8" stopOpacity="0.18" />
+              <stop offset="70%" stopColor="#2F9BD8" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#2F9BD8" stopOpacity="0" />
             </radialGradient>
           </defs>
 
@@ -78,7 +78,7 @@ export default function CoverageMap() {
             rx={330}
             ry={215}
             fill="none"
-            stroke="#C9A646"
+            stroke="#2F9BD8"
             strokeOpacity="0.35"
             strokeWidth="1"
             strokeDasharray="3 7"
@@ -95,7 +95,7 @@ export default function CoverageMap() {
 
           {TOWNS.map((t, i) => {
             const { x, y } = project(t.lat, t.lng);
-            const isHome = t.slug === "brentwood";
+            const isHome = t.slug === "canvey-island";
             const on = hover === t.slug;
 
             return (
@@ -110,16 +110,16 @@ export default function CoverageMap() {
                 onMouseLeave={() => setHover(null)}
                 className="cursor-pointer"
               >
-                {on && <circle cx={x} cy={y} r="26" fill="#C9A646" opacity="0.16" />}
+                {on && <circle cx={x} cy={y} r="26" fill="#2F9BD8" opacity="0.16" />}
                 <circle
                   cx={x}
                   cy={y}
                   r={isHome ? 8 : 6}
-                  fill={isHome ? "#111111" : on ? "#C9A646" : "#FFFFFF"}
-                  stroke="#C9A646"
+                  fill={isHome ? "#0B2739" : on ? "#2F9BD8" : "#FFFFFF"}
+                  stroke="#2F9BD8"
                   strokeWidth="2"
                 />
-                {isHome && <circle cx={x} cy={y} r="2.6" fill="#C9A646" />}
+                {isHome && <circle cx={x} cy={y} r="2.6" fill="#2F9BD8" />}
                 <text
                   x={x}
                   y={y - 15}
@@ -169,7 +169,7 @@ export default function CoverageMap() {
                 onBlur={() => setHover(null)}
                 className="group flex items-baseline justify-between gap-6 py-4 transition-colors duration-500"
               >
-                <span className="font-display text-[1.25rem] font-light text-ink transition-colors duration-500 group-hover:text-gold-deep">
+                <span className="font-display text-[1.25rem] font-light text-ink transition-colors duration-500 group-hover:text-brand-deep">
                   {a.name}
                 </span>
                 <span className="shrink-0 text-[0.75rem] text-faint" data-tnum>

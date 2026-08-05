@@ -6,8 +6,13 @@ import Reveal from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/Type";
 import { compareMetrics } from "@/lib/content";
 
+/*
+ * All three are things we make, so this table is a guide to which suits which
+ * room — not an argument for the dearest option. The notes say what each one
+ * is genuinely good at.
+ */
 const COLUMNS = [
-  { id: "curtains", label: "Curtains", note: "Soft, but blunt" },
+  { id: "curtains", label: "Curtains", note: "Warmth and softness" },
   { id: "blinds", label: "Blinds", note: "Practical and versatile" },
   { id: "shutters", label: "Plantation Shutters", note: "The long game" },
 ] as const;
@@ -22,15 +27,15 @@ export default function Comparison() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            eyebrow="Why Shutters"
+            eyebrow="Choosing Between Them"
             title={
               <>
-                We sell all three.
+                We make all three.
                 <br />
-                This is still how they compare.
+                Here is how they compare.
               </>
             }
-            lede="Curtains and blinds have their place, and we fit plenty of both. But on the measures most people care about, a properly made shutter is difficult to argue with."
+            lede="Curtains, blinds and shutters each win on something different. Nobody should be sold the dearest option for a room that does not need it — so these are the trade-offs, scored honestly."
           />
         </Reveal>
 
@@ -62,7 +67,7 @@ export default function Comparison() {
                   <th key={c.id} scope="col" className="w-[24.6%] py-6 text-left align-bottom">
                     <span
                       className={`block font-display text-[1.25rem] font-light md:text-[1.5rem] ${
-                        c.id === "shutters" ? "text-gold-deep" : "text-ink"
+                        c.id === "shutters" ? "text-brand-deep" : "text-ink"
                       }`}
                     >
                       {c.label}
@@ -88,7 +93,7 @@ export default function Comparison() {
                       type="button"
                       onClick={() => setActive(m.id)}
                       aria-expanded={active === m.id}
-                      className="text-left text-[0.9375rem] font-normal text-ink transition-colors duration-400 hover:text-gold-deep"
+                      className="text-left text-[0.9375rem] font-normal text-ink transition-colors duration-400 hover:text-brand-deep"
                     >
                       {m.label}
                     </button>
@@ -106,7 +111,7 @@ export default function Comparison() {
                             <motion.span
                               className={`absolute inset-y-0 left-0 block origin-left ${
                                 c.id === "shutters"
-                                  ? "bg-gradient-to-r from-gold-deep to-gold-light"
+                                  ? "bg-gradient-to-r from-brand-deep to-brand-light"
                                   : "bg-charcoal/45"
                               }`}
                               style={{ width: "100%" }}
@@ -118,7 +123,7 @@ export default function Comparison() {
                           </span>
                           <span
                             className={`shrink-0 text-[0.8125rem] ${
-                              c.id === "shutters" ? "text-gold-deep" : "text-muted"
+                              c.id === "shutters" ? "text-brand-deep" : "text-muted"
                             }`}
                             data-tnum
                           >

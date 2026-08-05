@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { areas, site } from "./site";
-import { faqs, reviews } from "./content";
+import { faqs, reviews, reviewsAreReal } from "./content";
 import { products } from "./products";
 
 /** Absolute URL for a site-relative path. */
@@ -45,6 +45,9 @@ export function pageMeta({
 
 /* --------------------------------------------------------------- schema */
 
+/** A schema payload, or nothing when the claim cannot be substantiated. */
+type Schema = object | null;
+
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
@@ -56,7 +59,6 @@ export function localBusinessSchema() {
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
     priceRange: "££",
-    foundingDate: site.founded,
     image: abs("/opengraph-image"),
     logo: abs("/icon.svg"),
     address: {
@@ -83,13 +85,11 @@ export function localBusinessSchema() {
       opens: h.opens,
       closes: h.closes,
     })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: site.rating.value,
-      reviewCount: site.rating.count,
-      bestRating: 5,
-      worstRating: 1,
-    },
+    /*
+      No aggregateRating. Google reads it as a factual claim about the
+      business, so it must come from real, countable reviews — never from
+      sample content. Add it back alongside verified figures.
+    */
     sameAs: [site.social.facebook, site.social.instagram],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -113,12 +113,6 @@ export function productSchema(productId: string) {
     description: p.description,
     brand: { "@type": "Brand", name: site.name },
     category: p.family === "shutters" ? "Window Shutters" : "Window Blinds",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: site.rating.value,
-      reviewCount: site.rating.count,
-      bestRating: 5,
-    },
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "GBP",
@@ -136,7 +130,17 @@ export function productSchemas(ids: string[]) {
   return ids.map(productSchema).filter((s): s is NonNullable<typeof s> => s !== null);
 }
 
+/**
+ * Review markup, emitted only once the testimonials are real.
+ *
+ * The quotes shipped with this build are sample copy. Publishing them as
+ * schema.org `Review` would present invented testimonials as genuine, so this
+ * returns null until `reviewsAreReal` is flipped in `content.ts` — the same
+ * switch that turns the visible placeholder notice off.
+ */
 export function reviewSchema() {
+  if (!reviewsAreReal) return null;
+
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -182,8 +186,10 @@ export function breadcrumbSchema(trail: { name: string; path: string }[]) {
 }
 
 /** Renders one or more schema blocks as a single script tag. */
-export function JsonLd({ data }: { data: object | object[] }) {
-  const payload = Array.isArray(data) ? data : [data];
+export function JsonLd({ data }: { data: Schema | Schema[] }) {
+  // Builders return null when they have nothing verifiable to say.
+  const payload = (Array.isArray(data) ? data : [data]).filter((d): d is object => d != null);
+  if (payload.length === 0) return null;
   return (
     <script
       type="application/ld+json"

@@ -52,7 +52,7 @@ export default function SurveySection() {
               <ul className="mt-12 space-y-9">
                 {PROMISES.map(({ icon: Icon, title, body }) => (
                   <li key={title} className="flex gap-5">
-                    <span className="mt-0.5 grid size-11 shrink-0 place-items-center border border-line bg-section text-gold-deep">
+                    <span className="mt-0.5 grid size-11 shrink-0 place-items-center border border-line bg-section text-brand-deep">
                       <Icon className="size-[19px]" strokeWidth={1.15} />
                     </span>
                     <div>

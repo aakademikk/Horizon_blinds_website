@@ -121,10 +121,10 @@ export default function EnquiryForm({ compact = false }: { compact?: boolean }) 
         transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         role="status"
         aria-live="polite"
-        className="border border-gold/40 bg-gold/[0.05] p-10 text-center md:p-14"
+        className="border border-brand/40 bg-brand/[0.05] p-10 text-center md:p-14"
       >
-        <span className="mx-auto grid size-16 place-items-center rounded-full border border-gold bg-section">
-          <Check className="size-7 text-gold-deep" strokeWidth={1.2} />
+        <span className="mx-auto grid size-16 place-items-center rounded-full border border-brand bg-section">
+          <Check className="size-7 text-brand-deep" strokeWidth={1.2} />
         </span>
         <h3 className="display-lg mt-8 text-ink">Thank you.</h3>
         <p className="lede mx-auto mt-5 max-w-lg">
@@ -173,7 +173,7 @@ export default function EnquiryForm({ compact = false }: { compact?: boolean }) 
             <button
               type="button"
               onClick={clearDraft}
-              className="flex shrink-0 items-center gap-1.5 text-ink transition-colors duration-400 hover:text-gold-deep"
+              className="flex shrink-0 items-center gap-1.5 text-ink transition-colors duration-400 hover:text-brand-deep"
             >
               <RotateCcw className="size-3.5" strokeWidth={1.5} />
               Start again
@@ -319,7 +319,7 @@ export default function EnquiryForm({ compact = false }: { compact?: boolean }) 
             id="consent"
             type="checkbox"
             aria-invalid={!!errors.consent}
-            className="mt-1 size-4 shrink-0 accent-[#C9A646]"
+            className="mt-1 size-4 shrink-0 accent-[#2F9BD8]"
             {...register("consent")}
           />
           <span className="text-[0.8125rem] leading-relaxed text-muted">
@@ -344,7 +344,7 @@ export default function EnquiryForm({ compact = false }: { compact?: boolean }) 
               Sending…
             </>
           ) : (
-            "Book My Free Survey"
+            "Book My Free Home Visit"
           )}
         </button>
         <p className="text-[0.75rem] leading-relaxed text-faint">
@@ -399,7 +399,7 @@ function Field({
       >
         {label}
         {required && (
-          <span aria-hidden className="ml-1 text-gold">
+          <span aria-hidden className="ml-1 text-brand">
             *
           </span>
         )}

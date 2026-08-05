@@ -1,12 +1,12 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
-type Variant = "ink" | "gold" | "outline";
+type Variant = "ink" | "brand" | "outline";
 type Size = "sm" | "md" | "lg";
 
 const VARIANT: Record<Variant, string> = {
   ink: "btn-ink",
-  gold: "btn-gold",
+  brand: "btn-brand",
   outline: "btn-outline",
 };
 

@@ -886,7 +886,7 @@ function RollerBlind({
       {motorised ? (
         <g>
           <rect x={AP_R - 76} y={ap.y + 6} width="62" height={head - 12} rx="3" fill={mix(finish.shade, "#2a2a2a", 0.6)} />
-          <circle cx={AP_R - 45} cy={ap.y + head / 2} r="4" fill="#C9A646" />
+          <circle cx={AP_R - 45} cy={ap.y + head / 2} r="4" fill="#2F9BD8" />
         </g>
       ) : (
         <line

@@ -70,7 +70,7 @@ export default function CommercialPage() {
           time: "afternoon",
         }}
       >
-        <CtaLink href="#commercial-enquiry" variant="gold">
+        <CtaLink href="#commercial-enquiry" variant="brand">
           Request a Site Survey
         </CtaLink>
       </PageHero>
@@ -89,7 +89,7 @@ export default function CommercialPage() {
           <RevealGroup className="mt-14 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {SECTORS.map((s, i) => (
               <RevealChild key={s.name} className="bg-section p-9 transition-colors duration-600 hover:bg-paper">
-                <span className="eyebrow text-gold-deep" data-tnum>
+                <span className="eyebrow text-brand-deep" data-tnum>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="display-md mt-4 !text-[1.375rem] text-ink">{s.name}</h3>
@@ -128,7 +128,7 @@ export default function CommercialPage() {
           <RevealGroup className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {ASSURANCES.map(({ icon: Icon, title, body }) => (
               <RevealChild key={title}>
-                <span className="mb-5 flex size-12 items-center justify-center border border-white/15 text-gold">
+                <span className="mb-5 flex size-12 items-center justify-center border border-white/15 text-brand">
                   <Icon className="size-5" strokeWidth={1.15} />
                 </span>
                 <h3 className="text-[1.0625rem] text-white">{title}</h3>

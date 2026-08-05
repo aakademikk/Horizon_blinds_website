@@ -1,31 +1,42 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Fab Shutters & Blinds — design tokens
-   A restrained, editorial system: warm paper, ink, and gold.
+   Horizon Blinds & Shutters — design tokens
+
+   The blues are sampled from the logo: the wordmark runs from a deep
+   royal blue through to the cyan in the roundel, and the "BLINDS &
+   SHUTTERS" subline is a dark teal-navy. That navy is what the dark
+   surfaces are built from, so the site's dark chapters read as Horizon
+   rather than as generic black. Neutrals are cooled to match.
    ============================================================ */
 
 @theme {
   /* Surfaces */
-  --color-paper: #f8f7f4;
-  --color-paper-deep: #f2f0ea;
+  --color-paper: #f4f7fa;
+  --color-paper-deep: #e9eff5;
   --color-section: #ffffff;
-  --color-ink: #111111;
-  --color-charcoal: #232323;
+  /* The logo's subline navy, taken down far enough to sit under white type */
+  --color-ink: #0b2739;
+  --color-charcoal: #14384e;
 
-  /* Gold */
-  --color-gold: #c9a646;
-  --color-gold-light: #e1c97a;
-  --color-gold-deep: #7e6220;
+  /*
+    Brand — deep for type on light, light for type on dark. `brand` itself
+    is the button fill, so it is held light enough that ink type on it
+    still clears 4.5:1 at the dark end of the gradient (5.0:1).
+  */
+  --color-brand: #2f9bd8;
+  --color-brand-light: #6ec7f0;
+  --color-brand-deep: #10608f;
+  --color-brand-bright: #30bced;
 
   /* Type */
-  --color-body: #222222;
-  --color-muted: #666666;
-  --color-faint: #6b6760;
+  --color-body: #16232c;
+  --color-muted: #5b6b76;
+  --color-faint: #61707a;
 
   /* Lines */
-  --color-line: #e8e4db;
-  --color-line-dark: #2e2e2e;
+  --color-line: #dde6ee;
+  --color-line-dark: #21455c;
 
   /* Families — bound to next/font in layout.tsx */
   --font-display: var(--font-cormorant), "Playfair Display", "Iowan Old Style",
@@ -41,13 +52,13 @@
   --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Elevation — soft, warm-tinted, never harsh */
-  --shadow-soft: 0 1px 2px rgba(35, 27, 12, 0.04),
-    0 8px 24px -12px rgba(35, 27, 12, 0.1);
-  --shadow-lift: 0 2px 4px rgba(35, 27, 12, 0.04),
-    0 24px 60px -24px rgba(35, 27, 12, 0.22);
-  --shadow-gold: 0 0 0 1px rgba(201, 166, 70, 0.35),
-    0 12px 40px -12px rgba(201, 166, 70, 0.4);
+  /* Elevation — soft, cool-tinted, never harsh */
+  --shadow-soft: 0 1px 2px rgba(11, 39, 57, 0.05),
+    0 8px 24px -12px rgba(11, 39, 57, 0.12);
+  --shadow-lift: 0 2px 4px rgba(11, 39, 57, 0.05),
+    0 24px 60px -24px rgba(11, 39, 57, 0.26);
+  --shadow-brand: 0 0 0 1px rgba(47, 155, 216, 0.35),
+    0 12px 40px -12px rgba(47, 155, 216, 0.45);
 }
 
 /* ---------- Base ---------- */
@@ -109,15 +120,15 @@
     text-wrap: pretty;
   }
 
-  /* Focus: gold ring, always visible for keyboard users. */
+  /* Focus: brand ring, always visible for keyboard users. */
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-brand);
     outline-offset: 3px;
     border-radius: 2px;
   }
 
   ::selection {
-    background: var(--color-gold-light);
+    background: var(--color-brand-light);
     color: var(--color-ink);
   }
 
@@ -297,7 +308,7 @@
   }
 }
 
-/* Nav link with a gold rule that grows from the centre. */
+/* Nav link with a brand rule that grows from the centre. */
 @utility nav-link {
   position: relative;
   padding-block: 0.35rem;
@@ -309,7 +320,7 @@
     bottom: 0;
     width: 0;
     height: 1px;
-    background: var(--color-gold);
+    background: var(--color-brand);
     transform: translateX(-50%);
     transition: width 0.5s var(--ease-luxe);
   }
@@ -346,7 +357,7 @@
     transform 0.5s var(--ease-luxe);
 }
 
-/* Ink button — gold wash rises from the base on hover. */
+/* Ink button — brand wash rises from the base on hover. */
 @utility btn-ink {
   background: var(--color-ink);
   color: #fff;
@@ -359,8 +370,8 @@
     z-index: -1;
     background: linear-gradient(
       180deg,
-      var(--color-gold-light),
-      var(--color-gold)
+      var(--color-brand-light),
+      var(--color-brand)
     );
     transform: translateY(101%);
     transition: transform 0.6s var(--ease-luxe);
@@ -369,8 +380,8 @@
   &:hover,
   &:focus-visible {
     color: var(--color-ink);
-    border-color: var(--color-gold);
-    box-shadow: var(--shadow-gold);
+    border-color: var(--color-brand);
+    box-shadow: var(--shadow-brand);
   }
 
   &:hover::before,
@@ -379,10 +390,10 @@
   }
 }
 
-@utility btn-gold {
-  background: linear-gradient(180deg, var(--color-gold-light), var(--color-gold));
+@utility btn-brand {
+  background: linear-gradient(180deg, var(--color-brand-light), var(--color-brand));
   color: var(--color-ink);
-  border: 1px solid var(--color-gold);
+  border: 1px solid var(--color-brand);
 
   &::before {
     content: "";
@@ -397,7 +408,7 @@
   &:hover,
   &:focus-visible {
     color: #fff;
-    box-shadow: var(--shadow-gold);
+    box-shadow: var(--shadow-brand);
   }
 
   &:hover::before,
@@ -423,8 +434,8 @@
 
   &:hover,
   &:focus-visible {
-    border-color: var(--color-gold);
-    color: var(--color-gold);
+    border-color: var(--color-brand);
+    color: var(--color-brand);
   }
 
   &:hover::before,
@@ -448,7 +459,7 @@
   &:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lift);
-    border-color: color-mix(in oklab, var(--color-gold) 45%, transparent);
+    border-color: color-mix(in oklab, var(--color-brand) 45%, transparent);
   }
 }
 
@@ -470,12 +481,12 @@
   }
 
   &:hover {
-    border-color: color-mix(in oklab, var(--color-gold) 50%, var(--color-line));
+    border-color: color-mix(in oklab, var(--color-brand) 50%, var(--color-line));
   }
 
   &:focus {
     outline: none;
-    border-color: var(--color-gold);
+    border-color: var(--color-brand);
   }
 
   &[aria-invalid="true"] {
@@ -483,7 +494,7 @@
   }
 }
 
-/* Range input styled as a fine gold-tipped rail. */
+/* Range input styled as a fine brand-tipped rail. */
 @utility rail {
   appearance: none;
   width: 100%;
@@ -498,7 +509,7 @@
     height: 22px;
     border-radius: 50%;
     background: var(--color-ink);
-    border: 3px solid var(--color-gold-light);
+    border: 3px solid var(--color-brand-light);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
     transition: transform 0.35s var(--ease-luxe);
   }
@@ -512,7 +523,7 @@
     height: 18px;
     border-radius: 50%;
     background: var(--color-ink);
-    border: 3px solid var(--color-gold-light);
+    border: 3px solid var(--color-brand-light);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
   }
 }

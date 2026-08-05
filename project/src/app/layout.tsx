@@ -6,7 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import ScrollProgress from "@/components/layout/ScrollProgress";
-import FloatingRating from "@/components/layout/FloatingRating";
+import FloatingContact from "@/components/layout/FloatingContact";
 import { site } from "@/lib/site";
 import { JsonLd, abs, localBusinessSchema } from "@/lib/seo";
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   keywords: [
     "plantation shutters Essex",
     "made to measure blinds Essex",
-    "window shutters Brentwood",
+    "window shutters Canvey Island",
     "blinds Chelmsford",
     "shutters Leigh-on-Sea",
     "wooden blinds Southend",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#F8F7F4" },
-    { media: "(prefers-color-scheme: dark)", color: "#111111" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B2739" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -89,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <FloatingRating />
+        <FloatingContact />
       </body>
     </html>
   );

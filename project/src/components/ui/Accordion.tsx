@@ -35,14 +35,14 @@ export default function Accordion({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="group flex w-full items-start justify-between gap-8 py-7 text-left transition-colors duration-500 hover:text-gold-deep md:py-8"
+                className="group flex w-full items-start justify-between gap-8 py-7 text-left transition-colors duration-500 hover:text-brand-deep md:py-8"
               >
                 <span className="display-md max-w-[52ch] !text-[clamp(1.125rem,1.7vw,1.5rem)] leading-snug">
                   {item.q}
                 </span>
                 <span
                   aria-hidden
-                  className="mt-1 grid size-9 shrink-0 place-items-center rounded-full border border-line transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-gold group-hover:bg-gold/8"
+                  className="mt-1 grid size-9 shrink-0 place-items-center rounded-full border border-line transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand group-hover:bg-brand/8"
                 >
                   <Plus
                     className={`size-4 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${

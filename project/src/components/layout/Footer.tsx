@@ -19,8 +19,8 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-ink text-white/70">
-      {/* Hairline of gold across the very top */}
-      <div aria-hidden className="h-px bg-gradient-to-r from-transparent via-gold/55 to-transparent" />
+      {/* Hairline of brand across the very top */}
+      <div aria-hidden className="h-px bg-gradient-to-r from-transparent via-brand/55 to-transparent" />
 
       <div className="shell pb-12 pt-20 md:pt-28">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
@@ -28,27 +28,27 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Wordmark tone="light" className="h-10 w-auto" />
             <p className="mt-8 max-w-sm text-[0.9375rem] leading-[1.8] text-white/55">
-              Handcrafted plantation shutters and premium made-to-measure blinds. Measured,
-              manufactured and fitted by our own team across Essex since {site.founded}.
+              Made-to-measure blinds, shutters and curtains. Measured in your home, fitted by
+              the same people who quoted for them, across South Essex.
             </p>
 
             <div className="mt-9 space-y-4 text-[0.875rem]">
               <a
                 href={site.phoneHref}
-                className="group flex items-center gap-3 text-white/80 transition-colors duration-500 hover:text-gold-light"
+                className="group flex items-center gap-3 text-white/80 transition-colors duration-500 hover:text-brand-light"
               >
-                <Phone className="size-4 shrink-0 text-gold" strokeWidth={1.4} />
+                <Phone className="size-4 shrink-0 text-brand" strokeWidth={1.4} />
                 <span className="link-underline" data-tnum>{site.phone}</span>
               </a>
               <a
                 href={`mailto:${site.email}`}
-                className="group flex items-center gap-3 text-white/80 transition-colors duration-500 hover:text-gold-light"
+                className="group flex items-center gap-3 text-white/80 transition-colors duration-500 hover:text-brand-light"
               >
-                <Mail className="size-4 shrink-0 text-gold" strokeWidth={1.4} />
+                <Mail className="size-4 shrink-0 text-brand" strokeWidth={1.4} />
                 <span className="link-underline break-all">{site.email}</span>
               </a>
               <p className="flex items-start gap-3 text-white/55">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-gold" strokeWidth={1.4} />
+                <MapPin className="mt-0.5 size-4 shrink-0 text-brand" strokeWidth={1.4} />
                 <span>
                   {site.address.street}
                   <br />
@@ -68,7 +68,7 @@ export default function Footer() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid size-11 place-items-center border border-white/12 text-white/60 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-gold hover:text-gold-light"
+                  className="grid size-11 place-items-center border border-white/12 text-white/60 transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-brand hover:text-brand-light"
                 >
                   <Icon className="size-[17px]" strokeWidth={1.4} />
                 </a>
@@ -114,7 +114,7 @@ export default function Footer() {
             </FooterColumn>
 
             <div className="mt-12">
-              <h3 className="eyebrow text-gold">The Journal</h3>
+              <h3 className="eyebrow text-brand">The Journal</h3>
               <p className="mt-5 text-[0.875rem] leading-relaxed text-white/55">
                 Occasional letters on interiors, light and the craft behind a good shutter. No more
                 than once a month.
@@ -161,7 +161,7 @@ export default function Footer() {
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="eyebrow text-gold">{title}</h3>
+      <h3 className="eyebrow text-brand">{title}</h3>
       <ul className="mt-6 space-y-3.5">{children}</ul>
     </div>
   );

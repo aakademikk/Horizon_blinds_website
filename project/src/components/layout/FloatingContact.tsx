@@ -1,24 +1,26 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { X } from "lucide-react";
+import { MessageCircle, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Stars } from "@/components/ui/Type";
 import { site } from "@/lib/site";
 
 /**
- * A small review medallion that drifts in once the visitor is past the hero
+ * A small contact medallion that drifts in once the visitor is past the hero
  * and retires before they reach the footer, so it never fights the CTA.
+ *
+ * This slot used to hold a review score. With no verified figures to show it
+ * carries the two things Horizon actually want people to do instead — message
+ * or ring — which is also how their own site behaves.
  *
  * It stays away from pages built around controls and forms, where a fixed
  * corner element would sit on top of the very things people came to use.
  */
 const OFF_LIMITS = ["/design-studio", "/contact"];
-const DISMISS_KEY = "fsb:rating-dismissed";
+const DISMISS_KEY = "hbs:contact-dismissed";
 
-export default function FloatingRating() {
+export default function FloatingContact() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(true);
@@ -57,30 +59,42 @@ export default function FloatingRating() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="fixed bottom-6 left-6 z-40 hidden lg:block"
         >
-          <div className="group relative flex items-center gap-4 border border-line bg-section/95 py-3.5 pl-4 pr-11 shadow-[0_18px_50px_-20px_rgba(35,27,12,0.35)] backdrop-blur-md transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-gold/50">
-            <Link href="/reviews" className="flex items-center gap-4">
-              <span
-                className="grid size-11 shrink-0 place-items-center rounded-full bg-ink text-[0.9375rem] font-medium text-gold-light"
-                data-tnum
-              >
-                {site.rating.value}
-              </span>
-              <span className="block">
-                <Stars
-                  size={11}
-                  rating={site.rating.value}
-                  label={`Rated ${site.rating.value} out of 5`}
-                />
-                <span className="mt-1 block text-[0.6875rem] tracking-[0.06em] text-muted">
-                  {site.rating.count} reviews · Essex
+          <div className="relative flex items-center gap-4 border border-line bg-section/95 py-3.5 pl-4 pr-11 shadow-[0_18px_50px_-20px_rgba(11,39,57,0.35)] backdrop-blur-md transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-brand/50">
+            <span
+              aria-hidden
+              className="grid size-11 shrink-0 place-items-center rounded-full bg-ink text-brand-light"
+            >
+              <MessageCircle className="size-5" strokeWidth={1.5} />
+            </span>
+
+            <span className="block">
+              <span className="block text-[0.8125rem] text-ink">Questions about a window?</span>
+              <span className="mt-1.5 flex items-center gap-3 text-[0.6875rem] tracking-[0.06em]">
+                <a
+                  href={site.whatsappHref}
+                  target="_blank"
+                  rel="noopener"
+                  className="link-underline text-brand-deep"
+                >
+                  WhatsApp us
+                </a>
+                <span aria-hidden className="text-line">
+                  |
                 </span>
+                <a
+                  href={site.phoneHref}
+                  className="flex items-center gap-1.5 text-muted transition-colors duration-400 hover:text-ink"
+                >
+                  <Phone className="size-3" strokeWidth={1.6} aria-hidden />
+                  <span data-tnum>{site.phone}</span>
+                </a>
               </span>
-            </Link>
+            </span>
 
             <button
               type="button"
               onClick={dismiss}
-              aria-label="Hide the review badge"
+              aria-label="Hide the contact badge"
               className="absolute right-1.5 top-1.5 grid size-7 place-items-center text-faint transition-colors duration-400 hover:text-ink"
             >
               <X className="size-3.5" strokeWidth={1.6} />

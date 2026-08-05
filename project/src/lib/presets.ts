@@ -58,7 +58,7 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "g2",
     title: "Café style in Silk White",
-    location: "Victorian terrace, Brentwood",
+    location: "Victorian terrace, Leigh-on-Sea",
     category: "Kitchens",
     detail: "Privacy to the street below, morning light above the sill.",
     span: "normal",
@@ -130,7 +130,7 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "g10",
     title: "Full height, Silk White",
-    location: "1930s semi, Brentwood",
+    location: "1930s semi, Benfleet",
     category: "Traditional",
     detail: "76mm louvres with a mid-rail — the most requested combination we fit.",
     span: "normal",

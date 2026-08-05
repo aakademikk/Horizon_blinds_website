@@ -53,7 +53,7 @@ export default function ProductDetail({
                 {product.family === "shutters" ? "Plantation Shutters" : "Made-to-Measure Blinds"}
               </Eyebrow>
               <h2 className="display-lg text-ink">{product.name}</h2>
-              <p className="mt-4 font-display text-[1.375rem] font-light italic text-gold-deep">
+              <p className="mt-4 font-display text-[1.375rem] font-light italic text-brand-deep">
                 {product.strapline}
               </p>
               <p className="mt-7 text-[1rem] leading-[1.85] text-muted">{product.description}</p>
@@ -63,7 +63,7 @@ export default function ProductDetail({
               <ul className="mt-9 grid gap-3 sm:grid-cols-2">
                 {product.features.map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-[0.875rem] text-body">
-                    <Check className="mt-0.5 size-4 shrink-0 text-gold-deep" strokeWidth={1.5} />
+                    <Check className="mt-0.5 size-4 shrink-0 text-brand-deep" strokeWidth={1.5} />
                     {f}
                   </li>
                 ))}
@@ -84,7 +84,7 @@ export default function ProductDetail({
                           <span
                             key={n}
                             className={`h-[3px] w-5 ${
-                              n <= product.scores[key] ? "bg-gold" : "bg-line"
+                              n <= product.scores[key] ? "bg-brand" : "bg-line"
                             }`}
                           />
                         ))}
@@ -98,7 +98,7 @@ export default function ProductDetail({
             <Reveal delay={0.24}>
               <div className="mt-10 flex flex-wrap items-center gap-6">
                 <CtaLink href="/contact#survey" variant="ink">
-                  Book Free Survey
+                  Book a Home Visit
                 </CtaLink>
                 <p className="text-[0.8125rem] text-muted" data-tnum>
                   From {gbp(Math.round((product.rate * 1.4) / 10) * 10)} per window, supplied and

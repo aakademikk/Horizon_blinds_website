@@ -5,41 +5,46 @@
  */
 
 export const site = {
-  name: "Fab Shutters & Blinds",
-  shortName: "Fab Shutters",
-  tagline: "Beautiful Windows. Beautiful Homes.",
+  name: "Horizon Blinds & Shutters",
+  shortName: "Horizon",
+  tagline: "Made to Measure Blinds, Shutters & Curtains Across Essex",
   description:
-    "Handcrafted plantation shutters and premium made-to-measure blinds, expertly measured and professionally installed across Essex.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.fabshuttersandblinds.co.uk",
+    "Made-to-measure blinds, shutters and curtains, professionally measured and installed across South Essex. Family run, no hard sell, free fitting.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://horizonblindsandshutters.co.uk",
   locale: "en_GB",
-  founded: "2009",
-  yearsTrading: 15,
-  phone: "01277 123 456",
-  phoneHref: "tel:+441277123456",
-  email: "hello@fabshuttersandblinds.co.uk",
+  /**
+   * Trading history is stated as the owner's time in the industry, which is
+   * what their own site claims. `founded` is left out on purpose — we do not
+   * have a verified incorporation date to put in the schema.org payload.
+   */
+  yearsTrading: 10,
+  phone: "07375 802 259",
+  phoneHref: "tel:+447375802259",
+  whatsappHref: "https://wa.me/447375802259",
+  email: "horizon4blinds@gmail.com",
   address: {
-    street: "The Studio, Ongar Road",
-    locality: "Brentwood",
+    street: "52 Denham Road",
+    locality: "Canvey Island",
     region: "Essex",
-    postcode: "CM15 9AA",
+    postcode: "SS8 9HA",
     country: "GB",
   },
-  geo: { lat: 51.6214, lng: 0.3056 },
+  geo: { lat: 51.5209, lng: 0.5892 },
   hours: [
-    { days: "Monday – Friday", time: "8:30am – 5:30pm" },
+    { days: "Monday – Friday", time: "9:00am – 6:00pm" },
     { days: "Saturday", time: "9:00am – 4:00pm" },
     { days: "Sunday", time: "Appointments by arrangement" },
   ],
   openingHoursSpec: [
-    { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:30", closes: "17:30" },
+    { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" },
     { days: ["Saturday"], opens: "09:00", closes: "16:00" },
   ],
   social: {
-    facebook: "https://www.facebook.com/fabshuttersandblinds",
-    instagram: "https://www.instagram.com/fabshuttersandblinds",
-    houzz: "https://www.houzz.co.uk",
+    facebook: "https://www.facebook.com/p/Horizon-Blinds-Shutters-100091233764620/",
+    instagram: "https://www.instagram.com/horizonblindsandshutters",
   },
-  rating: { value: 4.9, count: 387 },
+  /** What they actually promise, in place of invented review scores. */
+  guarantee: { blinds: 1, shutters: 3 },
   /** Optional outbound webhook for enquiries (Zapier, Make, n8n, CRM…). */
   webhookEnvKey: "ENQUIRY_WEBHOOK_URL",
 } as const;
@@ -95,15 +100,15 @@ export type Area = {
 
 export const areas: Area[] = [
   {
-    slug: "brentwood",
-    name: "Brentwood",
+    slug: "canvey-island",
+    name: "Canvey Island",
     intro:
-      "Our workshop sits just off the Ongar Road, so Brentwood is very much home. We have dressed everything here from Shenfield new-builds to listed cottages on the high street.",
+      "We are based on Canvey, so this is very much home. We have dressed everything here from seafront flats to family homes on the estates behind them.",
     character:
-      "Brentwood homes lean traditional — generous bay windows, deep reveals and period detail that rewards a shutter fitted properly rather than quickly.",
-    landmarks: ["Shenfield", "Hutton", "Ingatestone", "Pilgrims Hatch", "Warley"],
-    postcodes: ["CM13", "CM14", "CM15"],
-    popular: ["Full height shutters", "Bay window shutters", "Wooden blinds"],
+      "Bright, exposed and close to the water. We specify moisture-resistant finishes as standard, and we know which rooms take the afternoon glare full in the face.",
+    landmarks: ["Leigh Beck", "Winter Gardens", "Thorney Bay", "Benfleet", "South Benfleet"],
+    postcodes: ["SS8", "SS7"],
+    popular: ["Full height shutters", "Waterproof shutters", "Roller blinds"],
   },
   {
     slug: "leigh-on-sea",
@@ -162,9 +167,10 @@ export const areas: Area[] = [
   },
 ];
 
+/** Only claims with a source. No review scores until they are pulled live. */
 export const trustBadges = [
-  { label: "Google Reviews", value: "4.9 ★", note: "387 reviews" },
-  { label: "Years Trading", value: "15+", note: "Since 2009" },
+  { label: "Family Run", value: "Owner-led", note: "The person who quotes, fits" },
+  { label: "In the Trade", value: "10+ Years", note: "Across South Essex" },
   { label: "Made to Measure", value: "100%", note: "Nothing off the shelf" },
-  { label: "Guarantee", value: "5 Years", note: "Parts and workmanship" },
+  { label: "Shutter Guarantee", value: "3 Years", note: "One year on blinds" },
 ];

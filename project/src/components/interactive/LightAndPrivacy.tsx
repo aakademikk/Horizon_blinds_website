@@ -58,7 +58,7 @@ export default function LightAndPrivacy() {
             {/* Read-outs float over the scene like an instrument panel */}
             <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-6 bg-[linear-gradient(to_top,rgba(0,0,0,0.78),transparent)] p-6 pt-20">
               <div>
-                <span className="eyebrow text-gold-light">{active.label}</span>
+                <span className="eyebrow text-brand-light">{active.label}</span>
                 <p className="mt-1.5 text-[0.9375rem] text-white/70" data-tnum>
                   {active.clock}
                 </p>
@@ -90,8 +90,8 @@ export default function LightAndPrivacy() {
                     className={[
                       "group relative overflow-hidden border px-4 py-4 text-left transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]",
                       time === t.id
-                        ? "border-gold bg-section shadow-soft"
-                        : "border-line bg-transparent hover:border-gold/45 hover:bg-section",
+                        ? "border-brand bg-section shadow-soft"
+                        : "border-line bg-transparent hover:border-brand/45 hover:bg-section",
                     ].join(" ")}
                   >
                     {/* A sliver of that sky as a colour cue */}
@@ -127,7 +127,7 @@ export default function LightAndPrivacy() {
                 <label htmlFor="privacy-tilt" className="eyebrow text-faint">
                   Louvre position
                 </label>
-                <span className="text-[0.8125rem] text-gold-deep" data-tnum>
+                <span className="text-[0.8125rem] text-brand-deep" data-tnum>
                   {Math.round(state.open * 100)}% open
                 </span>
               </div>
@@ -197,7 +197,7 @@ function Bar({ label, value, caption }: { label: string; value: number; caption:
       <dd className="text-right text-[0.75rem] text-muted">{caption}</dd>
       <dd className="col-span-2 mt-2 h-[3px] w-full overflow-hidden bg-line">
         <motion.span
-          className="block h-full origin-left bg-gradient-to-r from-gold-deep to-gold-light"
+          className="block h-full origin-left bg-gradient-to-r from-brand-deep to-brand-light"
           animate={{ scaleX: Math.max(0.02, value) }}
           initial={false}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

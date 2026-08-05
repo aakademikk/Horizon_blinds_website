@@ -50,7 +50,7 @@ export default function LegalPage({
             <ol className="grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
               {sections.map((s, i) => (
                 <li key={s.heading} className="flex gap-3 text-[0.875rem]">
-                  <span className="text-gold-deep" data-tnum>
+                  <span className="text-brand-deep" data-tnum>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <a href={`#${slug(s.heading)}`} className="link-underline text-muted hover:text-ink">

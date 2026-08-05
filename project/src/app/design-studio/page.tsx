@@ -55,7 +55,7 @@ export default function DesignStudioPage() {
             <li key={t.href}>
               <a
                 href={t.href}
-                className="link-underline text-[0.8125rem] text-white/70 transition-colors hover:text-gold-light"
+                className="link-underline text-[0.8125rem] text-white/70 transition-colors hover:text-brand-light"
               >
                 {t.label}
               </a>

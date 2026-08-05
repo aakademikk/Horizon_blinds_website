@@ -27,7 +27,7 @@ export default function Projects({ limit }: { limit?: number }) {
             >
               <span className="link-underline">See the full gallery</span>
               <ArrowUpRight
-                className="size-4 text-gold-deep transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="size-4 text-brand-deep transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 strokeWidth={1.4}
               />
             </Link>
@@ -59,24 +59,24 @@ export default function Projects({ limit }: { limit?: number }) {
                   </div>
 
                   <div className="flex flex-1 flex-col p-7">
-                    <h3 className="display-md !text-[1.375rem] text-ink transition-colors duration-500 group-hover:text-gold-deep">
+                    <h3 className="display-md !text-[1.375rem] text-ink transition-colors duration-500 group-hover:text-brand-deep">
                       {p.title}
                     </h3>
 
                     <dl className="mt-4 space-y-2 text-[0.8125rem] text-muted">
                       <div className="flex items-start gap-2.5">
                         <dt className="sr-only">Property</dt>
-                        <span aria-hidden className="mt-[0.45em] size-1 shrink-0 rotate-45 bg-gold" />
+                        <span aria-hidden className="mt-[0.45em] size-1 shrink-0 rotate-45 bg-brand" />
                         <dd>{p.property}</dd>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <dt className="sr-only">Location</dt>
-                        <MapPin className="mt-0.5 size-3.5 shrink-0 text-gold-deep" strokeWidth={1.4} />
+                        <MapPin className="mt-0.5 size-3.5 shrink-0 text-brand-deep" strokeWidth={1.4} />
                         <dd>{p.location}</dd>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <dt className="sr-only">Completion time</dt>
-                        <Clock className="mt-0.5 size-3.5 shrink-0 text-gold-deep" strokeWidth={1.4} />
+                        <Clock className="mt-0.5 size-3.5 shrink-0 text-brand-deep" strokeWidth={1.4} />
                         <dd>{p.duration}</dd>
                       </div>
                     </dl>

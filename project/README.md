@@ -1,7 +1,15 @@
-# Fab Shutters & Blinds
+# Horizon Blinds & Shutters
 
-A luxury interiors website for a made-to-measure shutter and blind company in
-Essex. Built with Next.js 15, React 19, TypeScript and Tailwind CSS 4.
+A prototype website for Horizon Blinds & Shutters, a family-run made-to-measure
+blind, shutter and curtain company on Canvey Island, Essex. Built with
+Next.js 15, React 19, TypeScript and Tailwind CSS 4.
+
+> **This is a rebrand of an earlier build.** The parent branch,
+> `claude/fab-shutters-luxury-redesign-7qkndo`, carries the same site under a
+> different (fictional) brand. Everything brand-specific lives in three places:
+> `src/lib/site.ts` (name, contact, coverage), `src/components/layout/Wordmark.tsx`
+> (the logo) and the `@theme` block in `src/app/globals.css` (the palette).
+> Changing those three re-skins all twelve routes.
 
 ```bash
 npm install
@@ -175,11 +183,36 @@ generated Open Graph image, and a landing page per town under `/areas`.
 
 ## Content notes
 
-Reviews, projects, ratings and the company history are **illustrative sample
-content** written to demonstrate the design. Replace them in
-`src/lib/content.ts` and `src/lib/site.ts` before the site goes live —
-particularly the review counts and platform scores, which should never be
-published unless they are true.
+**What is real.** The company name, phone, email, Canvey Island address,
+opening approach, the 1-year blind / 3-year shutter guarantee and the "no hard
+sell, quotation within 24 hours" process come from Horizon's own published
+material and directory listings.
+
+**What is not.** Testimonials, case studies and the room photography are
+illustrative sample content written to demonstrate the design. They are
+governed by one switch:
+
+```ts
+// src/lib/content.ts
+export const reviewsAreReal = false;
+```
+
+While it is `false`, the site shows a visible "placeholder content" notice
+above every set of quotes and emits **no** schema.org `Review` markup. Flip it
+only once each quote in `reviews` is genuine and cleared for publication.
+
+There is deliberately **no `AggregateRating`** anywhere in the structured data,
+and no review score in the trust strip. Google treats an aggregate rating as a
+factual claim about the business; publishing an invented one risks a manual
+action as well as being untrue. `src/lib/content.ts` exports `promises`
+instead — things Horizon actually commit to. Add ratings back alongside figures
+pulled from the review platforms themselves.
+
+**Not yet built: curtains.** Horizon sell them and the copy says so, but the
+product catalogue (`src/lib/products.ts`) and the drawing engine
+(`RoomScene.tsx`) only model shutters and blinds. Curtains appear in the
+comparison table and in copy; there is no curtain product page, and the
+explorer and estimator cannot price one.
 
 Pricing is deliberately indicative. Every figure the visitor sees is framed as
 an "estimated investment" and the maths lives in one place

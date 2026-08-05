@@ -120,8 +120,8 @@ export default function SavingsCalculator() {
                 className={[
                   "border px-4 py-2.5 text-[0.8125rem] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   room === r.id
-                    ? "border-gold bg-gold/[0.08] text-ink"
-                    : "border-line text-muted hover:border-gold/50 hover:text-ink",
+                    ? "border-brand bg-brand/[0.08] text-ink"
+                    : "border-line text-muted hover:border-brand/50 hover:text-ink",
                 ].join(" ")}
               >
                 {r.name}
@@ -143,8 +143,8 @@ export default function SavingsCalculator() {
                 className={[
                   "flex items-baseline justify-between gap-4 border px-5 py-3.5 text-left transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   existing === e.id
-                    ? "border-gold bg-gold/[0.08]"
-                    : "border-line hover:border-gold/50",
+                    ? "border-brand bg-brand/[0.08]"
+                    : "border-line hover:border-brand/50",
                 ].join(" ")}
               >
                 <span className="text-[0.875rem] text-ink">{e.label}</span>
@@ -294,7 +294,7 @@ export default function SavingsCalculator() {
             improvement.</span>
           </p>
           <CtaLink href="/contact#survey" variant="ink" size="sm" className="shrink-0">
-            Book Free Survey
+            Book a Home Visit
           </CtaLink>
         </div>
       </div>

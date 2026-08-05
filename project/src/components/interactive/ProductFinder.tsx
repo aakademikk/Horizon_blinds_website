@@ -58,7 +58,7 @@ export default function ProductFinder() {
               type="button"
               onClick={() => setStep((s) => Math.max(0, s - 1))}
               aria-label="Previous question"
-              className="grid size-9 place-items-center border border-line text-muted transition-colors duration-500 hover:border-gold hover:text-gold-deep"
+              className="grid size-9 place-items-center border border-line text-muted transition-colors duration-500 hover:border-brand hover:text-brand-deep"
             >
               <ArrowLeft className="size-4" strokeWidth={1.4} />
             </button>
@@ -72,7 +72,7 @@ export default function ProductFinder() {
           <button
             type="button"
             onClick={restart}
-            className="flex items-center gap-2 text-[0.75rem] text-muted transition-colors duration-500 hover:text-gold-deep"
+            className="flex items-center gap-2 text-[0.75rem] text-muted transition-colors duration-500 hover:text-brand-deep"
           >
             <RotateCcw className="size-3.5" strokeWidth={1.5} />
             Start again
@@ -83,7 +83,7 @@ export default function ProductFinder() {
       {/* Progress */}
       <div className="h-px w-full bg-line">
         <motion.div
-          className="h-full origin-left bg-gradient-to-r from-gold-deep to-gold-light"
+          className="h-full origin-left bg-gradient-to-r from-brand-deep to-brand-light"
           animate={{ scaleX: done ? 1 : step / total }}
           initial={false}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -124,8 +124,8 @@ export default function ProductFinder() {
                       className={[
                         "group border p-6 text-left transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]",
                         selected
-                          ? "border-gold bg-gold/[0.07]"
-                          : "border-line hover:-translate-y-0.5 hover:border-gold/50 hover:shadow-soft",
+                          ? "border-brand bg-brand/[0.07]"
+                          : "border-line hover:-translate-y-0.5 hover:border-brand/50 hover:shadow-soft",
                       ].join(" ")}
                     >
                       <span className="block font-display text-[1.375rem] font-light text-ink">
@@ -157,12 +157,12 @@ export default function ProductFinder() {
                     initial={reduce ? false : { opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.65, delay: 0.12 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                    className={`card-luxe overflow-hidden ${i === 0 ? "ring-1 ring-gold" : ""}`}
+                    className={`card-luxe overflow-hidden ${i === 0 ? "ring-1 ring-brand" : ""}`}
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-ink">
                       <SceneImage {...presetFor(product.id)} className="size-full" />
                       {i === 0 && (
-                        <span className="absolute left-4 top-4 bg-gold px-3 py-1.5 text-[0.625rem] uppercase tracking-[0.18em] text-ink">
+                        <span className="absolute left-4 top-4 bg-brand px-3 py-1.5 text-[0.625rem] uppercase tracking-[0.18em] text-ink">
                           Best match
                         </span>
                       )}
@@ -193,7 +193,7 @@ export default function ProductFinder() {
 
               <div className="mt-12 flex flex-col gap-4 border-t border-line pt-9 sm:flex-row sm:items-center">
                 <CtaLink href="/contact#survey" variant="ink">
-                  Book Free Survey
+                  Book a Home Visit
                 </CtaLink>
                 <p className="text-[0.8125rem] leading-relaxed text-muted">
                   Mention this shortlist and we will bring exactly these samples with us.

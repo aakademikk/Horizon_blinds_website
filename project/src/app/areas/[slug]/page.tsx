@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin, ShieldCheck } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import { ProductCard } from "@/components/sections/ProductCategories";
 import Testimonials from "@/components/sections/Testimonials";
@@ -9,7 +9,7 @@ import SurveySection from "@/components/sections/SurveySection";
 import FaqSection from "@/components/sections/FaqSection";
 import FinalCta from "@/components/sections/FinalCta";
 import Reveal, { RevealChild, RevealGroup } from "@/components/ui/Reveal";
-import { SectionHeading, Stars } from "@/components/ui/Type";
+import { SectionHeading } from "@/components/ui/Type";
 import { areas, site } from "@/lib/site";
 import { products } from "@/lib/products";
 import {
@@ -99,13 +99,13 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
       >
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-[0.8125rem] text-white/65">
           <span className="flex items-center gap-2">
-            <MapPin className="size-4 text-gold" strokeWidth={1.4} />
+            <MapPin className="size-4 text-brand" strokeWidth={1.4} />
             <span data-tnum>{area.postcodes.join(" · ")}</span>
           </span>
           <span className="flex items-center gap-2.5">
-            <Stars size={12} rating={site.rating.value} label={`${site.rating.value} out of 5`} />
-            <span data-tnum>
-              {site.rating.value} from {site.rating.count} reviews
+            <ShieldCheck className="size-4 text-brand" strokeWidth={1.4} />
+            <span>
+              <span data-tnum>{site.guarantee.shutters}</span>-year shutter guarantee · free fitting
             </span>
           </span>
         </div>
@@ -132,7 +132,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
                     <ul className="mt-4 space-y-2 text-[0.9375rem] text-body">
                       {area.landmarks.map((l) => (
                         <li key={l} className="flex items-center gap-2.5">
-                          <span aria-hidden className="size-1 rotate-45 bg-gold" />
+                          <span aria-hidden className="size-1 rotate-45 bg-brand" />
                           {l}
                         </li>
                       ))}
@@ -143,7 +143,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
                     <ul className="mt-4 space-y-2 text-[0.9375rem] text-body">
                       {area.popular.map((p) => (
                         <li key={p} className="flex items-center gap-2.5">
-                          <span aria-hidden className="size-1 rotate-45 bg-gold" />
+                          <span aria-hidden className="size-1 rotate-45 bg-brand" />
                           {p}
                         </li>
                       ))}
@@ -192,13 +192,13 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
                   href={`/areas/${a.slug}`}
                   className="group flex h-full flex-col justify-between gap-6 bg-section p-8 transition-colors duration-600 hover:bg-paper"
                 >
-                  <span className="display-md !text-[1.25rem] text-ink transition-colors duration-500 group-hover:text-gold-deep">
+                  <span className="display-md !text-[1.25rem] text-ink transition-colors duration-500 group-hover:text-brand-deep">
                     {a.name}
                   </span>
                   <span className="flex items-center justify-between gap-3 text-[0.75rem] text-faint">
                     <span data-tnum>{a.postcodes.join(" · ")}</span>
                     <ArrowUpRight
-                      className="size-4 shrink-0 text-gold-deep transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      className="size-4 shrink-0 text-brand-deep transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                       strokeWidth={1.4}
                     />
                   </span>

@@ -122,7 +122,7 @@ export default function Header() {
                               href={child.href}
                               className="group block px-4 py-3 transition-colors duration-400 hover:bg-white/[0.06]"
                             >
-                              <span className="block text-[0.8125rem] font-medium text-white transition-colors duration-400 group-hover:text-gold-light">
+                              <span className="block text-[0.8125rem] font-medium text-white transition-colors duration-400 group-hover:text-brand-light">
                                 {child.label}
                               </span>
                               {child.note && (
@@ -145,7 +145,7 @@ export default function Header() {
               <a
                 href={site.phoneHref}
                 className={[
-                  "group hidden items-center gap-2.5 text-[0.8125rem] tracking-[0.02em] text-white/85 transition-colors duration-500 hover:text-gold-light sm:flex",
+                  "group hidden items-center gap-2.5 text-[0.8125rem] tracking-[0.02em] text-white/85 transition-colors duration-500 hover:text-brand-light sm:flex",
                 ].join(" ")}
               >
                 <Phone className="size-[15px] transition-transform duration-500 group-hover:-rotate-12" strokeWidth={1.5} />
@@ -156,9 +156,9 @@ export default function Header() {
 
               <Link
                 href="/contact#survey"
-                className="btn-base btn-gold hidden !px-6 !py-3.5 !text-[0.6875rem] lg:inline-flex"
+                className="btn-base btn-brand hidden !px-6 !py-3.5 !text-[0.6875rem] lg:inline-flex"
               >
-                Book Free Survey
+                Book a Home Visit
               </Link>
 
               <button
@@ -168,7 +168,7 @@ export default function Header() {
                 aria-controls="mobile-menu"
                 aria-label={openMenu ? "Close menu" : "Open menu"}
                 className={[
-                  "grid size-11 place-items-center border border-white/25 text-white transition-colors duration-500 hover:border-gold hover:text-gold-light xl:hidden",
+                  "grid size-11 place-items-center border border-white/25 text-white transition-colors duration-500 hover:border-brand hover:text-brand-light xl:hidden",
                 ].join(" ")}
               >
                 {openMenu ? <X className="size-5" strokeWidth={1.4} /> : <Menu className="size-5" strokeWidth={1.4} />}
@@ -226,8 +226,8 @@ export default function Header() {
               </ul>
 
               <div className="mt-10 flex flex-col gap-4">
-                <Link href="/contact#survey" className="btn-base btn-gold w-full" onClick={() => setOpenMenu(false)}>
-                  Book Free Home Survey
+                <Link href="/contact#survey" className="btn-base btn-brand w-full" onClick={() => setOpenMenu(false)}>
+                  Book a Free Home Visit
                 </Link>
                 <a href={site.phoneHref} className="btn-base btn-outline w-full text-white">
                   <Phone className="size-4" strokeWidth={1.5} />

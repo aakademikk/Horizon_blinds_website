@@ -23,7 +23,7 @@ export default function WhyChoose() {
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
-              <Eyebrow className="mb-7">Why Fab Shutters</Eyebrow>
+              <Eyebrow className="mb-7">Why Horizon</Eyebrow>
             </Reveal>
             <RevealLines
               className="display-xl text-ink"
@@ -64,9 +64,9 @@ export default function WhyChoose() {
                   />
                 </motion.div>
                 <figcaption className="absolute bottom-0 left-0 right-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.72),transparent)] p-7 pt-16">
-                  <p className="eyebrow text-gold-light">Full height · 76mm · Natural oak</p>
+                  <p className="eyebrow text-brand-light">Full height · 76mm · Natural oak</p>
                   <p className="mt-2 text-[0.9375rem] text-white/80">
-                    Hand-oiled basswood, Brentwood
+                    Hand-oiled basswood, Canvey Island
                   </p>
                 </figcaption>
               </figure>
@@ -82,8 +82,8 @@ export default function WhyChoose() {
 
             return (
               <RevealChild key={p.title} className="group">
-                <span className="mb-6 flex size-14 items-center justify-center border border-line bg-section transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:border-gold group-hover:shadow-[0_12px_30px_-14px_rgba(201,166,70,0.55)]">
-                  <Icon className="size-6 text-gold-deep" strokeWidth={1.1} />
+                <span className="mb-6 flex size-14 items-center justify-center border border-line bg-section transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:border-brand group-hover:shadow-[0_12px_30px_-14px_rgba(47,155,216,0.55)]">
+                  <Icon className="size-6 text-brand-deep" strokeWidth={1.1} />
                 </span>
                 <h3 className="display-md !text-[1.375rem] text-ink">{p.title}</h3>
                 <p className="mt-4 text-[0.9375rem] leading-[1.8] text-muted">{p.body}</p>

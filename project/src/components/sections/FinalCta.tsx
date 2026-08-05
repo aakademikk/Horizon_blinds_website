@@ -45,7 +45,7 @@ export default function FinalCta() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="eyebrow flex items-center gap-3 text-gold-light"
+            className="eyebrow flex items-center gap-3 text-brand-light"
           >
             <span aria-hidden className="h-px w-10 bg-current opacity-70" />
             The last word
@@ -78,12 +78,12 @@ export default function FinalCta() {
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
           >
-            <CtaLink href="/contact#survey" variant="gold" size="lg">
-              Book Free Home Survey
+            <CtaLink href="/contact#survey" variant="brand" size="lg">
+              Book a Free Home Visit
             </CtaLink>
             <a
               href={site.phoneHref}
-              className="group inline-flex items-center gap-3 px-2 py-3 text-[0.9375rem] text-white/75 transition-colors duration-500 hover:text-gold-light"
+              className="group inline-flex items-center gap-3 px-2 py-3 text-[0.9375rem] text-white/75 transition-colors duration-500 hover:text-brand-light"
             >
               <span className="text-[0.6875rem] uppercase tracking-[0.2em] text-white/62">
                 or call
