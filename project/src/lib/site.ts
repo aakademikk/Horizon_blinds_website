@@ -4,6 +4,16 @@
  * payloads, page metadata — reads from here.
  */
 
+/**
+ * Search engines are shut out unless this is explicitly switched on.
+ *
+ * The build carries a real company's name, logo, phone number and address, so
+ * a prototype on a shareable URL must not be crawlable — it could be taken for
+ * their actual site, or compete with it. Set NEXT_PUBLIC_ALLOW_INDEXING=true
+ * only on the deployment that is genuinely theirs.
+ */
+export const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
+
 export const site = {
   name: "Horizon Blinds & Shutters",
   shortName: "Horizon",

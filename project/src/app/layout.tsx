@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import FloatingContact from "@/components/layout/FloatingContact";
-import { site } from "@/lib/site";
+import { allowIndexing, site } from "@/lib/site";
 import { JsonLd, abs, localBusinessSchema } from "@/lib/seo";
 
 const cormorant = Cormorant_Garamond({
@@ -60,18 +60,21 @@ export const metadata: Metadata = {
     description: site.description,
     images: [abs("/opengraph-image")],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
-  },
+  // Mirrors robots.ts — a prototype on a shareable URL stays out of the index.
+  robots: allowIndexing
+    ? {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+      }
+    : { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
   category: "Home Improvement",
   formatDetection: { telephone: true, address: true },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F8F7F4" },
+    { media: "(prefers-color-scheme: light)", color: "#F4F7FA" },
     { media: "(prefers-color-scheme: dark)", color: "#0B2739" },
   ],
   width: "device-width",
