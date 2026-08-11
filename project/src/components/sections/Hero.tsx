@@ -63,7 +63,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink"
+      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-section"
       aria-label="Introduction"
     >
       {/* ------------------------------------------------------------ scene */}
@@ -102,25 +102,25 @@ export default function Hero() {
       </motion.div>
 
       {/*
-        Legibility, without flattening the picture: a soft pool of shadow anchored
+        Legibility, without flattening the picture: a soft pool of white anchored
         to the bottom-left where the type lives, leaving the sunlit right-hand
         side of the room to breathe.
       */}
       {/*
         Two treatments, chosen by shape rather than by width. A landscape
         viewport has room for the type to sit beside the light, so it gets a
-        soft pool of shadow in the bottom-left corner and the sunlit half of
+        soft pool of white in the bottom-left corner and the sunlit half of
         the room stays open. A portrait one does not — the copy would cover the
         whole picture — so the scene keeps the top third and the type sits on
-        near-solid ink below it, which is both legible and on brand.
+        near-solid white below it, which keeps it clean and legible.
       */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(8,8,8,0.965)_0%,rgba(8,8,8,0.95)_58%,rgba(8,8,8,0.78)_68%,rgba(8,8,8,0.4)_79%,rgba(8,8,8,0.12)_90%,rgba(8,8,8,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(8,8,8,0.94)_0%,rgba(8,8,8,0.8)_26%,rgba(8,8,8,0.5)_48%,rgba(8,8,8,0.16)_72%,rgba(8,8,8,0)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(255,255,255,0.965)_0%,rgba(255,255,255,0.95)_58%,rgba(255,255,255,0.78)_68%,rgba(255,255,255,0.4)_79%,rgba(255,255,255,0.12)_90%,rgba(255,255,255,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.8)_26%,rgba(255,255,255,0.5)_48%,rgba(255,255,255,0.16)_72%,rgba(255,255,255,0)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 -z-10 h-24 bg-[linear-gradient(to_bottom,rgba(6,6,6,0.62),transparent)] md:h-40 md:bg-[linear-gradient(to_bottom,rgba(6,6,6,0.5),transparent)]"
+        className="absolute inset-x-0 top-0 -z-10 h-24 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.62),transparent)] md:h-40 md:bg-[linear-gradient(to_bottom,rgba(255,255,255,0.5),transparent)]"
       />
 
       {/* ---------------------------------------------------------- content */}
@@ -132,7 +132,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: revealed ? 1 : 0 }}
           transition={{ duration: 1, delay: contentDelay }}
-          className="eyebrow flex items-center gap-3 !text-[0.625rem] !tracking-[0.14em] text-brand-light md:!text-[0.6875rem] md:!tracking-[0.22em]"
+          className="eyebrow flex items-center gap-3 !text-[0.625rem] !tracking-[0.14em] text-brand-deep md:!text-[0.6875rem] md:!tracking-[0.22em]"
         >
           {/* The rule is what pushes this onto a second line at 390px. */}
           <span aria-hidden className="hidden h-px w-10 bg-current opacity-70 sm:block" />
@@ -140,8 +140,7 @@ export default function Hero() {
         </motion.div>
 
         <h1
-          className="display-hero mt-5 text-white md:mt-8"
-          style={{ textShadow: "0 2px 40px rgba(0,0,0,0.45)" }}
+          className="display-hero mt-5 text-ink md:mt-8"
         >
           {HEADLINE.map((line, i) => (
             <span key={line} className="block overflow-hidden pb-[0.06em]">
@@ -156,7 +155,7 @@ export default function Hero() {
                 }}
               >
                 {i === 1 ? (
-                  <span className="bg-gradient-to-r from-white via-[#B9E4F7] to-brand-light bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-ink via-brand-deep to-brand bg-clip-text text-transparent">
                     {line}
                   </span>
                 ) : (
@@ -171,7 +170,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: revealed ? 1 : 0, y: revealed ? 0 : 18 }}
           transition={{ duration: 1.1, delay: contentDelay + 0.34, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 max-w-xl text-[1.0625rem] font-light leading-[1.66] text-white/78 md:mt-9 md:text-[1.1875rem] md:leading-[1.72]"
+          className="mt-6 max-w-xl text-[1.0625rem] font-light leading-[1.66] text-muted md:mt-9 md:text-[1.1875rem] md:leading-[1.72]"
         >
           Beautifully crafted blinds, shutters and curtains, measured in your home and fitted by
           the same people who quoted for them. Family run, across South Essex.
@@ -186,7 +185,7 @@ export default function Hero() {
           <Link href="/contact#survey" className="btn-base btn-brand !px-9 !py-[1.15rem]">
             Book a Free Home Visit
           </Link>
-          <Link href="/gallery" className="btn-base btn-outline !px-9 !py-[1.15rem] text-white">
+          <Link href="/gallery" className="btn-base btn-outline !px-9 !py-[1.15rem]">
             Browse Gallery
           </Link>
         </motion.div>
@@ -196,7 +195,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: revealed ? 1 : 0 }}
           transition={{ duration: 1.2, delay: contentDelay + 0.66 }}
-          className="mt-8 grid max-w-4xl grid-cols-2 gap-x-5 gap-y-3.5 border-t border-white/12 pt-6 md:mt-14 md:gap-x-8 md:gap-y-6 md:pt-8 lg:grid-cols-4"
+          className="mt-8 grid max-w-4xl grid-cols-2 gap-x-5 gap-y-3.5 border-t border-line pt-6 md:mt-14 md:gap-x-8 md:gap-y-6 md:pt-8 lg:grid-cols-4"
         >
           {BADGES.map(({ icon: Icon, label, value, short }) => (
             <li key={label} className="flex items-start gap-3">
@@ -206,10 +205,10 @@ export default function Hero() {
               <span className="block">
                 {/* On a phone the value says it all, so the small-caps label
                     stays for screen readers but gives up its line. */}
-                <span className="sr-only text-[0.65rem] uppercase tracking-[0.2em] text-white/65 md:not-sr-only md:block">
+                <span className="sr-only text-[0.65rem] uppercase tracking-[0.2em] text-muted md:not-sr-only md:block">
                   {label}
                 </span>
-                <span className="block text-[0.875rem] text-white/85 md:mt-1">
+                <span className="block text-[0.875rem] text-body md:mt-1">
                   <span className="md:hidden">{short}</span>
                   <span className="hidden md:inline">{value}</span>
                 </span>
@@ -227,7 +226,7 @@ export default function Hero() {
         animate={{ opacity: revealed ? 1 : 0 }}
         transition={{ duration: 1, delay: contentDelay + 0.9 }}
         style={calm ? undefined : { opacity: contentOpacity }}
-        className="absolute bottom-8 right-6 z-10 hidden flex-col items-center gap-3 text-white/65 transition-colors duration-500 hover:text-brand-light md:flex xl:right-16"
+        className="absolute bottom-8 right-6 z-10 hidden flex-col items-center gap-3 text-muted transition-colors duration-500 hover:text-brand md:flex xl:right-16"
       >
         <span className="text-[0.625rem] uppercase tracking-[0.28em] [writing-mode:vertical-rl]">
           Scroll
@@ -244,7 +243,7 @@ export default function Hero() {
               initial={{ x: 0 }}
               animate={{ x: phase === "opening" ? `${dir * 100}%` : 0 }}
               transition={{ duration: 1.9, ease: [0.76, 0, 0.24, 1] }}
-              className="absolute top-0 h-full w-1/2 bg-ink"
+              className="absolute top-0 h-full w-1/2 bg-section"
               style={dir === -1 ? { left: 0 } : { right: 0 }}
             >
               {/* Louvre lines, so the panels read as shutters rather than a curtain */}
@@ -252,7 +251,7 @@ export default function Hero() {
                 className="size-full opacity-[0.055]"
                 style={{
                   backgroundImage:
-                    "repeating-linear-gradient(to bottom, #fff 0 1px, transparent 1px 34px)",
+                    "repeating-linear-gradient(to bottom, rgba(11,39,57,0.12) 0 1px, transparent 1px 34px)",
                 }}
               />
               <span
@@ -269,7 +268,7 @@ export default function Hero() {
             transition={{ duration: phase === "closed" ? 0.85 : 0.45 }}
             className="absolute inset-0 grid place-items-center"
           >
-            <Wordmark tone="light" className="h-12 w-auto opacity-90" />
+            <Wordmark tone="dark" className="h-12 w-auto opacity-90" />
           </motion.div>
         </div>
       )}
