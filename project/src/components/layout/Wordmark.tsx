@@ -15,8 +15,8 @@ export default function Wordmark({
   className?: string;
 }) {
   const onDark = tone === "light";
-  const name = onDark ? "#FFFFFF" : "#10608F";
-  const sub = onDark ? "rgba(255,255,255,0.66)" : "#5B6B76";
+  const name = onDark ? "#FFFFFF" : "#399FD9";
+  const sub = onDark ? "rgba(255,255,255,0.66)" : "#6CAED6";
   // Instances sharing a tone can share a gradient; the two tones must not.
   const gid = `hz-fan-${tone}`;
 
@@ -27,9 +27,9 @@ export default function Wordmark({
     <svg viewBox="0 0 274 44" className={className} role="img" aria-label="Horizon Blinds & Shutters">
       <defs>
         <linearGradient id={gid} x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0%" stopColor={onDark ? "#2F9BD8" : "#10608F"} />
-          <stop offset="55%" stopColor={onDark ? "#6EC7F0" : "#2F9BD8"} />
-          <stop offset="100%" stopColor={onDark ? "#B9E4F7" : "#6EC7F0"} />
+          <stop offset="0%" stopColor={onDark ? "#3D8DCA" : "#3D8DCA"} />
+          <stop offset="55%" stopColor={onDark ? "#399FD9" : "#399FD9"} />
+          <stop offset="100%" stopColor={onDark ? "#38ABE3" : "#38ABE3"} />
         </linearGradient>
       </defs>
 

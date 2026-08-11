@@ -2,9 +2,9 @@
   <rect width="44" height="44" rx="6" fill="#ffffff"/>
   <defs>
     <linearGradient id="hz-fan-icon" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stopColor="#10608F"/>
-      <stop offset="55%" stopColor="#2F9BD8"/>
-      <stop offset="100%" stopColor="#6EC7F0"/>
+      <stop offset="0%" stopColor="#3D8DCA"/>
+      <stop offset="55%" stopColor="#399FD9"/>
+      <stop offset="100%" stopColor="#38ABE3"/>
     </linearGradient>
   </defs>
   <g transform="translate(22 22)">

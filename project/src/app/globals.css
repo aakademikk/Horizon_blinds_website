@@ -24,10 +24,10 @@
     is the button fill, so it is held light enough that ink type on it
     still clears 4.5:1 at the dark end of the gradient (5.0:1).
   */
-  --color-brand: #2f9bd8;
-  --color-brand-light: #6ec7f0;
-  --color-brand-deep: #10608f;
-  --color-brand-bright: #30bced;
+  --color-brand: #399fd9;
+  --color-brand-light: #6eb7e4;
+  --color-brand-deep: #3d8dca;
+  --color-brand-bright: #34b9ed;
 
   /* Type */
   --color-body: #16232c;
@@ -57,8 +57,8 @@
     0 8px 24px -12px rgba(11, 39, 57, 0.12);
   --shadow-lift: 0 2px 4px rgba(11, 39, 57, 0.05),
     0 24px 60px -24px rgba(11, 39, 57, 0.26);
-  --shadow-brand: 0 0 0 1px rgba(47, 155, 216, 0.35),
-    0 12px 40px -12px rgba(47, 155, 216, 0.45);
+  --shadow-brand: 0 0 0 1px rgba(57, 159, 217, 0.35),
+    0 12px 40px -12px rgba(57, 159, 217, 0.45);
 }
 
 /* ---------- Base ---------- */
