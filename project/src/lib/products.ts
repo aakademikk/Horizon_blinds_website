@@ -183,7 +183,7 @@ export const products: Product[] = [
     rate: 145,
     scores: { privacy: 4, light: 5, insulation: 2, durability: 4, maintenance: 3, value: 4 },
     features: [
-      "16mm, 25mm and 50mm slats",
+      "25mm and 50mm slats",
       "Matt, gloss and metallic finishes",
       "Moisture resistant throughout",
       "Cordless and child-safe options",
@@ -307,6 +307,8 @@ export const finishById = (id: string) => finishes.find((f) => f.id === id) ?? f
 export type Louvre = { id: string; mm: number; label: string; note: string; premium: number };
 
 export const louvres: Louvre[] = [
+  { id: "25", mm: 25, label: "25mm", note: "Slim and precise. Classic venetian slat width.", premium: 0.96 },
+  { id: "50", mm: 50, label: "50mm", note: "Broader slats for a bolder, more contemporary look.", premium: 1 },
   { id: "47", mm: 47, label: "47mm", note: "Fine and traditional. Suits smaller panes and cottage windows.", premium: 0.97 },
   { id: "63", mm: 63, label: "63mm", note: "The all-rounder. Balanced proportion for most British windows.", premium: 1 },
   { id: "76", mm: 76, label: "76mm", note: "Our most popular. More glass, more view, fewer louvre lines.", premium: 1.04 },

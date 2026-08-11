@@ -61,7 +61,7 @@ export default function Header() {
 
       <header
         data-no-print
-        className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink transition-all duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:bg-ink/95 md:backdrop-blur-xl md:supports-[backdrop-filter]:bg-ink/85"
+        className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-brand transition-all duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:bg-brand/95 md:backdrop-blur-xl md:supports-[backdrop-filter]:bg-brand/85"
       >
         <div className="shell">
           <div
@@ -110,7 +110,7 @@ export default function Header() {
                         transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
                         className="absolute left-1/2 top-full z-10 w-[19rem] -translate-x-1/2 pt-5"
                       >
-                        <div className="border border-white/12 bg-ink p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)]">
+                        <div className="border border-white/12 bg-brand p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)]">
                           {item.children.map((child) => (
                             <Link
                               key={child.href}
@@ -151,7 +151,7 @@ export default function Header() {
 
               <Link
                 href="/contact#survey"
-                className="btn-base btn-brand hidden !px-6 !py-3.5 !text-[0.6875rem] lg:inline-flex"
+                className="btn-base btn-outline hidden !px-6 !py-3.5 !text-[0.6875rem] text-white lg:inline-flex"
               >
                 Book a Home Visit
               </Link>
@@ -183,7 +183,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 overflow-y-auto bg-ink pt-[74px] xl:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-brand pt-[74px] xl:hidden"
           >
             <nav aria-label="Mobile" className="shell py-10">
               <ul className="divide-y divide-white/10 border-y border-white/10">

@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Info } from "lucide-react";
 import RoomScene from "@/components/scene/RoomScene";
 import Reveal from "@/components/ui/Reveal";
@@ -25,7 +25,6 @@ const CHOICES = [
   "tier-on-tier",
   "cafe-style",
   "solid-panels",
-  "wooden",
   "venetian",
   "roman",
   "roller",
@@ -36,7 +35,6 @@ const KIND_OF: Record<string, ProductKind> = {
   "tier-on-tier": "shutter",
   "cafe-style": "shutter",
   "solid-panels": "shutter",
-  wooden: "wooden",
   venetian: "venetian",
   roman: "roman",
   roller: "roller",
@@ -53,10 +51,22 @@ export default function ProductExplorer() {
   const roomData = rooms.find((r) => r.id === room)!;
   const product = products.find((p) => p.id === productId)!;
   const kind = KIND_OF[productId];
-  const hasLouvres = kind === "shutter" || kind === "wooden" || kind === "venetian";
+  const hasLouvres = kind === "shutter" || kind === "venetian";
   const isSolid = productId === "solid-panels";
 
   const state = useMemo(() => louvreState(isSolid ? 0 : tilt), [tilt, isSolid]);
+
+  // Auto-select a sensible louvre size when the product kind changes.
+  const louvreOptions = useMemo(
+    () => louvres.filter((l) => (kind === "venetian" ? l.mm <= 50 : l.mm >= 47)),
+    [kind],
+  );
+
+  useEffect(() => {
+    if (!louvreOptions.find((l) => l.id === louvreId)) {
+      setLouvreId(louvreOptions[0]?.id ?? "76");
+    }
+  }, [kind, louvreId, louvreOptions]);
 
   const price = useMemo(() => {
     const area = roomData.typicalArea;
@@ -160,7 +170,7 @@ export default function ProductExplorer() {
             </figure>
 
             {/* Louvre angle — the control that makes the scene come alive */}
-            {!isSolid && (
+            {hasLouvres && !isSolid && (
               <div className="mt-4 border border-white/10 bg-white/[0.03] p-5 md:mt-6 md:p-6">
                 <div className="flex items-baseline justify-between">
                   <label htmlFor="explorer-tilt" className="eyebrow text-white/65">
@@ -283,7 +293,7 @@ export default function ProductExplorer() {
             {hasLouvres && !isSolid && (
               <Control label="Louvre size" step="04">
                 <div role="radiogroup" aria-label="Louvre size" className="flex flex-wrap gap-2">
-                  {louvres.map((l) => (
+                  {louvreOptions.map((l) => (
                     <Pill
                       key={l.id}
                       selected={louvreId === l.id}

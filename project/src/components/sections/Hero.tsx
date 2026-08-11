@@ -116,7 +116,7 @@ export default function Hero() {
       */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.88)_58%,rgba(255,255,255,0.68)_68%,rgba(255,255,255,0.32)_79%,rgba(255,255,255,0.08)_90%,rgba(255,255,255,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.72)_26%,rgba(255,255,255,0.4)_48%,rgba(255,255,255,0.12)_72%,rgba(255,255,255,0)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(255,255,255,0.78)_0%,rgba(255,255,255,0.72)_58%,rgba(255,255,255,0.52)_68%,rgba(255,255,255,0.22)_79%,rgba(255,255,255,0.05)_90%,rgba(255,255,255,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0.56)_26%,rgba(255,255,255,0.3)_48%,rgba(255,255,255,0.08)_72%,rgba(255,255,255,0)_100%)]"
       />
       <div
         aria-hidden
@@ -243,7 +243,7 @@ export default function Hero() {
               initial={{ x: 0 }}
               animate={{ x: phase === "opening" ? `${dir * 100}%` : 0 }}
               transition={{ duration: 1.9, ease: [0.76, 0, 0.24, 1] }}
-              className="absolute top-0 h-full w-1/2 bg-ink"
+              className="absolute top-0 h-full w-1/2 bg-brand"
               style={dir === -1 ? { left: 0 } : { right: 0 }}
             >
               {/* Louvre lines, so the panels read as shutters rather than a curtain */}
