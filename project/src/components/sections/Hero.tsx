@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, BadgePoundSterling, Clock, Ruler, ShieldCheck } from "lucide-react";
 import SceneImage from "@/components/scene/SceneImage";
-import Wordmark from "@/components/layout/Wordmark";
 import { useCalmMotion } from "@/lib/useCalmMotion";
 
 const HEADLINE = ["Made to Measure.", "Made for Your Home."];
@@ -243,21 +242,50 @@ export default function Hero() {
               initial={{ x: 0 }}
               animate={{ x: phase === "opening" ? `${dir * 100}%` : 0 }}
               transition={{ duration: 1.9, ease: [0.76, 0, 0.24, 1] }}
-              className="absolute top-0 h-full w-1/2 bg-brand"
-              style={dir === -1 ? { left: 0 } : { right: 0 }}
+              className="absolute top-0 h-full w-1/2"
+              style={{
+                left: dir === -1 ? 0 : undefined,
+                right: dir === 1 ? 0 : undefined,
+                background: "#F4F2ED",
+                boxShadow: dir === -1
+                  ? "inset -8px 0 24px -8px rgba(0,0,0,0.18)"
+                  : "inset 8px 0 24px -8px rgba(0,0,0,0.18)",
+              }}
             >
-              {/* Louvre lines, so the panels read as shutters rather than a curtain */}
+              {/* Outer frame (stiles + rails) */}
               <div
-                className="size-full opacity-[0.055]"
+                className="absolute inset-0"
                 style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(to bottom, #fff 0 1px, transparent 1px 34px)",
+                  border: "12px solid #E8E3DA",
+                  borderImage: "none",
                 }}
               />
+              {/* Louvre slats — each slat catches light on top, shadow below */}
+              <div
+                className="absolute"
+                style={{
+                  inset: "46px 16px",
+                  backgroundImage:
+                    "repeating-linear-gradient(to bottom, #F4F2ED 0px, #FCFAF6 1.5px, #F4F2ED 3px, #E0DBD0 26px, #D2CCC0 28px, #C8C2B5 29px, #F4F2ED 30px, #F4F2ED 34px)",
+                }}
+              />
+              {/* Mid-rail — the horizontal divider every real shutter has */}
+              <div
+                className="absolute left-[12px] right-[12px]"
+                style={{
+                  top: "54%",
+                  height: "14px",
+                  background: "linear-gradient(to bottom, #D9D5CC, #EDE8DF 30%, #F4F2ED 50%, #EDE8DF 70%, #D9D5CC)",
+                  boxShadow: "0 2px 6px rgba(0,0,0,0.12), 0 -1px 3px rgba(0,0,0,0.06)",
+                }}
+              />
+              {/* Centre meeting edge shadow */}
               <span
-                className={`absolute inset-y-0 w-px bg-gradient-to-b from-transparent via-brand/45 to-transparent ${
-                  dir === -1 ? "right-0" : "left-0"
-                }`}
+                className="absolute inset-y-0 w-[2px]"
+                style={{
+                  [dir === -1 ? "right" : "left"]: 0,
+                  background: "linear-gradient(to bottom, transparent 5%, rgba(0,0,0,0.22) 15%, rgba(0,0,0,0.22) 85%, transparent 95%)",
+                }}
               />
             </motion.div>
           ))}
@@ -268,7 +296,40 @@ export default function Hero() {
             transition={{ duration: phase === "closed" ? 0.85 : 0.45 }}
             className="absolute inset-0 grid place-items-center"
           >
-            <Wordmark tone="light" className="h-12 w-auto opacity-90" />
+            <div className="flex flex-col items-center gap-3">
+              {/* Vertical-stack logo: fan above, text below */}
+              <svg viewBox="0 0 64 64" className="h-20 w-auto" role="img" aria-label="Horizon Blinds & Shutters">
+                <defs>
+                  <linearGradient id="hz-intro-fan" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#399FD9" />
+                    <stop offset="55%" stopColor="#5DB9E5" />
+                    <stop offset="100%" stopColor="#8ED3F2" />
+                  </linearGradient>
+                </defs>
+                <g transform="translate(32 30)">
+                  <circle r="24" fill="none" stroke="url(#hz-intro-fan)" strokeWidth="1.2" />
+                  {Array.from({ length: 11 }, (_, i) => -84 + i * 16.8).map((deg) => (
+                    <path
+                      key={deg}
+                      d="M -3 -3.5 L -1.4 -20 L 1.4 -20 L 3 -3.5 Z"
+                      transform={`rotate(${deg})`}
+                      fill="url(#hz-intro-fan)"
+                      opacity={Math.abs(deg) < 9 ? 1 : 0.78}
+                    />
+                  ))}
+                  <circle cy="-1" r="3.8" fill="url(#hz-intro-fan)" />
+                  <rect x="-17.5" y="2.2" width="35" height="1.6" rx="0.8" fill="url(#hz-intro-fan)" opacity="0.85" />
+                </g>
+              </svg>
+              <div className="text-center">
+                <div className="font-display text-[2rem] font-light leading-none tracking-[-0.02em] text-[#399FD9]">
+                  Horizon
+                </div>
+                <div className="mt-1 text-[0.5rem] font-semibold uppercase tracking-[0.3em] text-[#8CB8D6]">
+                  Blinds &amp; Shutters
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       )}
