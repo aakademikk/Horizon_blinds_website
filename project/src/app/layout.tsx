@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "window shutters Canvey Island",
     "blinds Chelmsford",
     "shutters Leigh-on-Sea",
-    "wooden blinds Southend",
+    "venetian blinds Southend",
     "electric blinds Essex",
     "bay window shutters",
   ],

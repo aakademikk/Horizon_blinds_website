@@ -11,11 +11,11 @@ import { JsonLd, breadcrumbSchema, faqSchema, pageMeta, productSchemas } from "@
 export const metadata = pageMeta({
   title: "Made-to-Measure Blinds",
   description:
-    "Wooden, venetian, roman, roller, perfect fit and electric blinds — measured, made and fitted across Essex by our own team.",
+    "Venetian, roman, roller, perfect fit and electric blinds — measured, made and fitted across Essex by our own team.",
   path: "/blinds",
   keywords: [
     "made to measure blinds Essex",
-    "wooden blinds Canvey Island",
+    "venetian blinds Canvey Island",
     "roman blinds Chelmsford",
     "electric blinds Essex",
     "perfect fit blinds",
@@ -45,9 +45,9 @@ export default function BlindsPage() {
         breadcrumb={[{ label: "Blinds" }]}
         scene={{
           room: "office",
-          kind: "wooden",
-          finishId: "natural-wood",
-          louvreId: "63",
+          kind: "venetian",
+          finishId: "grey",
+          louvreId: "50",
           tilt: 46,
           time: "afternoon",
         }}
@@ -62,7 +62,7 @@ export default function BlindsPage() {
         </div>
       </PageHero>
 
-      {blinds.map((product, i) => (
+      {blinds.filter((p) => p.id !== "wooden").map((product, i) => (
         <ProductDetail
           key={product.id}
           product={product}

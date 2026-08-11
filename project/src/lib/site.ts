@@ -83,7 +83,6 @@ export const navigation: NavItem[] = [
     label: "Blinds",
     href: "/blinds",
     children: [
-      { label: "Wooden Blinds", href: "/blinds#wooden", note: "Warm, tactile hardwood" },
       { label: "Venetian Blinds", href: "/blinds#venetian", note: "Precise light control" },
       { label: "Roman Blinds", href: "/blinds#roman", note: "Soft, tailored folds" },
       { label: "Roller Blinds", href: "/blinds#roller", note: "Quiet and uncluttered" },
@@ -162,7 +161,7 @@ export const areas: Area[] = [
       "Straightforward geometry, generous glazing. A place where minimal frames and wide louvres really sing.",
     landmarks: ["Billericay", "Wickford", "Laindon", "Pitsea", "Vange"],
     postcodes: ["SS13", "SS14", "SS15", "SS16"],
-    popular: ["Full height shutters", "Wooden blinds", "Roman blinds"],
+    popular: ["Full height shutters", "Venetian blinds", "Roman blinds"],
   },
   {
     slug: "rayleigh",
