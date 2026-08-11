@@ -63,7 +63,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-section"
+      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-paper"
       aria-label="Introduction"
     >
       {/* ------------------------------------------------------------ scene */}
@@ -116,7 +116,7 @@ export default function Hero() {
       */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(255,255,255,0.965)_0%,rgba(255,255,255,0.95)_58%,rgba(255,255,255,0.78)_68%,rgba(255,255,255,0.4)_79%,rgba(255,255,255,0.12)_90%,rgba(255,255,255,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.8)_26%,rgba(255,255,255,0.5)_48%,rgba(255,255,255,0.16)_72%,rgba(255,255,255,0)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.88)_58%,rgba(255,255,255,0.68)_68%,rgba(255,255,255,0.32)_79%,rgba(255,255,255,0.08)_90%,rgba(255,255,255,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.72)_26%,rgba(255,255,255,0.4)_48%,rgba(255,255,255,0.12)_72%,rgba(255,255,255,0)_100%)]"
       />
       <div
         aria-hidden
@@ -243,7 +243,7 @@ export default function Hero() {
               initial={{ x: 0 }}
               animate={{ x: phase === "opening" ? `${dir * 100}%` : 0 }}
               transition={{ duration: 1.9, ease: [0.76, 0, 0.24, 1] }}
-              className="absolute top-0 h-full w-1/2 bg-section"
+              className="absolute top-0 h-full w-1/2 bg-ink"
               style={dir === -1 ? { left: 0 } : { right: 0 }}
             >
               {/* Louvre lines, so the panels read as shutters rather than a curtain */}
@@ -251,7 +251,7 @@ export default function Hero() {
                 className="size-full opacity-[0.055]"
                 style={{
                   backgroundImage:
-                    "repeating-linear-gradient(to bottom, rgba(11,39,57,0.12) 0 1px, transparent 1px 34px)",
+                    "repeating-linear-gradient(to bottom, #fff 0 1px, transparent 1px 34px)",
                 }}
               />
               <span
@@ -268,7 +268,7 @@ export default function Hero() {
             transition={{ duration: phase === "closed" ? 0.85 : 0.45 }}
             className="absolute inset-0 grid place-items-center"
           >
-            <Wordmark tone="dark" className="h-12 w-auto opacity-90" />
+            <Wordmark tone="light" className="h-12 w-auto opacity-90" />
           </motion.div>
         </div>
       )}
