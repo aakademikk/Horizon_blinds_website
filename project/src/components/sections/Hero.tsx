@@ -301,9 +301,9 @@ export default function Hero() {
               <svg viewBox="0 0 64 64" className="h-20 w-auto" role="img" aria-label="Horizon Blinds & Shutters">
                 <defs>
                   <linearGradient id="hz-intro-fan" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#399FD9" />
-                    <stop offset="55%" stopColor="#5DB9E5" />
-                    <stop offset="100%" stopColor="#8ED3F2" />
+                    <stop offset="0%" stopColor="#0870C0" />
+                    <stop offset="55%" stopColor="#4DA4DE" />
+                    <stop offset="100%" stopColor="#8EC8EE" />
                   </linearGradient>
                 </defs>
                 <g transform="translate(32 30)">
@@ -322,10 +322,10 @@ export default function Hero() {
                 </g>
               </svg>
               <div className="text-center">
-                <div className="font-display text-[2rem] font-light leading-none tracking-[-0.02em] text-[#399FD9]">
+                <div className="font-display text-[2rem] font-light leading-none tracking-[-0.02em] text-[#0870C0]">
                   Horizon
                 </div>
-                <div className="mt-1 text-[0.5rem] font-semibold uppercase tracking-[0.3em] text-[#8CB8D6]">
+                <div className="mt-1 text-[0.5rem] font-semibold uppercase tracking-[0.3em] text-[#5A9ED4]">
                   Blinds &amp; Shutters
                 </div>
               </div>

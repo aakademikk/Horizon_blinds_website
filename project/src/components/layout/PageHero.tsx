@@ -26,7 +26,7 @@ export default function PageHero({
   children?: React.ReactNode;
 }) {
   return (
-    <section className="relative isolate flex min-h-[76svh] items-end overflow-hidden bg-ink pt-32">
+    <section className="relative isolate flex min-h-[76svh] items-end overflow-hidden bg-brand pt-32">
       <div className="absolute inset-0 -z-20">
         <SceneImage {...scene} className="size-full" priority />
       </div>

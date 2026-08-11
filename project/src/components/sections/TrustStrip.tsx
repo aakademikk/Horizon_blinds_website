@@ -13,7 +13,7 @@ export default function TrustStrip() {
   const reduce = useReducedMotion();
 
   return (
-    <section aria-label="What we promise" className="border-b border-white/10 bg-ink">
+    <section aria-label="What we promise" className="border-b border-white/10 bg-brand">
       <div className="shell py-7 md:py-16">
         <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-16">
           <ul className="grid grid-cols-2 gap-x-5 gap-y-7 sm:grid-cols-4 md:gap-x-8">

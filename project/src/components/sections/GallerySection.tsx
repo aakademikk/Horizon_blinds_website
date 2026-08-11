@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/Type";
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="section-y bg-ink">
+    <section id="gallery" className="section-y bg-brand">
       <div className="shell">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>

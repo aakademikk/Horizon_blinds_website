@@ -107,7 +107,7 @@ export default function ProductExplorer() {
   ];
 
   return (
-    <section id="explorer" className="section-y bg-ink text-white">
+    <section id="explorer" className="section-y bg-brand text-white">
       <div className="shell">
         <Reveal>
           <SectionHeading
@@ -271,8 +271,8 @@ export default function ProductExplorer() {
                     className={[
                       "group relative size-11 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                       finishId === f.id
-                        ? "ring-2 ring-brand ring-offset-4 ring-offset-ink"
-                        : "ring-1 ring-white/20 hover:ring-white/50 hover:ring-offset-2 hover:ring-offset-ink",
+                        ? "ring-2 ring-brand ring-offset-4 ring-offset-brand"
+                        : "ring-1 ring-white/20 hover:ring-white/50 hover:ring-offset-2 hover:ring-offset-brand",
                     ].join(" ")}
                     style={{
                       background: f.grain
