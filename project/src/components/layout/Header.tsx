@@ -67,7 +67,7 @@ export default function Header() {
           <div
             className={[
               "flex items-center justify-between transition-all duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
-              solid ? "h-[74px]" : "h-[104px]",
+              solid ? "h-[82px]" : "h-[116px]",
             ].join(" ")}
           >
             <Link
@@ -75,7 +75,7 @@ export default function Header() {
               aria-label={`${site.name} — home`}
               className="shrink-0 transition-opacity duration-500 hover:opacity-70"
             >
-              <Wordmark tone="light" className="h-8 w-auto md:h-9" />
+              <Wordmark tone="light" className="h-12 w-auto md:h-14" />
             </Link>
 
             {/* ------------------------------------------------- desktop nav */}
@@ -95,7 +95,7 @@ export default function Header() {
                     data-active={isActive(item.href)}
                     aria-expanded={item.children ? openDrop === item.label : undefined}
                     className={[
-                      "nav-link text-[0.8125rem] tracking-[0.04em] text-white/80 transition-colors duration-500 hover:text-white",
+                      "nav-link text-[0.875rem] tracking-[0.04em] text-white/80 transition-colors duration-500 hover:text-white",
                     ].join(" ")}
                   >
                     {item.label}
@@ -140,7 +140,7 @@ export default function Header() {
               <a
                 href={site.phoneHref}
                 className={[
-                  "group hidden items-center gap-2.5 text-[0.8125rem] tracking-[0.02em] text-white/85 transition-colors duration-500 hover:text-brand-light sm:flex",
+                  "group hidden items-center gap-2.5 text-[0.875rem] tracking-[0.02em] text-white/85 transition-colors duration-500 hover:text-brand-light sm:flex",
                 ].join(" ")}
               >
                 <Phone className="size-[15px] transition-transform duration-500 group-hover:-rotate-12" strokeWidth={1.5} />
@@ -183,7 +183,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 overflow-y-auto bg-brand pt-[74px] xl:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-brand pt-[82px] xl:hidden"
           >
             <nav aria-label="Mobile" className="shell py-10">
               <ul className="divide-y divide-white/10 border-y border-white/10">
