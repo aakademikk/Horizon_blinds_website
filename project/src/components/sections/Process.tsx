@@ -22,7 +22,7 @@ export default function Process() {
   const progress = useSpring(raw, { stiffness: 90, damping: 26, restDelta: 0.001 });
 
   return (
-    <section id="process" className="section-y bg-brand">
+    <section id="process" className="section-y bg-ink">
       <div className="shell">
         <Reveal>
           <SectionHeading

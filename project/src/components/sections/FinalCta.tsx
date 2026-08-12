@@ -18,7 +18,7 @@ export default function FinalCta() {
   return (
     <section
       ref={ref}
-      className="relative isolate flex min-h-[86vh] items-center overflow-hidden bg-brand"
+      className="relative isolate flex min-h-[86vh] items-center overflow-hidden bg-ink"
     >
       <motion.div style={calm ? undefined : { y }} className="absolute inset-[-14%] -z-20">
         <SceneImage

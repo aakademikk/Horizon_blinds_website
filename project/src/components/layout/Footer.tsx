@@ -18,7 +18,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-brand text-white/70">
+    <footer className="relative bg-ink text-white/70">
       {/* Hairline of brand across the very top */}
       <div aria-hidden className="h-px bg-gradient-to-r from-transparent via-brand/55 to-transparent" />
 

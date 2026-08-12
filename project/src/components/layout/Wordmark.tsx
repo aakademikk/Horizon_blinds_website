@@ -15,9 +15,8 @@ export default function Wordmark({
   className?: string;
 }) {
   const onDark = tone === "light";
-  // On a blue header, the fan needs to be white/light so it doesn't disappear.
-  const name = onDark ? "#FFFFFF" : "#0870C0";
-  const sub = onDark ? "rgba(255,255,255,0.68)" : "#5A9ED4";
+  const name = onDark ? "#FFFFFF" : "#10608F";
+  const sub = onDark ? "rgba(255,255,255,0.66)" : "#5B6B76";
   const gid = `hz-fan-${tone}`;
 
   // 11 blades across a 168° arc.
@@ -32,9 +31,9 @@ export default function Wordmark({
     >
       <defs>
         <linearGradient id={gid} x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0%" stopColor={onDark ? "#FFFFFF" : "#065A9A"} />
-          <stop offset="55%" stopColor={onDark ? "#D0ECF8" : "#0870C0"} />
-          <stop offset="100%" stopColor={onDark ? "#A3DBF2" : "#4DA4DE"} />
+          <stop offset="0%" stopColor={onDark ? "#2F9BD8" : "#10608F"} />
+          <stop offset="55%" stopColor={onDark ? "#6EC7F0" : "#2F9BD8"} />
+          <stop offset="100%" stopColor={onDark ? "#B9E4F7" : "#6EC7F0"} />
         </linearGradient>
       </defs>
 

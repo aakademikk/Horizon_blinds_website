@@ -4,7 +4,6 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, BadgePoundSterling, Clock, Ruler, ShieldCheck } from "lucide-react";
-import SceneImage from "@/components/scene/SceneImage";
 import { useCalmMotion } from "@/lib/useCalmMotion";
 
 const HEADLINE = ["Made to Measure.", "Made for Your Home."];
@@ -62,7 +61,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-paper"
+      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink"
       aria-label="Introduction"
     >
       {/* ------------------------------------------------------------ scene */}
@@ -73,53 +72,26 @@ export default function Hero() {
       >
         <motion.div
           className="size-full"
-          initial={reduce ? false : { filter: "brightness(0.4) saturate(0.6)" }}
-          animate={{ filter: "brightness(1.04) saturate(1.06)" }}
+          initial={reduce ? false : { filter: "brightness(0.5) saturate(0.7)" }}
+          animate={{ filter: "brightness(1.02) saturate(1.04)" }}
           transition={{ duration: 3.4, delay: reduce ? 0 : 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/*
-            Panned rather than scaled: the window lands right of centre and the
-            headline gets quiet wall to sit on, with no loss of framing.
-          */}
-          <SceneImage
-            room="living"
-            kind="shutter"
-            finishId="silk-white"
-            louvreId="76"
-            tilt={52}
-            time="morning"
-            pan={-210}
-            priority
-            // A portrait phone only sees a 370px-wide slice of the 1200px
-            // drawing. Centred, that slice lands on the sofa; pinned right it
-            // catches the shutters, the frame edge and the wall beyond, which
-            // is the only crop that still reads as a room.
-            className="size-full object-right md:landscape:object-center"
-            alt="A bright living room with full-height plantation shutters, louvres half open to the morning sun"
+          <img
+            src="/horizon.jpg"
+            alt="Horizon Blinds & Shutters — plantation shutters in a bright, modern interior"
+            className="size-full object-cover object-center"
           />
         </motion.div>
       </motion.div>
 
-      {/*
-        Legibility, without flattening the picture: a soft pool of white anchored
-        to the bottom-left where the type lives, leaving the sunlit right-hand
-        side of the room to breathe.
-      */}
-      {/*
-        Two treatments, chosen by shape rather than by width. A landscape
-        viewport has room for the type to sit beside the light, so it gets a
-        soft pool of white in the bottom-left corner and the sunlit half of
-        the room stays open. A portrait one does not — the copy would cover the
-        whole picture — so the scene keeps the top third and the type sits on
-        near-solid white below it, which keeps it clean and legible.
-      */}
+      {/* Dark gradient overlay — legibility pool at the bottom-left */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(255,255,255,0.78)_0%,rgba(255,255,255,0.72)_58%,rgba(255,255,255,0.52)_68%,rgba(255,255,255,0.22)_79%,rgba(255,255,255,0.05)_90%,rgba(255,255,255,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0.56)_26%,rgba(255,255,255,0.3)_48%,rgba(255,255,255,0.08)_72%,rgba(255,255,255,0)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(8,8,8,0.94)_0%,rgba(8,8,8,0.88)_58%,rgba(8,8,8,0.7)_68%,rgba(8,8,8,0.35)_79%,rgba(8,8,8,0.1)_90%,rgba(8,8,8,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(8,8,8,0.9)_0%,rgba(8,8,8,0.72)_26%,rgba(8,8,8,0.42)_48%,rgba(8,8,8,0.12)_72%,rgba(8,8,8,0)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 -z-10 h-24 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.62),transparent)] md:h-40 md:bg-[linear-gradient(to_bottom,rgba(255,255,255,0.5),transparent)]"
+        className="absolute inset-x-0 top-0 -z-10 h-24 bg-[linear-gradient(to_bottom,rgba(6,6,6,0.55),transparent)] md:h-40 md:bg-[linear-gradient(to_bottom,rgba(6,6,6,0.42),transparent)]"
       />
 
       {/* ---------------------------------------------------------- content */}
@@ -131,7 +103,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: revealed ? 1 : 0 }}
           transition={{ duration: 1, delay: contentDelay }}
-          className="eyebrow flex items-center gap-3 !text-[0.625rem] !tracking-[0.14em] text-brand-deep md:!text-[0.6875rem] md:!tracking-[0.22em]"
+          className="eyebrow flex items-center gap-3 !text-[0.625rem] !tracking-[0.14em] text-brand-light md:!text-[0.6875rem] md:!tracking-[0.22em]"
         >
           {/* The rule is what pushes this onto a second line at 390px. */}
           <span aria-hidden className="hidden h-px w-10 bg-current opacity-70 sm:block" />
@@ -139,7 +111,8 @@ export default function Hero() {
         </motion.div>
 
         <h1
-          className="display-hero mt-5 text-ink md:mt-8"
+          className="display-hero mt-5 text-white md:mt-8"
+          style={{ textShadow: "0 2px 40px rgba(0,0,0,0.45)" }}
         >
           {HEADLINE.map((line, i) => (
             <span key={line} className="block overflow-hidden pb-[0.06em]">
@@ -154,7 +127,7 @@ export default function Hero() {
                 }}
               >
                 {i === 1 ? (
-                  <span className="bg-gradient-to-r from-ink via-brand-deep to-brand bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-white via-[#B9E4F7] to-brand-light bg-clip-text text-transparent">
                     {line}
                   </span>
                 ) : (
@@ -169,7 +142,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: revealed ? 1 : 0, y: revealed ? 0 : 18 }}
           transition={{ duration: 1.1, delay: contentDelay + 0.34, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 max-w-xl text-[1.0625rem] font-light leading-[1.66] text-muted md:mt-9 md:text-[1.1875rem] md:leading-[1.72]"
+          className="mt-6 max-w-xl text-[1.0625rem] font-light leading-[1.66] text-white/78 md:mt-9 md:text-[1.1875rem] md:leading-[1.72]"
         >
           Beautifully crafted blinds, shutters and curtains, measured in your home and fitted by
           the same people who quoted for them. Family run, across South Essex.
@@ -184,7 +157,7 @@ export default function Hero() {
           <Link href="/contact#survey" className="btn-base btn-brand !px-9 !py-[1.15rem]">
             Book a Free Home Visit
           </Link>
-          <Link href="/gallery" className="btn-base btn-outline !px-9 !py-[1.15rem]">
+          <Link href="/gallery" className="btn-base btn-outline !px-9 !py-[1.15rem] text-white">
             Browse Gallery
           </Link>
         </motion.div>
@@ -194,7 +167,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: revealed ? 1 : 0 }}
           transition={{ duration: 1.2, delay: contentDelay + 0.66 }}
-          className="mt-8 grid max-w-4xl grid-cols-2 gap-x-5 gap-y-3.5 border-t border-line pt-6 md:mt-14 md:gap-x-8 md:gap-y-6 md:pt-8 lg:grid-cols-4"
+          className="mt-8 grid max-w-4xl grid-cols-2 gap-x-5 gap-y-3.5 border-t border-white/12 pt-6 md:mt-14 md:gap-x-8 md:gap-y-6 md:pt-8 lg:grid-cols-4"
         >
           {BADGES.map(({ icon: Icon, label, value, short }) => (
             <li key={label} className="flex items-start gap-3">
@@ -204,10 +177,10 @@ export default function Hero() {
               <span className="block">
                 {/* On a phone the value says it all, so the small-caps label
                     stays for screen readers but gives up its line. */}
-                <span className="sr-only text-[0.65rem] uppercase tracking-[0.2em] text-muted md:not-sr-only md:block">
+                <span className="sr-only text-[0.65rem] uppercase tracking-[0.2em] text-white/65 md:not-sr-only md:block">
                   {label}
                 </span>
-                <span className="block text-[0.875rem] text-body md:mt-1">
+                <span className="block text-[0.875rem] text-white/85 md:mt-1">
                   <span className="md:hidden">{short}</span>
                   <span className="hidden md:inline">{value}</span>
                 </span>
@@ -225,7 +198,7 @@ export default function Hero() {
         animate={{ opacity: revealed ? 1 : 0 }}
         transition={{ duration: 1, delay: contentDelay + 0.9 }}
         style={calm ? undefined : { opacity: contentOpacity }}
-        className="absolute bottom-8 right-6 z-10 hidden flex-col items-center gap-3 text-muted transition-colors duration-500 hover:text-brand md:flex xl:right-16"
+        className="absolute bottom-8 right-6 z-10 hidden flex-col items-center gap-3 text-white/65 transition-colors duration-500 hover:text-brand-light md:flex xl:right-16"
       >
         <span className="text-[0.625rem] uppercase tracking-[0.28em] [writing-mode:vertical-rl]">
           Scroll
@@ -242,50 +215,21 @@ export default function Hero() {
               initial={{ x: 0 }}
               animate={{ x: phase === "opening" ? `${dir * 100}%` : 0 }}
               transition={{ duration: 1.9, ease: [0.76, 0, 0.24, 1] }}
-              className="absolute top-0 h-full w-1/2"
-              style={{
-                left: dir === -1 ? 0 : undefined,
-                right: dir === 1 ? 0 : undefined,
-                background: "#F4F2ED",
-                boxShadow: dir === -1
-                  ? "inset -8px 0 24px -8px rgba(0,0,0,0.18)"
-                  : "inset 8px 0 24px -8px rgba(0,0,0,0.18)",
-              }}
+              className="absolute top-0 h-full w-1/2 bg-ink"
+              style={dir === -1 ? { left: 0 } : { right: 0 }}
             >
-              {/* Outer frame (stiles + rails) */}
+              {/* Louvre lines, so the panels read as shutters rather than a curtain */}
               <div
-                className="absolute inset-0"
+                className="size-full opacity-[0.055]"
                 style={{
-                  border: "12px solid #E8E3DA",
-                  borderImage: "none",
-                }}
-              />
-              {/* Louvre slats — each slat catches light on top, shadow below */}
-              <div
-                className="absolute"
-                style={{
-                  inset: "46px 16px",
                   backgroundImage:
-                    "repeating-linear-gradient(to bottom, #F4F2ED 0px, #FCFAF6 1.5px, #F4F2ED 3px, #E0DBD0 26px, #D2CCC0 28px, #C8C2B5 29px, #F4F2ED 30px, #F4F2ED 34px)",
+                    "repeating-linear-gradient(to bottom, #fff 0 1px, transparent 1px 34px)",
                 }}
               />
-              {/* Mid-rail — the horizontal divider every real shutter has */}
-              <div
-                className="absolute left-[12px] right-[12px]"
-                style={{
-                  top: "54%",
-                  height: "14px",
-                  background: "linear-gradient(to bottom, #D9D5CC, #EDE8DF 30%, #F4F2ED 50%, #EDE8DF 70%, #D9D5CC)",
-                  boxShadow: "0 2px 6px rgba(0,0,0,0.12), 0 -1px 3px rgba(0,0,0,0.06)",
-                }}
-              />
-              {/* Centre meeting edge shadow */}
               <span
-                className="absolute inset-y-0 w-[2px]"
-                style={{
-                  [dir === -1 ? "right" : "left"]: 0,
-                  background: "linear-gradient(to bottom, transparent 5%, rgba(0,0,0,0.22) 15%, rgba(0,0,0,0.22) 85%, transparent 95%)",
-                }}
+                className={`absolute inset-y-0 w-px bg-gradient-to-b from-transparent via-brand/45 to-transparent ${
+                  dir === -1 ? "right-0" : "left-0"
+                }`}
               />
             </motion.div>
           ))}
@@ -297,13 +241,12 @@ export default function Hero() {
             className="absolute inset-0 grid place-items-center"
           >
             <div className="flex flex-col items-center gap-3">
-              {/* Vertical-stack logo: fan above, text below */}
               <svg viewBox="0 0 64 64" className="h-20 w-auto" role="img" aria-label="Horizon Blinds & Shutters">
                 <defs>
                   <linearGradient id="hz-intro-fan" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#0870C0" />
-                    <stop offset="55%" stopColor="#4DA4DE" />
-                    <stop offset="100%" stopColor="#8EC8EE" />
+                    <stop offset="0%" stopColor="#2F9BD8" />
+                    <stop offset="55%" stopColor="#6EC7F0" />
+                    <stop offset="100%" stopColor="#B9E4F7" />
                   </linearGradient>
                 </defs>
                 <g transform="translate(32 30)">
@@ -322,10 +265,10 @@ export default function Hero() {
                 </g>
               </svg>
               <div className="text-center">
-                <div className="font-display text-[2rem] font-light leading-none tracking-[-0.02em] text-[#0870C0]">
+                <div className="font-display text-[2rem] font-light leading-none tracking-[-0.02em] text-brand-light">
                   Horizon
                 </div>
-                <div className="mt-1 text-[0.5rem] font-semibold uppercase tracking-[0.3em] text-[#5A9ED4]">
+                <div className="mt-1 text-[0.5rem] font-semibold uppercase tracking-[0.3em] text-white/55">
                   Blinds &amp; Shutters
                 </div>
               </div>

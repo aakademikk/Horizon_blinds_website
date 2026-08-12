@@ -15,18 +15,19 @@
   --color-paper: #f4f7fa;
   --color-paper-deep: #e9eff5;
   --color-section: #ffffff;
-  /* Dark navy derived from the t-shirt blue — deep enough for white type */
-  --color-ink: #083452;
-  --color-charcoal: #0d4468;
+  /* The logo's subline navy, taken down far enough to sit under white type */
+  --color-ink: #0b2739;
+  --color-charcoal: #14384e;
 
   /*
-    Brand — sampled from the company t-shirt logo. `brand` itself
-    gives 5.3:1 against white, so it is safe for nav text and buttons.
+    Brand — deep for type on light, light for type on dark. `brand` itself
+    is the button fill, so it is held light enough that ink type on it
+    still clears 4.5:1 at the dark end of the gradient (5.0:1).
   */
-  --color-brand: #0870c0;
-  --color-brand-light: #4da4de;
-  --color-brand-deep: #065a9a;
-  --color-brand-bright: #1e8ad8;
+  --color-brand: #2f9bd8;
+  --color-brand-light: #6ec7f0;
+  --color-brand-deep: #10608f;
+  --color-brand-bright: #30bced;
 
   /* Type */
   --color-body: #16232c;
@@ -35,7 +36,7 @@
 
   /* Lines */
   --color-line: #dde6ee;
-  --color-line-dark: #1a6194;
+  --color-line-dark: #21455c;
 
   /* Families — bound to next/font in layout.tsx */
   --font-display: var(--font-cormorant), "Playfair Display", "Iowan Old Style",
@@ -56,8 +57,8 @@
     0 8px 24px -12px rgba(11, 39, 57, 0.12);
   --shadow-lift: 0 2px 4px rgba(11, 39, 57, 0.05),
     0 24px 60px -24px rgba(11, 39, 57, 0.26);
-  --shadow-brand: 0 0 0 1px rgba(8, 112, 192, 0.35),
-    0 12px 40px -12px rgba(8, 112, 192, 0.45);
+  --shadow-brand: 0 0 0 1px rgba(47, 155, 216, 0.35),
+    0 12px 40px -12px rgba(47, 155, 216, 0.45);
 }
 
 /* ---------- Base ---------- */
