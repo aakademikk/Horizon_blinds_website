@@ -151,7 +151,7 @@ export default function Header() {
 
               <Link
                 href="/contact#survey"
-                className="btn-base btn-outline hidden !px-6 !py-3.5 !text-[0.6875rem] text-white lg:inline-flex"
+                className="btn-base btn-brand hidden !px-6 !py-3.5 !text-[0.6875rem] lg:inline-flex"
               >
                 Book a Home Visit
               </Link>
