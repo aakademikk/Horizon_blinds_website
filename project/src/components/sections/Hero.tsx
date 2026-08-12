@@ -127,7 +127,7 @@ export default function Hero() {
                 }}
               >
                 {i === 1 ? (
-                  <span className="bg-gradient-to-r from-brand via-brand to-brand-deep bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-brand-light via-brand to-brand-deep bg-clip-text text-transparent">
                     {line}
                   </span>
                 ) : (
