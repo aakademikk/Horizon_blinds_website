@@ -112,7 +112,7 @@ export default function Hero() {
 
         <h1
           className="display-hero mt-3 text-white md:mt-8"
-          style={{ textShadow: "0 2px 40px rgba(0,0,0,0.45)" }}
+          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5), 0 2px 40px rgba(0,0,0,0.45)" }}
         >
           {HEADLINE.map((line, i) => (
             <span key={line} className="block overflow-hidden pb-[0.06em]">
@@ -127,7 +127,7 @@ export default function Hero() {
                 }}
               >
                 {i === 1 ? (
-                  <span className="bg-gradient-to-r from-brand to-brand-deep bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-brand-light via-brand to-brand-deep bg-clip-text text-transparent">
                     {line}
                   </span>
                 ) : (
