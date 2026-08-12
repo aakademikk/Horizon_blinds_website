@@ -87,7 +87,7 @@ export default function Hero() {
       {/* Dark gradient overlay — legibility pool at the bottom-left */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(8,8,8,0.94)_0%,rgba(8,8,8,0.88)_58%,rgba(8,8,8,0.7)_68%,rgba(8,8,8,0.35)_79%,rgba(8,8,8,0.1)_90%,rgba(8,8,8,0)_100%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(8,8,8,0.9)_0%,rgba(8,8,8,0.72)_26%,rgba(8,8,8,0.42)_48%,rgba(8,8,8,0.12)_72%,rgba(8,8,8,0)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(8,8,8,0.9)_0%,rgba(8,8,8,0.72)_38%,rgba(8,8,8,0.42)_56%,rgba(8,8,8,0.18)_70%,rgba(8,8,8,0)_84%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(8,8,8,0.9)_0%,rgba(8,8,8,0.72)_26%,rgba(8,8,8,0.42)_48%,rgba(8,8,8,0.12)_72%,rgba(8,8,8,0)_100%)]"
       />
       <div
         aria-hidden
@@ -97,7 +97,7 @@ export default function Hero() {
       {/* ---------------------------------------------------------- content */}
       <motion.div
         style={calm ? undefined : { y: contentY, opacity: contentOpacity }}
-        className="shell relative z-10 pb-10 pt-28 md:pb-20 md:pt-36"
+        className="shell relative z-10 pb-6 pt-28 md:pb-20 md:pt-36"
       >
         <motion.div
           initial={{ opacity: 0 }}
@@ -111,7 +111,7 @@ export default function Hero() {
         </motion.div>
 
         <h1
-          className="display-hero mt-5 text-white md:mt-8"
+          className="display-hero mt-3 text-white md:mt-8 max-sm:!text-[2.875rem]"
           style={{ textShadow: "0 2px 40px rgba(0,0,0,0.45)" }}
         >
           {HEADLINE.map((line, i) => (
@@ -142,7 +142,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: revealed ? 1 : 0, y: revealed ? 0 : 18 }}
           transition={{ duration: 1.1, delay: contentDelay + 0.34, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 max-w-xl text-[1.0625rem] font-light leading-[1.66] text-white/78 md:mt-9 md:text-[1.1875rem] md:leading-[1.72]"
+          className="mt-4 max-w-xl text-[1.0625rem] font-light leading-[1.66] text-white/78 md:mt-9 md:text-[1.1875rem] md:leading-[1.72]"
         >
           Beautifully crafted blinds, shutters and curtains, measured in your home and fitted by
           the same people who quoted for them. Family run, across South Essex.
@@ -152,12 +152,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: revealed ? 1 : 0, y: revealed ? 0 : 18 }}
           transition={{ duration: 1.1, delay: contentDelay + 0.46, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center md:mt-11 md:gap-4"
+          className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center md:mt-11 md:gap-4"
         >
-          <Link href="/contact#survey" className="btn-base btn-brand !px-9 !py-[1.15rem]">
+          <Link href="/contact#survey" className="btn-base btn-brand !px-9 !py-[1.15rem] max-sm:!py-4">
             Book a Free Home Visit
           </Link>
-          <Link href="/gallery" className="btn-base btn-outline !px-9 !py-[1.15rem] text-white">
+          <Link href="/gallery" className="btn-base btn-outline !px-9 !py-[1.15rem] text-white max-sm:!py-4">
             Browse Gallery
           </Link>
         </motion.div>
@@ -167,7 +167,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: revealed ? 1 : 0 }}
           transition={{ duration: 1.2, delay: contentDelay + 0.66 }}
-          className="mt-8 grid max-w-4xl grid-cols-2 gap-x-5 gap-y-3.5 border-t border-white/12 pt-6 md:mt-14 md:gap-x-8 md:gap-y-6 md:pt-8 lg:grid-cols-4"
+          className="mt-5 grid max-w-4xl grid-cols-2 gap-x-5 gap-y-3 border-t border-white/12 pt-4 md:mt-14 md:gap-x-8 md:gap-y-6 md:pt-8 lg:grid-cols-4"
         >
           {BADGES.map(({ icon: Icon, label, value, short }) => (
             <li key={label} className="flex items-start gap-3">
