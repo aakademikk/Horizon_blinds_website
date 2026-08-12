@@ -53,6 +53,7 @@ export default function ProductExplorer() {
   const kind = KIND_OF[productId];
   const hasLouvres = kind === "shutter" || kind === "venetian";
   const isSolid = productId === "solid-panels";
+  const variant = isSolid ? "solid-panels" : productId === "tier-on-tier" ? "tier-on-tier" : productId === "cafe-style" ? "cafe-style" : undefined;
 
   const state = useMemo(() => louvreState(isSolid ? 0 : tilt), [tilt, isSolid]);
 
@@ -141,7 +142,7 @@ export default function ProductExplorer() {
                   <RoomScene
                     room={room}
                     kind={kind}
-                    variant={isSolid ? "solid-panels" : undefined}
+                    variant={variant}
                     finishId={finishId}
                     louvreId={louvreId}
                     tilt={isSolid ? 0 : tilt}

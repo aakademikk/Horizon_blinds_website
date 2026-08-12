@@ -10,7 +10,7 @@ import { gbp } from "@/lib/products";
 export default function ProductCategories({ limit }: { limit?: number } = {}) {
   // The home page shows a taste and links onward; the product pages show all.
   const shownShutters = limit ? shutters.slice(0, limit) : shutters;
-  const shownBlinds = limit ? blinds.slice(0, limit) : blinds;
+  const shownBlinds = (limit ? blinds.slice(0, limit) : blinds).filter((p) => p.id !== "wooden");
 
   return (
     <section id="products" className="section-y bg-section">
@@ -21,9 +21,9 @@ export default function ProductCategories({ limit }: { limit?: number } = {}) {
               eyebrow="The Collection"
               title={
                 <>
-                  Six shutter styles.
+                  Five shutter styles.
                   <br />
-                  Six ways to dress a blind.
+                  Five ways to dress a blind.
                 </>
               }
               lede="Every one made to the millimetre for one particular window in your home."

@@ -59,7 +59,7 @@ export type SceneProps = {
   room?: RoomId;
   /** Product family drives which covering is drawn. */
   kind?: ProductKind;
-  /** Shutter configuration slug — only `solid-panels` changes the drawing. */
+  /** Shutter configuration slug — solid-panels, tier-on-tier, or cafe-style. */
   variant?: string;
   finishId?: string;
   louvreId?: string;
@@ -555,7 +555,18 @@ function Covering({
   if (kind === "perfect-fit") {
     return <SlatBlind id={id} ap={ap} finish={finish} pitch={pitch * 0.75} state={state} tapes={false} inset={26} />;
   }
-  return <Shutter id={id} ap={ap} finish={finish} pitch={pitch} state={state} solid={variant === "solid-panels"} />;
+  return (
+    <Shutter
+      id={id}
+      ap={ap}
+      finish={finish}
+      pitch={pitch}
+      state={state}
+      solid={variant === "solid-panels"}
+      tiered={variant === "tier-on-tier"}
+      cafe={variant === "cafe-style"}
+    />
+  );
 }
 
 /** Plantation shutter: hinged panels in a frame. */
@@ -566,6 +577,8 @@ function Shutter({
   pitch,
   state,
   solid,
+  tiered,
+  cafe,
 }: {
   id: (n: string) => string;
   ap: Aperture;
@@ -573,43 +586,83 @@ function Shutter({
   pitch: number;
   state: ReturnType<typeof louvreState>;
   solid: boolean;
+  tiered: boolean;
+  cafe: boolean;
 }) {
   const FRAME = 16;
   const STILE = 24;
   const RAIL = 30;
+  const MID_RAIL = 22;
   // Wide openings get four panels rather than two absurdly wide ones.
   const panelCount = ap.w > 620 ? 4 : 2;
   const panelW = (ap.w - FRAME * 2) / panelCount;
   const AP_R = ap.x + ap.w;
   const AP_B = ap.y + ap.h;
 
+  // Café style: panels only cover the lower half of the aperture.
+  const topOffset = cafe ? ap.h * 0.48 : 0;
+  const panelY = ap.y + FRAME + topOffset;
+  const panelH = (ap.h - FRAME * 2) - topOffset;
+
+  // Tier-on-tier: split each panel with a mid-rail.
+  const topH = tiered ? panelH * 0.45 : 0;
+  const botY = tiered ? panelY + topH + MID_RAIL : 0;
+  const botH = tiered ? panelH - topH - MID_RAIL : 0;
+
   return (
     <g>
+      {/* Outer frame */}
       <rect x={ap.x} y={ap.y} width={ap.w} height={FRAME} fill={`url(#${id("frame")})`} />
       <rect x={ap.x} y={AP_B - FRAME} width={ap.w} height={FRAME} fill={finish.shade} />
       <rect x={ap.x} y={ap.y} width={FRAME} height={ap.h} fill={`url(#${id("frame")})`} />
       <rect x={AP_R - FRAME} y={ap.y} width={FRAME} height={ap.h} fill={finish.shade} />
 
+      {/* Café style: the open top half of the window */}
+      {cafe && (
+        <rect x={ap.x + FRAME} y={ap.y + FRAME} width={ap.w - FRAME * 2} height={topOffset} fill={rgba("#c8dff0", 0.28)} />
+      )}
+
       {Array.from({ length: panelCount }, (_, p) => {
         const px = ap.x + FRAME + p * panelW;
-        const py = ap.y + FRAME;
-        const ph = ap.h - FRAME * 2;
+        const py = panelY;
+        const ph = panelH;
         const ix = px + STILE;
         const iw = panelW - STILE * 2;
         const iy = py + RAIL;
         const ih = ph - RAIL * 2;
 
-        return (
-          <g key={p}>
+        const panelGroup = (ly: number, lh: number, key: string) => (
+          <g key={key}>
             {solid ? (
-              <SolidPanel x={ix} y={iy} w={iw} h={ih} finish={finish} id={id} />
+              <SolidPanel x={ix} y={ly} w={iw} h={lh} finish={finish} id={id} />
             ) : (
-              <Louvres x={ix} y={iy} w={iw} h={ih} pitch={pitch} state={state} finish={finish} id={id} />
+              <Louvres x={ix} y={ly} w={iw} h={lh} pitch={pitch} state={state} finish={finish} id={id} />
             )}
 
-            {/* Stiles and rails drawn over the louvre ends */}
-            <rect x={px} y={py} width={STILE} height={ph} fill={`url(#${id("frame")})`} />
-            <rect x={px + panelW - STILE} y={py} width={STILE} height={ph} fill={`url(#${id("frame")})`} />
+            {/* Shadow the louvre stack casts on the stile */}
+            <rect x={px} y={ly - 1} width={STILE} height={lh + 2} fill={`url(#${id("frame")})`} />
+            <rect x={px + panelW - STILE} y={ly - 1} width={STILE} height={lh + 2} fill={`url(#${id("frame")})`} />
+            <rect x={px} y={ly} width={panelW} height="2" fill={finish.highlight} opacity="0.8" />
+            <rect x={px + panelW - 2} y={ly} width="2" height={lh} fill={finish.shade} />
+          </g>
+        );
+
+        return (
+          <g key={p}>
+            {tiered ? (
+              <>
+                {panelGroup(iy, topH - RAIL, "top")}
+                {/* Mid-rail */}
+                <rect x={px} y={py + topH} width={panelW} height={MID_RAIL} fill={`url(#${id("frame")})`} />
+                <rect x={px} y={py + topH} width={panelW} height="1.5" fill={finish.highlight} opacity="0.7" />
+                <rect x={px} y={py + topH + MID_RAIL - 1.5} width={panelW} height="1.5" fill={finish.shade} opacity="0.6" />
+                {panelGroup(botY + RAIL, botH - RAIL, "bot")}
+              </>
+            ) : (
+              panelGroup(iy, ih, "main")
+            )}
+
+            {/* Top & bottom rails */}
             <rect x={px} y={py} width={panelW} height={RAIL} fill={`url(#${id("frame")})`} />
             <rect x={px} y={py + ph - RAIL} width={panelW} height={RAIL} fill={`url(#${id("frame")})`} />
 
@@ -628,6 +681,7 @@ function Shutter({
             {/* Shadow each panel casts on its neighbour */}
             {p > 0 && <rect x={px} y={py} width="9" height={ph} fill={rgba("#000", 0.14)} />}
 
+            {/* Hinge marks */}
             {[0.16, 0.5, 0.84].map((f) => (
               <rect
                 key={f}
