@@ -646,9 +646,9 @@ function Shutter({
                 <rect x={px} y={py + topH} width={panelW} height="1.5" fill={finish.highlight} opacity="0.7" />
                 <rect x={px} y={py + topH + MID_RAIL - 1.5} width={panelW} height="1.5" fill={finish.shade} opacity="0.6" />
                 {solid ? (
-                  <SolidPanel x={ix} y={botY + RAIL} w={iw} h={botH - RAIL} finish={finish} id={id} />
+                  <SolidPanel x={ix} y={botY} w={iw} h={botH - RAIL} finish={finish} id={id} />
                 ) : (
-                  <Louvres x={ix} y={botY + RAIL} w={iw} h={botH - RAIL} pitch={pitch} state={state} finish={finish} id={id} />
+                  <Louvres x={ix} y={botY} w={iw} h={botH - RAIL} pitch={pitch} state={state} finish={finish} id={id} />
                 )}
               </>
             ) : solid ? (
