@@ -110,9 +110,25 @@ export default function Hero() {
           Blinds, Shutters &amp; Curtains · South Essex
         </motion.div>
 
+        {/*
+         * The headline runs the full width of the shell, so it crosses both the
+         * dark pool at the left and the blown-out sea view through the doors —
+         * a backdrop that swings across almost the entire luminance range. No
+         * single fill survives that, so legibility comes from a halo hugging
+         * each glyph rather than from the colour or from the overlay.
+         *
+         * It is a `filter` and it lives on the h1 for two reasons: `text-shadow`
+         * paints *over* a `background-clip: text` fill and muddies the gradient
+         * line, and the per-line wrappers below are `overflow-hidden` for the
+         * reveal, which would clip a shadow set on the inner span. Blurs stay
+         * tight — a wide wash reads as fog and does nothing for edge contrast.
+         */}
         <h1
           className="display-hero mt-3 text-white md:mt-8"
-          style={{ textShadow: "0 2px 40px rgba(0,0,0,0.45)" }}
+          style={{
+            filter:
+              "drop-shadow(0 1px 1px rgba(6,26,38,0.95)) drop-shadow(0 0 3px rgba(6,26,38,0.85)) drop-shadow(0 3px 12px rgba(6,26,38,0.6))",
+          }}
         >
           {HEADLINE.map((line, i) => (
             <span key={line} className="block overflow-hidden pb-[0.06em]">
@@ -127,10 +143,8 @@ export default function Hero() {
                 }}
               >
                 {i === 1 ? (
-                  <span
-                    className="bg-gradient-to-r from-brand-light via-brand to-brand-deep bg-clip-text text-transparent"
-                    style={{ WebkitTextStroke: "1px rgba(255,255,255,0.7)" }}
-                  >
+                  /* The same fill as the Book a Free Home Visit button. */
+                  <span className="bg-gradient-to-b from-brand-light to-brand bg-clip-text text-transparent">
                     {line}
                   </span>
                 ) : (
