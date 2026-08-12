@@ -87,11 +87,11 @@ export default function Hero() {
       {/* Dark gradient overlay — legibility pool at the bottom-left */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(8,8,8,0.9)_0%,rgba(8,8,8,0.72)_38%,rgba(8,8,8,0.42)_56%,rgba(8,8,8,0.18)_70%,rgba(8,8,8,0)_84%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(8,8,8,0.9)_0%,rgba(8,8,8,0.72)_26%,rgba(8,8,8,0.42)_48%,rgba(8,8,8,0.12)_72%,rgba(8,8,8,0)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(8,8,8,0.9)_0%,rgba(8,8,8,0.8)_20%,rgba(8,8,8,0.55)_40%,rgba(8,8,8,0.28)_58%,rgba(8,8,8,0)_68%)] md:landscape:bg-[radial-gradient(125%_105%_at_12%_88%,rgba(8,8,8,0.9)_0%,rgba(8,8,8,0.72)_26%,rgba(8,8,8,0.42)_48%,rgba(8,8,8,0.12)_72%,rgba(8,8,8,0)_100%)]"
       />
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 -z-10 h-24 bg-[linear-gradient(to_bottom,rgba(6,6,6,0.55),transparent)] md:h-40 md:bg-[linear-gradient(to_bottom,rgba(6,6,6,0.42),transparent)]"
+        className="absolute inset-x-0 top-0 -z-10 h-16 bg-[linear-gradient(to_bottom,rgba(6,6,6,0.28),transparent)] md:h-40 md:bg-[linear-gradient(to_bottom,rgba(6,6,6,0.42),transparent)]"
       />
 
       {/* ---------------------------------------------------------- content */}
@@ -111,8 +111,8 @@ export default function Hero() {
         </motion.div>
 
         <h1
-          className="display-hero mt-3 text-white md:mt-8 max-sm:!text-[2.875rem]"
-          style={{ textShadow: "0 2px 40px rgba(0,0,0,0.45)" }}
+          className="display-hero mt-3 text-white md:mt-8"
+          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.85), 0 3px 14px rgba(0,0,0,0.55), 0 2px 40px rgba(0,0,0,0.4)" }}
         >
           {HEADLINE.map((line, i) => (
             <span key={line} className="block overflow-hidden pb-[0.06em]">
@@ -127,7 +127,7 @@ export default function Hero() {
                 }}
               >
                 {i === 1 ? (
-                  <span className="bg-gradient-to-r from-brand-light via-brand to-brand-deep bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-brand via-brand to-brand-deep bg-clip-text text-transparent">
                     {line}
                   </span>
                 ) : (
