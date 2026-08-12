@@ -62,7 +62,7 @@ export async function GET(request: Request) {
     <RoomScene
       room={pick<RoomId>("room", ROOM_IDS, "living")}
       kind={pick<ProductKind>("kind", KINDS, "shutter")}
-      variant={q.get("variant") === "solid-panels" ? "solid-panels" : undefined}
+      variant={["solid-panels","tier-on-tier","cafe-style"].includes(q.get("variant") ?? "") ? q.get("variant")! : undefined}
       finishId={pick(
         "finish",
         finishes.map((f) => f.id),

@@ -631,36 +631,35 @@ function Shutter({
         const iy = py + RAIL;
         const ih = ph - RAIL * 2;
 
-        const panelGroup = (ly: number, lh: number, key: string) => (
-          <g key={key}>
-            {solid ? (
-              <SolidPanel x={ix} y={ly} w={iw} h={lh} finish={finish} id={id} />
-            ) : (
-              <Louvres x={ix} y={ly} w={iw} h={lh} pitch={pitch} state={state} finish={finish} id={id} />
-            )}
-
-            {/* Shadow the louvre stack casts on the stile */}
-            <rect x={px} y={ly - 1} width={STILE} height={lh + 2} fill={`url(#${id("frame")})`} />
-            <rect x={px + panelW - STILE} y={ly - 1} width={STILE} height={lh + 2} fill={`url(#${id("frame")})`} />
-            <rect x={px} y={ly} width={panelW} height="2" fill={finish.highlight} opacity="0.8" />
-            <rect x={px + panelW - 2} y={ly} width="2" height={lh} fill={finish.shade} />
-          </g>
-        );
-
         return (
           <g key={p}>
+            {/* Louvres / solid panels — split in tiered mode */}
             {tiered ? (
               <>
-                {panelGroup(iy, topH - RAIL, "top")}
+                {solid ? (
+                  <SolidPanel x={ix} y={iy} w={iw} h={topH - RAIL} finish={finish} id={id} />
+                ) : (
+                  <Louvres x={ix} y={iy} w={iw} h={topH - RAIL} pitch={pitch} state={state} finish={finish} id={id} />
+                )}
                 {/* Mid-rail */}
                 <rect x={px} y={py + topH} width={panelW} height={MID_RAIL} fill={`url(#${id("frame")})`} />
                 <rect x={px} y={py + topH} width={panelW} height="1.5" fill={finish.highlight} opacity="0.7" />
                 <rect x={px} y={py + topH + MID_RAIL - 1.5} width={panelW} height="1.5" fill={finish.shade} opacity="0.6" />
-                {panelGroup(botY + RAIL, botH - RAIL, "bot")}
+                {solid ? (
+                  <SolidPanel x={ix} y={botY + RAIL} w={iw} h={botH - RAIL} finish={finish} id={id} />
+                ) : (
+                  <Louvres x={ix} y={botY + RAIL} w={iw} h={botH - RAIL} pitch={pitch} state={state} finish={finish} id={id} />
+                )}
               </>
+            ) : solid ? (
+              <SolidPanel x={ix} y={iy} w={iw} h={ih} finish={finish} id={id} />
             ) : (
-              panelGroup(iy, ih, "main")
+              <Louvres x={ix} y={iy} w={iw} h={ih} pitch={pitch} state={state} finish={finish} id={id} />
             )}
+
+            {/* Stiles — always full height */}
+            <rect x={px} y={py} width={STILE} height={ph} fill={`url(#${id("frame")})`} />
+            <rect x={px + panelW - STILE} y={py} width={STILE} height={ph} fill={`url(#${id("frame")})`} />
 
             {/* Top & bottom rails */}
             <rect x={px} y={py} width={panelW} height={RAIL} fill={`url(#${id("frame")})`} />
