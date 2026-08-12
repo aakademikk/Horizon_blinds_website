@@ -17,8 +17,8 @@ export type ScenePreset = {
  */
 export const scenePresets: Record<string, ScenePreset> = {
   "full-height": { room: "living", kind: "shutter", finishId: "silk-white", louvreId: "76", tilt: 52, time: "morning" },
-  "tier-on-tier": { room: "bedroom", kind: "shutter", finishId: "white", louvreId: "63", tilt: 30, time: "afternoon" },
-  "cafe-style": { room: "kitchen", kind: "shutter", finishId: "cream", louvreId: "63", tilt: 46, time: "morning" },
+  "tier-on-tier": { room: "bedroom", kind: "shutter", variant: "tier-on-tier", finishId: "white", louvreId: "63", tilt: 30, time: "afternoon" },
+  "cafe-style": { room: "kitchen", kind: "shutter", variant: "cafe-style", finishId: "cream", louvreId: "63", tilt: 46, time: "morning" },
   tracked: { room: "living", kind: "shutter", finishId: "anthracite", louvreId: "89", tilt: 64, time: "evening" },
   "bay-window": { room: "office", kind: "shutter", finishId: "pure-white", louvreId: "76", tilt: 40, time: "afternoon" },
   "solid-panels": { room: "bedroom", kind: "shutter", variant: "solid-panels", finishId: "cream", louvreId: "63", tilt: 0, time: "evening" },
@@ -62,7 +62,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Kitchens",
     detail: "Privacy to the street below, morning light above the sill.",
     span: "normal",
-    scene: { room: "kitchen", kind: "shutter", finishId: "silk-white", louvreId: "63", tilt: 40, time: "morning" },
+    scene: { room: "kitchen", kind: "shutter", variant: "cafe-style", finishId: "silk-white", louvreId: "63", tilt: 40, time: "morning" },
   },
   {
     id: "g3",
@@ -89,7 +89,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Bay Windows",
     detail: "Top tier open for the estuary, bottom closed against the sun.",
     span: "tall",
-    scene: { room: "living", kind: "shutter", finishId: "white", louvreId: "63", tilt: 22, time: "evening" },
+    scene: { room: "living", kind: "shutter", variant: "tier-on-tier", finishId: "white", louvreId: "63", tilt: 22, time: "evening" },
   },
   {
     id: "g6",
