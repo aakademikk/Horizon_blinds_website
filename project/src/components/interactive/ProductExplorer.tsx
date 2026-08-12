@@ -59,7 +59,7 @@ export default function ProductExplorer() {
 
   // Auto-select a sensible louvre size when the product kind changes.
   const louvreOptions = useMemo(
-    () => louvres.filter((l) => (kind === "venetian" ? l.mm <= 50 : l.mm >= 47)),
+    () => louvres.filter((l) => (kind === "venetian" ? l.mm === 25 || l.mm === 50 : l.mm >= 47)),
     [kind],
   );
 
