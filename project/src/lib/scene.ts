@@ -122,7 +122,7 @@ export const daylight: Record<TimeOfDay, Daylight> = {
     id: "evening",
     label: "Evening",
     clock: "7:45pm",
-    note: "Long amber light at eye level — where glare becomes a problem.",
+    note: "Long amber light at eye level, where glare becomes a problem.",
     skyTop: "#7C5A79",
     skyBottom: "#E9976A",
     horizon: "#C9705E",

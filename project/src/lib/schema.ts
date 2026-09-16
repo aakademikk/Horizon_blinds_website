@@ -5,7 +5,7 @@ import { areas } from "./site";
 const productNames = products.map((p) => p.name);
 const roomNames = rooms.map((r) => r.name);
 export const areaOptions = [...areas.map((a) => a.name), "Elsewhere in Essex", "Outside Essex"];
-export const productOptions = [...productNames, "Not sure yet — please advise"];
+export const productOptions = [...productNames, "Not sure yet, please advise"];
 export const roomOptions = [...roomNames, "Whole house", "Conservatory", "Commercial premises"];
 
 export const timeslots = [

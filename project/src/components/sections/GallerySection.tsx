@@ -20,7 +20,7 @@ export default function GallerySection() {
                   changed the light in.
                 </>
               }
-              lede="Every scene here is drawn from a real specification we have fitted — the same room, product, finish and louvre size."
+              lede="Every scene here is drawn from a real specification we have fitted, the same room, product, finish and louvre size."
             />
           </Reveal>
           <Reveal delay={0.1}>

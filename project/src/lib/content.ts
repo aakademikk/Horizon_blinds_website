@@ -53,7 +53,7 @@ export const reviews: Review[] = [
     date: "2026-04-02",
     headline: "Finally solved our west-facing glare",
     body:
-      "Our sitting room faces the estuary and from four o'clock it was unusable. Ian talked us out of the blackout blind we thought we wanted and into tier on tier — open the top for the view, close the bottom against the sun. Exactly right. Should have called them years ago.",
+      "Our sitting room faces the estuary and from four o'clock it was unusable. Ian talked us out of the blackout blind we thought we wanted and into tier on tier, open the top for the view, close the bottom against the sun. Exactly right. Should have called them years ago.",
     product: "Tier on tier shutters, 63mm, White",
     initials: "MO",
   },
@@ -66,7 +66,7 @@ export const reviews: Review[] = [
     date: "2026-03-21",
     headline: "Nine windows, one day, no mess",
     body:
-      "Whole house done in a single day by two fitters who clearly enjoy their work. They dust-sheeted everything, took the old blinds away and hoovered up. The 89mm louvres were the right call — you barely notice them when they are open.",
+      "Whole house done in a single day by two fitters who clearly enjoy their work. They dust-sheeted everything, took the old blinds away and hoovered up. The 89mm louvres were the right call, you barely notice them when they are open.",
     product: "Full height shutters throughout, 89mm, Pure White",
     initials: "PS",
   },
@@ -92,7 +92,7 @@ export const reviews: Review[] = [
     date: "2026-01-15",
     headline: "Our daughter sleeps through now",
     body:
-      "Solid panel shutters in the nursery and the difference is genuinely absurd. Pitch black at seven in the evening in midsummer. Warmer too — we noticed within a week. No hesitation recommending them.",
+      "Solid panel shutters in the nursery and the difference is genuinely absurd. Pitch black at seven in the evening in midsummer. Warmer too, we noticed within a week. No hesitation recommending them.",
     product: "Solid panel shutters, Cream",
     initials: "RL",
   },
@@ -105,7 +105,7 @@ export const reviews: Review[] = [
     date: "2025-12-04",
     headline: "Straightforward, honest, no pressure",
     body:
-      "The survey took an hour and there was no hard sell whatsoever — he actually told us the room we were least worried about was the one that needed doing first. Quote came through the same evening, itemised properly. Fitted five weeks later to the day.",
+      "The survey took an hour and there was no hard sell whatsoever, he actually told us the room we were least worried about was the one that needed doing first. Quote came through the same evening, itemised properly. Fitted five weeks later to the day.",
     product: "Wooden blinds and roller blinds",
     initials: "JT",
   },
@@ -218,7 +218,7 @@ export const processSteps = [
     title: "Book your survey",
     duration: "2 minutes",
     body:
-      "Call us or send the form. We will find a time that suits — evenings and Saturdays included — and confirm it the same day.",
+      "Call us or send the form. We will find a time that suits, evenings and Saturdays included, and confirm it the same day.",
   },
   {
     n: "02",
@@ -347,7 +347,7 @@ export const compareMetrics: CompareMetric[] = [
     id: "longevity",
     label: "Longevity",
     detail:
-      "Fabric fades and fraying cords fail. A properly made shutter is a fixture — most of ours will outlast the decorating scheme around them several times over.",
+      "Fabric fades and fraying cords fail. A properly made shutter is a fixture, most of ours will outlast the decorating scheme around them several times over.",
     scores: { curtains: 2, blinds: 3, shutters: 5 },
   },
   {
@@ -361,7 +361,7 @@ export const compareMetrics: CompareMetric[] = [
     id: "value",
     label: "Stays With the House",
     detail:
-      "Shutters are a fitted improvement and read as one in a valuation. Curtains and blinds come down with you when you move — which, if you are renting, is the point.",
+      "Shutters are a fitted improvement and read as one in a valuation. Curtains and blinds come down with you when you move, which, if you are renting, is the point.",
     scores: { curtains: 1.5, blinds: 2, shutters: 5 },
   },
 ];
@@ -374,7 +374,7 @@ export const faqs: Faq[] = [
   {
     group: "Getting started",
     q: "Is the home survey really free, and is there any obligation?",
-    a: "Genuinely free and genuinely no obligation. We bring the full sample range to you, measure everything properly and leave you with an itemised written quotation — usually the same evening. Plenty of people take it away and think about it for months. That is fine.",
+    a: "Genuinely free and genuinely no obligation. We bring the full sample range to you, measure everything properly and leave you with an itemised written quotation, usually the same evening. Plenty of people take it away and think about it for months. That is fine.",
   },
   {
     group: "Getting started",
@@ -384,7 +384,7 @@ export const faqs: Faq[] = [
   {
     group: "Pricing",
     q: "How much do plantation shutters cost?",
-    a: "As a broad guide, most rooms land between £600 and £1,400 per window supplied and fitted, depending on size, material and configuration. A whole house is commonly £4,000 to £9,000. The estimator on this site will give you a considered range in about a minute — but only a survey produces a real figure.",
+    a: "As a broad guide, most rooms land between £600 and £1,400 per window supplied and fitted, depending on size, material and configuration. A whole house is commonly £4,000 to £9,000. The estimator on this site will give you a considered range in about a minute, but only a survey produces a real figure.",
   },
   {
     group: "Pricing",
@@ -394,12 +394,12 @@ export const faqs: Faq[] = [
   {
     group: "Products",
     q: "Which louvre size should I choose?",
-    a: "63mm is the safe all-rounder and 76mm is what we fit most often — wider louvres mean fewer lines across the glass and more view when open. 47mm suits smaller cottage panes and period properties. We bring samples of all four so you can hold them up to your own window.",
+    a: "63mm is the safe all-rounder and 76mm is what we fit most often, wider louvres mean fewer lines across the glass and more view when open. 47mm suits smaller cottage panes and period properties. We bring samples of all four so you can hold them up to your own window.",
   },
   {
     group: "Products",
     q: "Will shutters work in a bathroom or kitchen?",
-    a: "Very well, provided you specify the right material. We use waterproof ABS in wet rooms and en suites — it will not warp, swell, peel or discolour, and it looks identical to painted timber once fitted. In kitchens, a wipe-clean finish handles steam and cooking residue easily.",
+    a: "Very well, provided you specify the right material. We use waterproof ABS in wet rooms and en suites, it will not warp, swell, peel or discolour, and it looks identical to painted timber once fitted. In kitchens, a wipe-clean finish handles steam and cooking residue easily.",
   },
   {
     group: "Products",
@@ -409,7 +409,7 @@ export const faqs: Faq[] = [
   {
     group: "Practical",
     q: "Do shutters block too much light?",
-    a: "It is the most common worry and almost always the wrong way round. Louvres tilt through a full range — open, they let in more usable daylight than most blinds because there is no fabric across the glass. Wider louvres like 76mm and 89mm leave a remarkably clear view.",
+    a: "It is the most common worry and almost always the wrong way round. Louvres tilt through a full range, open, they let in more usable daylight than most blinds because there is no fabric across the glass. Wider louvres like 76mm and 89mm leave a remarkably clear view.",
   },
   {
     group: "Practical",
@@ -429,7 +429,7 @@ export const faqs: Faq[] = [
   {
     group: "Aftercare",
     q: "Which areas do you cover?",
-    a: "South Essex — Canvey Island, Benfleet, Leigh-on-Sea, Southend, Basildon, Rayleigh, Chelmsford and everywhere in between. If you are unsure, call us; if we cannot help we will usually know someone good who can.",
+    a: "South Essex: Canvey Island, Benfleet, Leigh-on-Sea, Southend, Basildon, Rayleigh, Chelmsford and everywhere in between. If you are unsure, call us; if we cannot help we will usually know someone good who can.",
   },
 ];
 
@@ -457,7 +457,7 @@ export const finderQuestions: FinderQuestion[] = [
   {
     id: "priority",
     question: "What matters most to you?",
-    hint: "There is rarely one right answer — tell us where you would compromise last.",
+    hint: "There is rarely one right answer, tell us where you would compromise last.",
     options: [
       { id: "privacy", label: "Privacy", note: "Keeping the street out", weights: { "full-height": 3, "solid-panels": 3, "perfect-fit": 2 } },
       { id: "light", label: "Light control", note: "Managing sun and glare", weights: { "full-height": 3, venetian: 3, "tier-on-tier": 3 } },

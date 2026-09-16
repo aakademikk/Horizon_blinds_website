@@ -72,7 +72,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
           {
             ...localBusinessSchema(),
             "@id": `${abs(`/areas/${area.slug}`)}#business`,
-            name: `${site.name} — ${area.name}`,
+            name: `${site.name}: ${area.name}`,
             areaServed: {
               "@type": "City",
               name: area.name,

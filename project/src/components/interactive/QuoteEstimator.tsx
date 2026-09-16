@@ -106,7 +106,7 @@ export default function QuoteEstimator() {
             <Dimension id="q-height" label="Drop" value={height} min={40} max={280} onChange={setHeight} />
           </div>
           <p className="mt-4 text-[0.75rem] text-muted" data-tnum>
-            Approximately {quote.areaM2}m² per window. Measure the recess, not the glass — we will
+            Approximately {quote.areaM2}m² per window. Measure the recess, not the glass, we will
             check everything at the survey.
           </p>
         </Group>

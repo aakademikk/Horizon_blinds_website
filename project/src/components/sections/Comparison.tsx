@@ -35,7 +35,7 @@ export default function Comparison() {
                 Here is how they compare.
               </>
             }
-            lede="Curtains, blinds and shutters each win on something different. Nobody should be sold the dearest option for a room that does not need it — so these are the trade-offs, scored honestly."
+            lede="Curtains, blinds and shutters each win on something different. Nobody should be sold the dearest option for a room that does not need it, so these are the trade-offs, scored honestly."
           />
         </Reveal>
 

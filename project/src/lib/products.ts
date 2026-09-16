@@ -65,7 +65,7 @@ export const products: Product[] = [
     name: "Tier on Tier Shutters",
     strapline: "Independent top and bottom panels",
     description:
-      "Two sets of panels, stacked and hinged separately. Open the top for daylight while the bottom stays closed for privacy — then fold the whole thing back when you want the window entirely clear.",
+      "Two sets of panels, stacked and hinged separately. Open the top for daylight while the bottom stays closed for privacy, then fold the whole thing back when you want the window entirely clear.",
     rate: 445,
     scores: { privacy: 5, light: 5, insulation: 4, durability: 5, maintenance: 5, value: 5 },
     features: [
@@ -141,7 +141,7 @@ export const products: Product[] = [
     name: "Solid Panel Shutters",
     strapline: "Georgian and shaker traditions",
     description:
-      "No louvres — just beautifully made solid panels, in raised Georgian or flat shaker profiles. Complete blackout, exceptional insulation, and a look that belongs in a period property.",
+      "No louvres, just beautifully made solid panels, in raised Georgian or flat shaker profiles. Complete blackout, exceptional insulation, and a look that belongs in a period property.",
     rate: 420,
     scores: { privacy: 5, light: 1, insulation: 5, durability: 5, maintenance: 5, value: 4 },
     features: [
@@ -179,7 +179,7 @@ export const products: Product[] = [
     name: "Venetian Blinds",
     strapline: "Precise, architectural light control",
     description:
-      "Slimline aluminium slats that tilt through a full range, from wide open to fully closed. Crisp, contemporary and remarkably good value — particularly in kitchens and offices.",
+      "Slimline aluminium slats that tilt through a full range, from wide open to fully closed. Crisp, contemporary and remarkably good value, particularly in kitchens and offices.",
     rate: 145,
     scores: { privacy: 4, light: 5, insulation: 2, durability: 4, maintenance: 3, value: 4 },
     features: [
@@ -198,7 +198,7 @@ export const products: Product[] = [
     name: "Roman Blinds",
     strapline: "Soft, tailored, beautifully folded",
     description:
-      "Fabric that draws up into deep horizontal folds and drops flat when lowered. The softest option we make — and the one that does most for the acoustics and warmth of a room.",
+      "Fabric that draws up into deep horizontal folds and drops flat when lowered. The softest option we make, and the one that does most for the acoustics and warmth of a room.",
     rate: 235,
     scores: { privacy: 5, light: 3, insulation: 4, durability: 3, maintenance: 2, value: 4 },
     features: [
@@ -292,10 +292,10 @@ export type Finish = {
 export const finishes: Finish[] = [
   { id: "white", name: "White", hex: "#F4F2ED", shade: "#D9D5CC", highlight: "#FFFFFF", grain: false, note: "The default, and still the most requested", premium: 1 },
   { id: "pure-white", name: "Pure White", hex: "#FFFFFF", shade: "#E2E2E2", highlight: "#FFFFFF", grain: false, note: "Crisp and contemporary against modern glazing", premium: 1 },
-  { id: "silk-white", name: "Silk White", hex: "#F6F1E7", shade: "#DCD4C4", highlight: "#FFFDF8", grain: false, note: "A whisper of warmth — flattering in older homes", premium: 1.02 },
+  { id: "silk-white", name: "Silk White", hex: "#F6F1E7", shade: "#DCD4C4", highlight: "#FFFDF8", grain: false, note: "A whisper of warmth, flattering in older homes", premium: 1.02 },
   { id: "cream", name: "Cream", hex: "#EDE3D0", shade: "#D2C4A9", highlight: "#FBF5E9", grain: false, note: "Soft and traditional, beautiful with natural stone", premium: 1.02 },
   { id: "grey", name: "Grey", hex: "#B7B5B0", shade: "#918F8A", highlight: "#D3D1CC", grain: false, note: "Quiet, architectural, endlessly easy to live with", premium: 1.06 },
-  { id: "anthracite", name: "Anthracite", hex: "#4A4C4E", shade: "#303234", highlight: "#65686B", grain: false, note: "Deep and moody — stunning against pale walls", premium: 1.08 },
+  { id: "anthracite", name: "Anthracite", hex: "#4A4C4E", shade: "#303234", highlight: "#65686B", grain: false, note: "Deep and moody, stunning against pale walls", premium: 1.08 },
   { id: "black", name: "Black", hex: "#232323", shade: "#141414", highlight: "#3B3B3B", grain: false, note: "Graphic and confident. Not for the faint-hearted", premium: 1.08 },
   { id: "natural-wood", name: "Natural Wood", hex: "#B98B54", shade: "#8A6337", highlight: "#D6AC77", grain: true, note: "Visible grain, oiled by hand. Warmth you can feel", premium: 1.18 },
 ];

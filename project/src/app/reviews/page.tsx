@@ -10,7 +10,7 @@ import { JsonLd, breadcrumbSchema, pageMeta, reviewSchema } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Reviews",
-  description: `What South Essex homeowners say about ${site.name} — and what we promise before a single window is measured.`,
+  description: `What South Essex homeowners say about ${site.name}, and what we promise before a single window is measured.`,
   path: "/reviews",
 });
 
@@ -30,7 +30,7 @@ export default function ReviewsPage() {
       <PageHero
         eyebrow="In Their Words"
         titleLines={["Recommended,", "window by window,", "across South Essex."]}
-        lede="Almost all of our work comes by word of mouth. Here is what people say afterwards — and what we commit to beforehand."
+        lede="Almost all of our work comes by word of mouth. Here is what people say afterwards, and what we commit to beforehand."
         breadcrumb={[{ label: "Reviews" }]}
         scene={{
           room: "living",

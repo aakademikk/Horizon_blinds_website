@@ -11,7 +11,7 @@ import { JsonLd, breadcrumbSchema, faqSchema, pageMeta, productSchemas } from "@
 export const metadata = pageMeta({
   title: "Made-to-Measure Blinds",
   description:
-    "Venetian, roman, roller, perfect fit and electric blinds — measured, made and fitted across Essex by our own team.",
+    "Venetian, roman, roller, perfect fit and electric blinds, measured, made and fitted across Essex by our own team.",
   path: "/blinds",
   keywords: [
     "made to measure blinds Essex",
@@ -41,7 +41,7 @@ export default function BlindsPage() {
       <PageHero
         eyebrow="The Collection"
         titleLines={["Blinds that earn", "their place at", "the window."]}
-        lede="Sometimes a shutter is not the answer. Six blind families, from tactile hardwood to whisper-quiet motorised rollers — all made to measure, all fitted by us."
+        lede="Sometimes a shutter is not the answer. Six blind families, from tactile hardwood to whisper-quiet motorised rollers, all made to measure, all fitted by us."
         breadcrumb={[{ label: "Blinds" }]}
         scene={{
           room: "office",

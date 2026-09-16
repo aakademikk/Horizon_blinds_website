@@ -72,7 +72,7 @@ export default function Header() {
           >
             <Link
               href="/"
-              aria-label={`${site.name} — home`}
+              aria-label={`${site.name}: home`}
               className="absolute left-1/2 -translate-x-1/2 transition-opacity duration-500 hover:opacity-70 xl:static xl:left-auto xl:translate-x-0"
             >
               <Wordmark tone="light" className="h-16 w-auto xl:h-14 xl:md:h-16" />

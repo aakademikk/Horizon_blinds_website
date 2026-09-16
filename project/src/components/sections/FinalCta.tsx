@@ -67,7 +67,7 @@ export default function FinalCta() {
             transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="mt-9 max-w-xl text-[1.0625rem] font-light leading-[1.75] text-white/65"
           >
-            One free survey. One honest conversation. Then a house that feels finished — and stays
+            One free survey. One honest conversation. Then a house that feels finished, and stays
             that way for twenty years.
           </motion.p>
 

@@ -11,7 +11,7 @@ import { JsonLd, breadcrumbSchema, pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Contact & Free Home Survey",
-  description: `Book a free, no-obligation home survey with ${site.name}. Call ${site.phone} or send the form — evenings and Saturdays available across Essex.`,
+  description: `Book a free, no-obligation home survey with ${site.name}. Call ${site.phone} or send the form, evenings and Saturdays available across Essex.`,
   path: "/contact",
 });
 
@@ -62,7 +62,7 @@ export default function ContactPage() {
               eyebrow="Before You Call"
               align="center"
               title="Get a sense of the numbers."
-              lede="Set the window, the product and the finish, and see roughly where it lands. Indicative only — a survey produces the real figure."
+              lede="Set the window, the product and the finish, and see roughly where it lands. Indicative only: a survey produces the real figure."
               className="mb-14"
             />
           </Reveal>

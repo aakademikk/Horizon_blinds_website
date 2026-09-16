@@ -129,7 +129,7 @@ export default function EnquiryForm({ compact = false }: { compact?: boolean }) 
         <h3 className="display-lg mt-8 text-ink">Thank you.</h3>
         <p className="lede mx-auto mt-5 max-w-lg">
           Your enquiry is with us. We will call within one working day to arrange a time that suits
-          — evenings and Saturdays included.
+          , evenings and Saturdays included.
         </p>
         {reference && (
           <p className="mt-6 text-[0.8125rem] text-muted">

@@ -150,7 +150,7 @@ export default function CoverageMap() {
         </svg>
 
         <figcaption className="border-t border-line bg-section px-6 py-4 text-[0.75rem] text-muted">
-          Illustrative coverage map. Our workshop is marked in {site.address.locality} — we travel
+          Illustrative coverage map. Our workshop is marked in {site.address.locality}, we travel
           across Essex and into east London daily.
         </figcaption>
       </figure>
@@ -189,7 +189,7 @@ export default function CoverageMap() {
         >
           {active
             ? active.character
-            : "Hover a town to see what we tend to fit there — or open an area page for the full picture, including the postcodes we cover and the products that suit those houses."}
+            : "Hover a town to see what we tend to fit there, or open an area page for the full picture, including the postcodes we cover and the products that suit those houses."}
         </motion.p>
       </div>
     </div>

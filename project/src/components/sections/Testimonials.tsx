@@ -81,7 +81,7 @@ export default function Testimonials() {
               className="mt-10 border-l-2 border-brand bg-white/[0.04] px-5 py-4 text-[0.8125rem] leading-relaxed text-white/70"
             >
               <strong className="font-medium text-white">Placeholder content.</strong> These quotes
-              are samples showing how real reviews will look here — not things customers have said.
+              are samples showing how real reviews will look here, not things customers have said.
             </p>
           </Reveal>
         )}

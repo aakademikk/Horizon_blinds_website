@@ -162,7 +162,7 @@ function Lightbox({
         <motion.div
           role="dialog"
           aria-modal="true"
-          aria-label={`${item.title} — ${item.location}`}
+          aria-label={`${item.title}: ${item.location}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

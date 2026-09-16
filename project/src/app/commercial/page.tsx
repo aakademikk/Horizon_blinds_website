@@ -18,7 +18,7 @@ import {
 export const metadata = pageMeta({
   title: "Commercial Blinds & Shutters",
   description:
-    "Commercial window coverings across Essex — offices, schools, surgeries, restaurants and developments. Fire-retardant fabrics, contract pricing and out-of-hours installation.",
+    "Commercial window coverings across Essex: offices, schools, surgeries, restaurants and developments. Fire-retardant fabrics, contract pricing and out-of-hours installation.",
   path: "/commercial",
   keywords: [
     "commercial blinds Essex",
@@ -82,7 +82,7 @@ export default function CommercialPage() {
             <SectionHeading
               eyebrow="Where We Work"
               title="Six sectors we know well."
-              lede="Each asks something different of a window covering — and the wrong specification shows up within a year."
+              lede="Each asks something different of a window covering, and the wrong specification shows up within a year."
             />
           </Reveal>
 

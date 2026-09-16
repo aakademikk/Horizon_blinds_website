@@ -13,7 +13,7 @@ const PROMISES = [
   {
     icon: MessageSquareQuote,
     title: "Expert advice",
-    body: "Honest guidance on what suits your windows — including when the cheaper option is the right one.",
+    body: "Honest guidance on what suits your windows, including when the cheaper option is the right one.",
   },
   {
     icon: ShieldOff,

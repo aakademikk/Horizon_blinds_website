@@ -78,7 +78,7 @@ export default function Hero() {
         >
           <img
             src="/horizon.jpg"
-            alt="Horizon Blinds & Shutters — plantation shutters in a bright, modern interior"
+            alt="Horizon Blinds & Shutters: plantation shutters in a bright, modern interior"
             className="size-full object-cover object-center"
           />
         </motion.div>

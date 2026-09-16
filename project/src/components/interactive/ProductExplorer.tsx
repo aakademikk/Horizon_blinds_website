@@ -285,7 +285,7 @@ export default function ProductExplorer() {
               </div>
               <p className="mt-4 text-[0.875rem] text-white/65">
                 <span className="text-white/85">{finishes.find((f) => f.id === finishId)?.name}</span>
-                {" — "}
+                {", "}
                 {finishes.find((f) => f.id === finishId)?.note}
               </p>
             </Control>

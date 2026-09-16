@@ -42,7 +42,7 @@ export default function ProductDetail({
               <SceneImage
                 {...presetFor(product.id)}
                 className="size-full"
-                alt={`${product.name} — ${product.strapline}`}
+                alt={`${product.name}: ${product.strapline}`}
               />
             </figure>
           </Reveal>

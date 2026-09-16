@@ -13,7 +13,7 @@ import { JsonLd, breadcrumbSchema, pageMeta } from "@/lib/seo";
 export const metadata = pageMeta({
   title: "Design Studio",
   description:
-    "Configure shutters and blinds room by room, test light and privacy through the day, find the right product in five questions and estimate the investment — all before anybody visits.",
+    "Configure shutters and blinds room by room, test light and privacy through the day, find the right product in five questions and estimate the investment, all before anybody visits.",
   path: "/design-studio",
   keywords: ["shutter visualiser", "blinds price estimator", "window covering configurator"],
 });
@@ -39,7 +39,7 @@ export default function DesignStudioPage() {
       <PageHero
         eyebrow="Design Studio"
         titleLines={["Try it on", "before we", "come round."]}
-        lede="Five tools that answer the questions people usually spend a survey asking. Nothing here is a quotation — but it will get you a long way towards knowing what you want."
+        lede="Five tools that answer the questions people usually spend a survey asking. Nothing here is a quotation, but it will get you a long way towards knowing what you want."
         breadcrumb={[{ label: "Design Studio" }]}
         scene={{
           room: "living",
@@ -75,7 +75,7 @@ export default function DesignStudioPage() {
               eyebrow="Product Finder"
               align="center"
               title="Five questions. Three recommendations."
-              lede="Answer honestly rather than aspirationally — the shortlist is better for it."
+              lede="Answer honestly rather than aspirationally, the shortlist is better for it."
               className="mb-14"
             />
           </Reveal>
@@ -96,7 +96,7 @@ export default function DesignStudioPage() {
                   is actually worth.
                 </>
               }
-              lede="A shutter creates a still pocket of air against the glass. Over a decade, that adds up — here is a rough sense of how much."
+              lede="A shutter creates a still pocket of air against the glass. Over a decade, that adds up, here is a rough sense of how much."
               className="mb-14"
             />
           </Reveal>

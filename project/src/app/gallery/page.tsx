@@ -10,7 +10,7 @@ import { JsonLd, breadcrumbSchema, pageMeta } from "@/lib/seo";
 export const metadata = pageMeta({
   title: "Gallery",
   description:
-    "Shutter and blind installations across Essex — modern, traditional, bay windows, bedrooms, bathrooms, kitchens and commercial.",
+    "Shutter and blind installations across Essex: modern, traditional, bay windows, bedrooms, bathrooms, kitchens and commercial.",
   path: "/gallery",
 });
 
@@ -27,7 +27,7 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Inspiration"
         titleLines={["Rooms we have", "changed the light in."]}
-        lede="Every scene here is drawn from a real specification — the same room, product, finish, louvre width and time of day we fitted it for."
+        lede="Every scene here is drawn from a real specification, the same room, product, finish, louvre width and time of day we fitted it for."
         breadcrumb={[{ label: "Gallery" }]}
         scene={{
           room: "bedroom",

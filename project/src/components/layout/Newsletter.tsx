@@ -25,7 +25,7 @@ export default function Newsletter() {
       });
       if (!res.ok) throw new Error();
       setState("done");
-      setMessage("Thank you — you are on the list.");
+      setMessage("Thank you, you are on the list.");
     } catch {
       setState("error");
       setMessage("Something went wrong. Please try again, or email us directly.");

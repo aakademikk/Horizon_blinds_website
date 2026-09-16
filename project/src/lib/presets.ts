@@ -132,7 +132,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Full height, Silk White",
     location: "1930s semi, Benfleet",
     category: "Traditional",
-    detail: "76mm louvres with a mid-rail — the most requested combination we fit.",
+    detail: "76mm louvres with a mid-rail, the most requested combination we fit.",
     span: "normal",
     scene: { room: "living", kind: "shutter", finishId: "silk-white", louvreId: "76", tilt: 46, time: "morning" },
   },

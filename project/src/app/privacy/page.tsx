@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       eyebrow="Legal"
       title="Privacy Policy"
       updated="1 August 2026"
-      intro={`This policy explains what we do with the information you give us — through the enquiry form, over the phone, or during a survey. It is written to be read, not to be survived.`}
+      intro={`This policy explains what we do with the information you give us, through the enquiry form, over the phone, or during a survey. It is written to be read, not to be survived.`}
       sections={[
         {
           heading: "Who we are",
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
           heading: "Who we share it with",
           body: [
             "We do not sell your details, and we do not share them for anyone else's marketing.",
-            "Enquiries are stored in our hosted database and may be passed to the workflow tools we use to alert the team to a new enquiry. Manufacturing partners receive only the measurements and specification needed to build your order — never your contact details beyond what is required for delivery.",
+            "Enquiries are stored in our hosted database and may be passed to the workflow tools we use to alert the team to a new enquiry. Manufacturing partners receive only the measurements and specification needed to build your order, never your contact details beyond what is required for delivery.",
           ],
         },
         {

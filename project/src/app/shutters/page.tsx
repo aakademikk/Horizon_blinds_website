@@ -42,7 +42,7 @@ export default function ShuttersPage() {
       <PageHero
         eyebrow="The Collection"
         titleLines={["Plantation shutters,", "made for one window", "and one window only."]}
-        lede="Six styles, four louvre widths, forty-two finishes. Every panel manufactured to the measurements of your aperture — never cut down from stock and adjusted on site."
+        lede="Six styles, four louvre widths, forty-two finishes. Every panel manufactured to the measurements of your aperture, never cut down from stock and adjusted on site."
         breadcrumb={[{ label: "Shutters" }]}
         scene={{
           room: "living",

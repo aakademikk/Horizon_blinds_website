@@ -17,7 +17,7 @@ export default function Projects({ limit }: { limit?: number }) {
             <SectionHeading
               eyebrow="Recent Installations"
               title="Six windows we were pleased with."
-              lede="Real jobs, real houses, real timescales — and what the owners said afterwards."
+              lede="Real jobs, real houses, real timescales, and what the owners said afterwards."
             />
           </Reveal>
           <Reveal delay={0.1}>
@@ -97,7 +97,7 @@ export default function Projects({ limit }: { limit?: number }) {
                       <p className="mt-3 font-display text-[1.0625rem] font-light leading-snug text-ink">
                         “{p.quote}”
                       </p>
-                      <footer className="mt-2 text-[0.75rem] text-faint">— {p.attribution}</footer>
+                      <footer className="mt-2 text-[0.75rem] text-faint">: {p.attribution}</footer>
                     </blockquote>
                   </div>
                 </article>

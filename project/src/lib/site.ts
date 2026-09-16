@@ -134,7 +134,7 @@ export const areas: Area[] = [
     slug: "chelmsford",
     name: "Chelmsford",
     intro:
-      "From city-centre apartments to the villages beyond, Chelmsford is one of our busiest patches — and one of the most varied.",
+      "From city-centre apartments to the villages beyond, Chelmsford is one of our busiest patches, and one of the most varied.",
     character:
       "A city of contrasts: crisp modern glazing in the centre, generous Victorian sashes in Moulsham and Springfield.",
     landmarks: ["Springfield", "Moulsham", "Great Baddow", "Writtle", "Danbury"],
@@ -145,7 +145,7 @@ export const areas: Area[] = [
     slug: "southend-on-sea",
     name: "Southend-on-Sea",
     intro:
-      "Seafront apartments, family homes and a good number of holiday lets — Southend asks a lot of a window covering, and we specify accordingly.",
+      "Seafront apartments, family homes and a good number of holiday lets, Southend asks a lot of a window covering, and we specify accordingly.",
     character:
       "Bright, exposed and coastal. Waterproof ABS shutters earn their keep in bathrooms and sea-facing rooms.",
     landmarks: ["Westcliff", "Shoeburyness", "Prittlewell", "Eastwood"],
@@ -169,7 +169,7 @@ export const areas: Area[] = [
     intro:
       "A lot of our Rayleigh work comes by recommendation, one street at a time. It is that kind of town.",
     character:
-      "Established family homes with big rear extensions — the sort of wide glazed spans that tracked shutters were invented for.",
+      "Established family homes with big rear extensions, the sort of wide glazed spans that tracked shutters were invented for.",
     landmarks: ["Hockley", "Rochford", "Hullbridge", "Eastwood"],
     postcodes: ["SS6", "SS5", "SS4"],
     popular: ["Tracked shutters", "Bay window shutters", "Venetian blinds"],

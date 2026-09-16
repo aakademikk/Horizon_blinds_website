@@ -33,7 +33,7 @@ export default function WhyChoose() {
               <p className="lede mt-9 max-w-lg">
                 We have been measuring Essex windows since 2009. In that time we have learned that
                 the difference between a good shutter and a forgettable one is almost never the
-                material — it is the hour spent on the template, and the fitter who refuses to leave
+                material, it is the hour spent on the template, and the fitter who refuses to leave
                 a shadow gap.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
